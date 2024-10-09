@@ -46,6 +46,25 @@ co je git merge - vysvětlit
 co je git rebase - vysvětlit
 - jak se používá 
 
+## git pull
+
+co je git pull - vysvětlit
+- jak se používá
+
+## git remote
+
+co je git remote - vysvětlit
+- jak se používá
+- jak přidám nový remote repozitář
+- jak odeberu remote repozitář
+- jak změním url remote repozitáři
+- jaký je rozdíl mezi lokálním repozitářem (repo na PC) a remote repozitářem
+
+## git push
+
+co je git push - vysvětlit
+- jak se používá
+
 ## Pull Request
 
 co je pull request - vysvětlit
