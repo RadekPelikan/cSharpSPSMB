@@ -14,3 +14,4 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 - žák může kontaktovat vyučujícího před termínem pro zkonzultování pull requestu
 
 **Kredba Petr** - `materials/git.md` - 16.10.2024
+**Fíla Ondřej** - `materials/cSharp/generics.md` - 16.10.2024
