@@ -1,0 +1,15 @@
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\bin\Debug\net5.0\StartingAgain.exe
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\bin\Debug\net5.0\StartingAgain.deps.json
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\bin\Debug\net5.0\StartingAgain.runtimeconfig.json
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\bin\Debug\net5.0\StartingAgain.runtimeconfig.dev.json
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\bin\Debug\net5.0\StartingAgain.dll
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\bin\Debug\net5.0\StartingAgain.pdb
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.GeneratedMSBuildEditorConfig.editorconfig
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.AssemblyInfoInputs.cache
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.AssemblyInfo.cs
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.csproj.CoreCompileInputs.cache
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.dll
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\refint\StartingAgain.dll
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.pdb
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\StartingAgain.genruntimeconfig.cache
+R:\soukrome\DruhaHodinaIGuess\StartingAgain\obj\Debug\net5.0\ref\StartingAgain.dll

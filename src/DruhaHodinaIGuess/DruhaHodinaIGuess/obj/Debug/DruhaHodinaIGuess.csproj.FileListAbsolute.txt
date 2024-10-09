@@ -1,0 +1,14 @@
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\bin\Debug\DruhaHodinaIGuess.exe.config
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\bin\Debug\DruhaHodinaIGuess.exe
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\bin\Debug\DruhaHodinaIGuess.pdb
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.csproj.AssemblyReference.cache
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.csproj.CoreCompileInputs.cache
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.exe
+C:\Users\pelikan\source\repos\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.pdb
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\bin\Debug\DruhaHodinaIGuess.exe.config
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\bin\Debug\DruhaHodinaIGuess.exe
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\bin\Debug\DruhaHodinaIGuess.pdb
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.csproj.AssemblyReference.cache
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.csproj.CoreCompileInputs.cache
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.exe
+R:\soukrome\DruhaHodinaIGuess\DruhaHodinaIGuess\obj\Debug\DruhaHodinaIGuess.pdb

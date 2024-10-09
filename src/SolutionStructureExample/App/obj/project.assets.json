@@ -1,0 +1,112 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "ConsoleLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MathLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ConsoleLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleLibrary.dll": {}
+        }
+      },
+      "MathLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MathLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MathLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ConsoleLibrary/ConsoleLibrary.csproj",
+      "msbuildProject": "../ConsoleLibrary/ConsoleLibrary.csproj"
+    },
+    "MathLibrary/1.0.0": {
+      "type": "project",
+      "path": "../MathLibrary/MathLibrary.csproj",
+      "msbuildProject": "../MathLibrary/MathLibrary.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "ConsoleLibrary >= 1.0.0",
+      "MathLibrary >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\pelikan\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "R:\\soukrome\\SolutionStructureExample\\App\\App.csproj",
+      "projectName": "App",
+      "projectPath": "R:\\soukrome\\SolutionStructureExample\\App\\App.csproj",
+      "packagesPath": "C:\\Users\\pelikan\\.nuget\\packages\\",
+      "outputPath": "R:\\soukrome\\SolutionStructureExample\\App\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\pelikan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "R:\\soukrome\\SolutionStructureExample\\ConsoleLibrary\\ConsoleLibrary.csproj": {
+              "projectPath": "R:\\soukrome\\SolutionStructureExample\\ConsoleLibrary\\ConsoleLibrary.csproj"
+            },
+            "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {
+              "projectPath": "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

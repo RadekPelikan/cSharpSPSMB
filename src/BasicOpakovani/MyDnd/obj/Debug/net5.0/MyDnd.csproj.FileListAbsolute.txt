@@ -1,0 +1,16 @@
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.csproj.AssemblyReference.cache
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.GeneratedMSBuildEditorConfig.editorconfig
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.AssemblyInfoInputs.cache
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.AssemblyInfo.cs
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.csproj.CoreCompileInputs.cache
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\MyDnd.exe
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\MyDnd.deps.json
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\MyDnd.runtimeconfig.json
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\MyDnd.runtimeconfig.dev.json
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\MyDnd.dll
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\ref\MyDnd.dll
+R:\soukrome\BasicOpakovani\MyDnd\bin\Debug\net5.0\MyDnd.pdb
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.dll
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\ref\MyDnd.dll
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.pdb
+R:\soukrome\BasicOpakovani\MyDnd\obj\Debug\net5.0\MyDnd.genruntimeconfig.cache

@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "App/1.0.0": {
+        "dependencies": {
+          "ConsoleLibrary": "1.0.0",
+          "MathLibrary": "1.0.0"
+        },
+        "runtime": {
+          "App.dll": {}
+        }
+      },
+      "ConsoleLibrary/1.0.0": {
+        "dependencies": {
+          "MathLibrary": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleLibrary.dll": {}
+        }
+      },
+      "MathLibrary/1.0.0": {
+        "runtime": {
+          "MathLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsoleLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MathLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

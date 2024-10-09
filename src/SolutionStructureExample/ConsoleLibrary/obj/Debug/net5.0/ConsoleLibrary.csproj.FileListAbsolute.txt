@@ -1,0 +1,15 @@
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\bin\Debug\net5.0\ConsoleLibrary.deps.json
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\bin\Debug\net5.0\ConsoleLibrary.dll
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\bin\Debug\net5.0\ref\ConsoleLibrary.dll
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\bin\Debug\net5.0\ConsoleLibrary.pdb
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\bin\Debug\net5.0\MathLibrary.dll
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\bin\Debug\net5.0\MathLibrary.pdb
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.csproj.AssemblyReference.cache
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.GeneratedMSBuildEditorConfig.editorconfig
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.AssemblyInfoInputs.cache
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.AssemblyInfo.cs
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.csproj.CoreCompileInputs.cache
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.csproj.CopyComplete
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.dll
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ref\ConsoleLibrary.dll
+R:\soukrome\SolutionStructureExample\ConsoleLibrary\obj\Debug\net5.0\ConsoleLibrary.pdb
