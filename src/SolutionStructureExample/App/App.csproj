@@ -7,7 +7,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConsoleLibrary\ConsoleLibrary.csproj" />
+      <ProjectReference Include="..\FileLibrary\FileLibrary.csproj" />
       <ProjectReference Include="..\MathLibrary\MathLibrary.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="res\movies.csv">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

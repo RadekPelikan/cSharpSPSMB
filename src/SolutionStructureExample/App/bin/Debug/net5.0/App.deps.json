@@ -9,6 +9,7 @@
       "App/1.0.0": {
         "dependencies": {
           "ConsoleLibrary": "1.0.0",
+          "FileLibrary": "1.0.0",
           "MathLibrary": "1.0.0"
         },
         "runtime": {
@@ -21,6 +22,11 @@
         },
         "runtime": {
           "ConsoleLibrary.dll": {}
+        }
+      },
+      "FileLibrary/1.0.0": {
+        "runtime": {
+          "FileLibrary.dll": {}
         }
       },
       "MathLibrary/1.0.0": {
@@ -37,6 +43,11 @@
       "sha512": ""
     },
     "ConsoleLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FileLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLibrary", "ConsoleLibrary\ConsoleLibrary.csproj", "{284B6E5B-CD29-43FF-8DF3-D3F427074223}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLibrary", "FileLibrary\FileLibrary.csproj", "{058DE256-FEC4-471D-B4E7-202559DE804C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{284B6E5B-CD29-43FF-8DF3-D3F427074223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{284B6E5B-CD29-43FF-8DF3-D3F427074223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{284B6E5B-CD29-43FF-8DF3-D3F427074223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{058DE256-FEC4-471D-B4E7-202559DE804C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058DE256-FEC4-471D-B4E7-202559DE804C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058DE256-FEC4-471D-B4E7-202559DE804C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058DE256-FEC4-471D-B4E7-202559DE804C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
