@@ -21,6 +21,7 @@ Co přesněji znamená commit - vysvětlit
 - jak zaverzuju stage
 - jak odeberu commit
 - jak si zobrazim commity
+- jaké flagy git commit ještě může mít?
 
 ## git branch
 
