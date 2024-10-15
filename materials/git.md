@@ -1,159 +1,72 @@
 # Git
-- systém orgánů, které slouží k příjmu a zpracování potravy a následnému vyloučení nestravitelných zbytků z organizmu
 
 ## HighLevel - Jak používat git commandy
+- **`git clone`**: Stáhne repozitář na lokální zařízení (PC).
+- **`git add <path>`**: "Staguje" soubory, `<path>` určuje, které soubory nebo adresáře stagovat.
+- **`git commit -m "<message>"`**: Uloží změny s popisnou zprávou `<message>`.
+- **`git push`**: Uploadne změny na remote repozitář (např. GitHub).
+- **`git pull`**: Stáhne změny z remote repozitáře na lokální zařízení.
 
-- `git clone` - stáhne repozitář na lokální zařízení (PC).
-- `git add <path>` - "staguje" soubory, `<path>` určí, jaké soubory nebo adresář "zastagovat".
-- `git commit -m "<message>"` - "commitne" soubory s danou `<message>`.
-- `git push` - uploadne změny na remote repozitář (např. GitHub).
-- `git pull` - stáhne změny na lokální zařízení z remote repozitáře.
+## Git 'stage'
+- **Co je staging**: Staging je proces přípravy souborů na commit.
+- **Jak funguje `git add`**: Přidá soubor do staging area, např. `git add <file>`.
+- **Jak přidám/odeberu do stage**: Přidání: `git add <file>`, Odebrání: `git reset <file>`.
+- **Jak si zobrazím, co mám ve stage**: Použij `git status`.
 
-# Git 'stage'
+## Git commit
+- **Co znamená commit**: Uložení změn v kódu do repozitáře.
+- **Jak uzavřu stage**: Použij `git commit -m "<message>"`.
+- **Jak odeberu commit**: `git reset --soft HEAD~1`.
+- **Jak si zobrazím commity**: Použij `git log`.
+- **Flagy pro git commit**: `-a` (automaticky stage), `--amend` (upraví poslední commit).
 
-### Co je staging
-Staging je proces, kdy připravujeme soubory, které chceme commitnout. Soubor musí být ve stavu "staged", než může být součástí commitu.
+## Git branch
+- **Co je git branch**: Větev umožňuje pracovat na různých funkcích bez ovlivnění hlavního kódu.
+- **Jak vytvořím novou branch**: `git branch <branch-name>`.
+- **Jak smažu branch**: `git branch -d <branch-name>`.
+- **Jak si zobrazím branche**: `git branch`.
+- **Jak zjistím aktuální branch**: `git branch` (označeno hvězdičkou).
+- **Jak si zobrazím rozdíl mezi dvěma branchami**: `git diff <branch1>..<branch2>`.
+- **Jak si zobrazím rozdíl dvou branchí**: `git diff <branch1> <branch2>`.
+- **Příklad jmenné konvence**: `feature/nová-funkce` nebo `bugfix/opravena-chyba`.
 
-### Jak funguje `git add`
-- `git add <path>` přidá soubor do staging area.
-- Chcete-li přidat všechny soubory, použijte `git add .`.
+## Git merge
+- **Co je git merge**: Sloučení změn z jedné větve do druhé.
+- **Jak se používá**: `git merge <branch-name>`.
+- **Jak zruším merging**: `git merge --abort`.
+- **Co jsou merge conflicts**: Konflikty vznikají při pokusu o sloučení změn, které se navzájem odporují. Řeší se ručně.
 
-### Jak přidám/odeberu do stage
-- Přidat: `git add <file>`
-- Odebrat: `git reset <file>`
+## Git rebase
+- **Co je git rebase**: Přenáší změny z jedné větve na jinou, čímž vytváří lineární historii.
+- **Jak se používá**: `git rebase <branch-name>`.
 
-### Jak si zobrazím, co mám ve stage
-- Použijte `git status` k zobrazení staged a unstaged souborů.
+## Git pull
+- **Co je git pull**: Stáhne změny z remote repozitáře a sloučí je s lokálními změnami.
+- **Jak se používá**: `git pull origin <branch-name>`.
 
-# Git commit
+## Git remote
+- **Co je git remote**: Vzdálené úložiště (např. GitHub).
+- **Jak se používá**: 
+  - Přidání: `git remote add <name> <url>`.
+  - Odebrání: `git remote remove <name>`.
+  - Změna URL: `git remote set-url <name> <new-url>`.
+- **Rozdíl mezi lokálním a remote repozitářem**: Lokální je na PC, remote je na serveru.
 
-### Co přesně znamená commit
-Commit ukládá změny v kódu do repozitáře s popisnou zprávou.
+## Git push
+- **Co je git push**: Uploaduje lokální změny na remote repozitář.
+- **Jak se používá**: `git push origin <branch-name>`.
 
-### Jak uzavřu stage
-- Použijte `git commit -m "<message>"`.
+## Pull Request
+- **Co je pull request**: Žádost o sloučení změn z jedné větve do druhé.
+- **Jak se vytvoří v GitHubu**: Vytvořte novou branch, proveďte změny a klikněte na "New Pull Request".
+- **Co pull request obsahuje**: Obsahuje změny a zprávu o tom, co bylo změněno.
+- **Kdo jej schvaluje**: Obvykle jiný člen týmu nebo správce repozitáře.
 
-### Jak odeberu commit
-- Použijte `git reset --soft HEAD~1` pro odebrání posledního commitu.
+## Soubor .gitignore
+- **Co je .gitignore**: Určuje, které soubory a složky by měly být ignorovány Gitem.
+- **Jak se používá**: Přidejte názvy souborů nebo složek do souboru `.gitignore`.
+- **Syntaxe**: Každý řádek obsahuje cestu k souboru nebo složce.
+- **Jak se používá hvězdička**: Hvězdička (`*`) reprezentuje libovolné znaky (např. `*.log`).
+- **Jak ignoruji soubory**: Přidejte název souboru do `.gitignore`.
+- **Jak ignoruji složky**: Přidejte název složky (s lomítkem na konci) do `.gitignore`.
 
-### Jak si zobrazím commity
-- Použijte `git log`.
-
-### Jaké flagy git commit ještě může mít?
-- `-a`: automaticky stage všechny upravené soubory před commitnutím.
-- `--amend`: upraví poslední commit.
-
-# Git branch
-
-### Co je git branch
-Branch (větev) umožňuje pracovat na různých funkcionalitách nebo opravách bez ovlivnění hlavního kódu.
-
-### Jak vytvořím novou branch
-- `git branch <branch-name>`.
-
-### Jak smažu branch
-- `git branch -d <branch-name>`.
-
-### Jak to funguje
-Každá větev je jako samostatná linie vývoje. Můžete přepínat mezi nimi.
-
-### Jak si zobrazím branche
-- `git branch` pro zobrazení existujících větví.
-
-### Jak zjistím, na jakém aktuálním branchi jsem
-- `git branch` a aktuální větev bude označena hvězdičkou (*).
-
-### Jak si zobrazím rozdíl mezi dvěma branchami
-- `git diff <branch1>..<branch2>` ukáže rozdíly mezi větvemi.
-
-### Jak si zobrazím rozdíl dvou branchí
-- `git diff <branch1> <branch2>`.
-
-### Příklad jmenné konvence nazývání branchí
-- `feature/nová-funkce` nebo `bugfix/opravena-chyba`.
-
-# Git merge
-
-### Co je git merge
-Merge sloučí změny z jedné větve do druhé.
-
-### Jak se používá
-- `git merge <branch-name>`.
-
-### Jak zruším merging
-- `git merge --abort`.
-
-### Co jsou merge conflicts a jak je vyřeším?
-Merge conflict nastane, když dvě větve mají konfliktní změny. Musíte je vyřešit ručně a poté commitnout.
-
-# Git rebase
-
-### Co je git rebase
-Rebase přenáší změny z jedné větve na jinou, což vytváří lineární historii.
-
-### Jak se používá
-- `git rebase <branch-name>`.
-
-# Git pull
-
-### Co je git pull
-Stáhne změny z remote repozitáře a sloučí je s lokálními změnami.
-
-### Jak se používá
-- `git pull origin <branch-name>`.
-
-# Git remote
-
-### Co je git remote
-Remote repozitář je vzdálené úložiště, například GitHub.
-
-### Jak se používá
-- Přidání: `git remote add <name> <url>`.
-- Odebrání: `git remote remove <name>`.
-- Změna URL: `git remote set-url <name> <new-url>`.
-
-### Jaký je rozdíl mezi lokálním repozitářem a remote repozitářem
-Lokální repozitář je na vašem PC, zatímco remote repozitář je na serveru (např. GitHub).
-
-# Git push
-
-### Co je git push
-Push uploaduje lokální změny na remote repozitář.
-
-### Jak se používá
-- `git push origin <branch-name>`.
-
-# Pull Request
-
-### Co je pull request
-Pull request je žádost o sloučení změn z jedné větve do druhé.
-
-### Jak se vytvoří v GitHubu
-1. Vytvořte novou branch a proveďte změny.
-2. Přejděte na GitHub a klikněte na "New Pull Request".
-
-### Co pull request obsahuje
-Obsahuje změny, které byly provedeny, a zprávu o tom, co bylo změněno.
-
-### Kdo jej schvaluje
-Pull request obvykle schvaluje jiný člen týmu nebo správce repozitáře.
-
-# Soubor .gitignore
-
-### Co je .gitignore
-Soubor .gitignore určuje, které soubory a složky by měly být ignorovány Gitem.
-
-### Jak se používá
-Vytvořte soubor s názvem `.gitignore` a přidejte názvy souborů nebo složek, které chcete ignorovat.
-
-### Vysvětlení celé syntaxi
-- Každý řádek v .gitignore obsahuje cestu k souboru nebo složce, které mají být ignorovány.
-
-### Jak se používá hvězdička
-- Hvězdička (`*`) reprezentuje libovolné znaky. Např. `*.log` ignoruje všechny soubory s příponou .log.
-
-### Jak ignoruji soubory
-- Přidejte název souboru do `.gitignore`.
-
-### Jak ignoruji složky
-- Přidejte název složky (s lomítkem na konci) do `.gitignore`, např. `logs/` pro ignoraci složky logs.
