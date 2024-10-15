@@ -1,4 +1,5 @@
 # Git
+- systém orgánů, které slouží k příjmu a zpracování potravy a následnému vyloučení nestravitelných zbytků z organizmu
 
 ## HighLevel - Jak používat git commandy
 
