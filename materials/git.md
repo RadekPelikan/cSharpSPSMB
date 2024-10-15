@@ -8,7 +8,7 @@
 - `git push` - uploadne změny na remote repozitář (např. GitHub).
 - `git pull` - stáhne změny na lokální zařízení z remote repozitáře.
 
-## Git 'stage'
+# Git 'stage'
 
 ### Co je staging
 Staging je proces, kdy připravujeme soubory, které chceme commitnout. Soubor musí být ve stavu "staged", než může být součástí commitu.
@@ -24,7 +24,7 @@ Staging je proces, kdy připravujeme soubory, které chceme commitnout. Soubor m
 ### Jak si zobrazím, co mám ve stage
 - Použijte `git status` k zobrazení staged a unstaged souborů.
 
-## Git commit
+# Git commit
 
 ### Co přesně znamená commit
 Commit ukládá změny v kódu do repozitáře s popisnou zprávou.
@@ -42,7 +42,7 @@ Commit ukládá změny v kódu do repozitáře s popisnou zprávou.
 - `-a`: automaticky stage všechny upravené soubory před commitnutím.
 - `--amend`: upraví poslední commit.
 
-## Git branch
+# Git branch
 
 ### Co je git branch
 Branch (větev) umožňuje pracovat na různých funkcionalitách nebo opravách bez ovlivnění hlavního kódu.
@@ -71,7 +71,7 @@ Každá větev je jako samostatná linie vývoje. Můžete přepínat mezi nimi.
 ### Příklad jmenné konvence nazývání branchí
 - `feature/nová-funkce` nebo `bugfix/opravena-chyba`.
 
-## Git merge
+# Git merge
 
 ### Co je git merge
 Merge sloučí změny z jedné větve do druhé.
@@ -85,7 +85,7 @@ Merge sloučí změny z jedné větve do druhé.
 ### Co jsou merge conflicts a jak je vyřeším?
 Merge conflict nastane, když dvě větve mají konfliktní změny. Musíte je vyřešit ručně a poté commitnout.
 
-## Git rebase
+# Git rebase
 
 ### Co je git rebase
 Rebase přenáší změny z jedné větve na jinou, což vytváří lineární historii.
@@ -93,7 +93,7 @@ Rebase přenáší změny z jedné větve na jinou, což vytváří lineární h
 ### Jak se používá
 - `git rebase <branch-name>`.
 
-## Git pull
+# Git pull
 
 ### Co je git pull
 Stáhne změny z remote repozitáře a sloučí je s lokálními změnami.
@@ -101,7 +101,7 @@ Stáhne změny z remote repozitáře a sloučí je s lokálními změnami.
 ### Jak se používá
 - `git pull origin <branch-name>`.
 
-## Git remote
+# Git remote
 
 ### Co je git remote
 Remote repozitář je vzdálené úložiště, například GitHub.
@@ -114,7 +114,7 @@ Remote repozitář je vzdálené úložiště, například GitHub.
 ### Jaký je rozdíl mezi lokálním repozitářem a remote repozitářem
 Lokální repozitář je na vašem PC, zatímco remote repozitář je na serveru (např. GitHub).
 
-## Git push
+# Git push
 
 ### Co je git push
 Push uploaduje lokální změny na remote repozitář.
@@ -122,7 +122,7 @@ Push uploaduje lokální změny na remote repozitář.
 ### Jak se používá
 - `git push origin <branch-name>`.
 
-## Pull Request
+# Pull Request
 
 ### Co je pull request
 Pull request je žádost o sloučení změn z jedné větve do druhé.
@@ -137,7 +137,7 @@ Obsahuje změny, které byly provedeny, a zprávu o tom, co bylo změněno.
 ### Kdo jej schvaluje
 Pull request obvykle schvaluje jiný člen týmu nebo správce repozitáře.
 
-## Soubor .gitignore
+# Soubor .gitignore
 
 ### Co je .gitignore
 Soubor .gitignore určuje, které soubory a složky by měly být ignorovány Gitem.
