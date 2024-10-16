@@ -70,7 +70,7 @@ Ve visual studiu
 ### Jak vykreslit čtvrerec
 
 ```csharp
-public class Tank : DrawableGameComponent
+public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
