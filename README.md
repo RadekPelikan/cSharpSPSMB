@@ -12,5 +12,10 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 - žák si forkne tento repozitář a udělá změny na svém forku
 - žák odevzdá referát formou pull requestu
 - žák může kontaktovat vyučujícího před termínem pro zkonzultování pull requestu
+-ahoj ja jsem Matej ja jsem tady ted a pisu tady abych neco napsal
+
+- SimpleEnemyFight
+- SimpleEnemyFightExtended
+- Monogame
 
 **Kredba Petr** - `materials/git.md` - 16.10.2024
