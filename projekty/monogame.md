@@ -65,6 +65,6 @@ Ve Visual Studiu při vytváření nového řešení zvolíte to stejné na mís
 
 Ve visual studiu
 
-![Tutorial](https://github.com/user-attachments/assets/c0116c53-2923-44c1-8d6e-9afc8412317c)
+![Tutorial](https://github.com/user-attachments/assets/233e48d8-8f2e-4e74-aea0-6b1b59a2502a)
 
 
