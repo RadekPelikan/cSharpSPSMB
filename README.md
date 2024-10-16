@@ -15,3 +15,7 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 
 **Kredba Petr** - `materials/git.md` - 16.10.2024
 **Fíla Ondřej** - `materials/cSharp/generics.md` - 16.10.2024
+
+## pROJEKTY
+- SImple enemy fight
+- dnd
