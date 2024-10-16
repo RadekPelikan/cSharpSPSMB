@@ -4,6 +4,7 @@ Cílem projektu je vytvořit hru za pomocí C# .NET a knihovny [monogame](https:
 
 Je dovoleno použít jakékoliv assety (obrázky, audio)
 
+Příklad použití monogame: https://github.com/MonoGame/MonoGame.Samples
 
 
 ## 1. část - 23.10.2024
