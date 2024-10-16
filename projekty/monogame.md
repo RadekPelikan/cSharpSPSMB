@@ -90,8 +90,6 @@ public class Tank : DrawableGameComponent
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         // TODO: use this.Content to load your game content here
-        // int width = GraphicsDevice.PresentationParameters.Bounds.Width;
-        // int height = GraphicsDevice.PresentationParameters.Bounds.Height;
         _texture = new Texture2D(GraphicsDevice, 1, 1);
         _texture.SetData<Color>(new Color[] { Color.White });
     }
