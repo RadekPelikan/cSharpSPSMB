@@ -14,3 +14,57 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 - žák může kontaktovat vyučujícího před termínem pro zkonzultování pull requestu
 
 **Kredba Petr** - `materials/git.md` - 16.10.2024
+fjdsaklfjdsajfldjsklajfl djslkaf dsafdsa
+f
+dsa
+fd
+sa
+fd
+sa
+fd
+sa
+fd
+sa
+fd
+sa
+fd
+a
+fd
+sa
+f
+dsa
+fdsa
+fd
+sa
+f
+ds
+af
+d
+sa
+fd
+sa
+f
+dsa
+f
+dsa
+f
+d
+f
+as
+f
+dsa
+fd
+sa
+fd
+sa
+fds
+af
+ds
+af
+dsa
+f
+dsa
+f
+ds
+a
+fdsafdsa
