@@ -75,17 +75,20 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private Texture2D _texture;
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
+
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
         base.Initialize();
     }
+
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -93,6 +96,7 @@ public class Game1 : Game
         _texture = new Texture2D(GraphicsDevice, 1, 1);
         _texture.SetData<Color>(new Color[] { Color.White });
     }
+
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
@@ -101,6 +105,7 @@ public class Game1 : Game
         // TODO: Add your update logic here
         base.Update(gameTime);
     }
+
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
