@@ -18,22 +18,20 @@ namespace ConsoleLibrary
         {
             Points.Add(p);
         }
+
         public void RemovePoint(int index)
         {
             Points.RemoveAt(index);
         }
-        
+
         public void Print()
         {
-            List<int> pointLocation = 
             foreach (var p in Points)
             {
-                
             }
             
-                
             {
-                for (int j = 0; j < size; j++) 
+                for (int j = 0; j < size; j++)
                 {
                     for (int k = 0; k < size; k++)
                     {
@@ -41,22 +39,18 @@ namespace ConsoleLibrary
                         {
                             if (p.x == j && p.y == k)
                             {
-                            Console.Write("x");
+                                Console.Write("x");
                             }
                             else
                             {
-                            Console.Write(".");
+                                Console.Write(".");
                             }
                         }
                     }
 
                     Console.WriteLine();
                 }
-            
-            
-            
-
+            }
         }
-        
     }
 }

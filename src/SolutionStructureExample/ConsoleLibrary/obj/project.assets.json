@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "R:\\soukrome\\SolutionStructureExample\\ConsoleLibrary\\ConsoleLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\ConsoleLibrary\\ConsoleLibrary.csproj",
       "projectName": "ConsoleLibrary",
-      "projectPath": "R:\\soukrome\\SolutionStructureExample\\ConsoleLibrary\\ConsoleLibrary.csproj",
+      "projectPath": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\ConsoleLibrary\\ConsoleLibrary.csproj",
       "packagesPath": "C:\\Users\\pelikan\\.nuget\\packages\\",
-      "outputPath": "R:\\soukrome\\SolutionStructureExample\\ConsoleLibrary\\obj\\",
+      "outputPath": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\ConsoleLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pelikan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {
-              "projectPath": "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj"
+            "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {
+              "projectPath": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj"
             }
           }
         }

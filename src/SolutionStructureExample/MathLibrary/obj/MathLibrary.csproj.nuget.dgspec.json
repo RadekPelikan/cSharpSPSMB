@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {}
+    "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {}
   },
   "projects": {
-    "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {
+    "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj",
         "projectName": "MathLibrary",
-        "projectPath": "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj",
+        "projectPath": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\MathLibrary.csproj",
         "packagesPath": "C:\\Users\\pelikan\\.nuget\\packages\\",
-        "outputPath": "R:\\soukrome\\SolutionStructureExample\\MathLibrary\\obj\\",
+        "outputPath": "C:\\Users\\pelikan\\Desktop\\cSharpSPSMB\\src\\SolutionStructureExample\\MathLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pelikan\\AppData\\Roaming\\NuGet\\NuGet.Config",

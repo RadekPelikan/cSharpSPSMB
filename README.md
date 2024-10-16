@@ -13,7 +13,10 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 - žák odevzdá referát formou pull requestu
 - žák může kontaktovat vyučujícího před termínem pro zkonzultování pull requestu
 
-**Kredba Petr** - `materials/git.md` - 16.10.2024
+- **Kredba Petr** - [git](materials/git.md) - 16.10.2024 -> (PR) 23.10.2024
+- **Fíla Ondřej** - [C# generics](materials/cSharp/generics.md) - 23.10.2024
+- **Fuka Jan** - [C# delegates](materials/cSharp/delegates.md) - 23.10.2024
+- **Cinkl Stanislav** - [C# Kolekce](materilas/cSharp/collections.md) - 23.10.2024
 
 
 ### Projekty 
