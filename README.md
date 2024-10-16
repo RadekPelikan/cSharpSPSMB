@@ -6,8 +6,8 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 
 ### Referáty
 
-- Správné vyplnění: +30000 bodů
-- Neodevzdání: -100 bodů
+- Správné vyplnění: +30 bodů
+- Neodevzdání: -10 bodů
 - odevzdávat se budou formou gitu
 - žák si forkne tento repozitář a udělá změny na svém forku
 - žák odevzdá referát formou pull requestu
