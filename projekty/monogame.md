@@ -20,6 +20,7 @@ Příklad použití monogame: https://github.com/MonoGame/MonoGame.Samples
 ## 3. část - 6.11.2024
 
 - Na místo pohybu `A` `D` doleva doprava, tank se bude otáčet kolem své osy pomocí těchto kláves
+- Jednoduché AI pro nepřátelský tank
 - Možnost útočit na jiný tank
 
 ## Hodnocení
