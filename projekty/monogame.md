@@ -6,7 +6,6 @@ Je dovoleno použít jakékoliv assety (obrázky, audio)
 
 Příklad použití monogame: https://github.com/MonoGame/MonoGame.Samples
 
-
 ## 1. část - 23.10.2024
 
 - Vykreslování objektu, který bude znázorňovat tank
@@ -50,3 +49,16 @@ Bonusová část se bude hodnotit až po **splnění 3. části zadání**
     - např. trail za tankem když jezdí
     - výbuch zničeného nepřítelského tanku
 - Lokální multiplayer
+
+
+## Vytvoření projektu s monogame
+
+Stáhněte si template s monogame [dotnet-templating](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new)
+
+`dotnet new install "MonoGame.Templates.CSharp"`
+
+Vytvořte Solution (Řešení) s použitím monogame templatu. Využijte tempate **MonoGame Windows Desktop Application**
+
+Ve Visual Studiu při vytváření nového řešení zvolíte to stejné na místo nové konzolové aplikace.
+
+![obrazek](https://github.com/user-attachments/assets/f8f4d69b-639a-4305-ae41-d77c5430da74)
