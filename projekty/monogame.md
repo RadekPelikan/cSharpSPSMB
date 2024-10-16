@@ -62,3 +62,9 @@ Vytvořte Solution (Řešení) s použitím monogame templatu. Využijte tempate
 Ve Visual Studiu při vytváření nového řešení zvolíte to stejné na místo nové konzolové aplikace.
 
 ![obrazek](https://github.com/user-attachments/assets/f8f4d69b-639a-4305-ae41-d77c5430da74)
+
+Ve visual studiu
+
+![Tutorial](https://github.com/user-attachments/assets/233e48d8-8f2e-4e74-aea0-6b1b59a2502a)
+
+
