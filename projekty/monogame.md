@@ -26,7 +26,7 @@ Příklad použití monogame: https://github.com/MonoGame/MonoGame.Samples
 
 Každá část je ohodnocena 30 body.
 
-- Splněné zadání: 30 bodů
+- Splněné zadání: 90 bodů
 - Bonusové body: 30 bodů
 
 Každá část má určený termín na odevzdání. Pokud žák neodevzdá část do stanoveného termínu, tak neobdrží body za danou část.
