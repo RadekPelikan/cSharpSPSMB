@@ -90,5 +90,5 @@ Invoking delegate multiDel:
   Hello, C!
   Goodbye, C!
 Invoking delegate multiMinusHiDel:
-  Goodbye, D!
+  Goodbye, D!.
 
