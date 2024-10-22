@@ -56,6 +56,39 @@ Delegáty v C# umožňují kombinaci více metod do jednoho delegáta, což se n
 
 
 
+![Snímek obrazovky 2024-10-22 222943](https://github.com/user-attachments/assets/97de04a9-76c3-4eab-8e91-81b76cc67105)
 
+Vysvětlení Kódu
+1)Definice Delegáta: delegate void CustomCallback(string s);
 
+Tímto se definuje delegát, který může odkazovat na metody s jedním parametrem typu string a bez návratové hodnoty.
+2)Pojmenované Metody: Hello a Goodbye
+
+Tyto metody mají stejný podpis jako delegát CustomCallback a vykonávají jednoduché výpisy na konzoli.
+3)Deklarace Delegátů:
+
+Zde deklarujeme čtyři delegáty.
+CustomCallback hiDel, byeDel, multiDel, multiMinusHiDel;
+
+4)Inicializace Delegátů:
+hiDel = Hello;
+byeDel = Goodbye;
+Tyto řádky přiřazují metody Hello a Goodbye k delegátům hiDel a byeDel.
+5)Kombinace Delegátů:
+multiDel = hiDel + byeDel;
+Při kombinaci hiDel a byeDel vznikne nový delegát multiDel, který při vyvolání zavolá obě metody v pořadí, v jakém byly přidány.
+6)Odebrání Delegátů:
+multiMinusHiDel = multiDel - hiDel;
+Tento příkaz odebere hiDel z multiDel, takže multiMinusHiDel nyní volá pouze metodu Goodbye.
+7)Volání Delegátů:
+Každý delegát je poté volán s různými argumenty, což výsledně vypíše:
+Invoking delegate hiDel:
+  Hello, A!
+Invoking delegate byeDel:
+  Goodbye, B!
+Invoking delegate multiDel:
+  Hello, C!
+  Goodbye, C!
+Invoking delegate multiMinusHiDel:
+  Goodbye, D!
 
