@@ -19,7 +19,8 @@ Vytvoření instance delegátu:
 2) Přiřazení pomocí anonymní metody ![Snímek obrazovky 2024-10-22 221856](https://github.com/user-attachments/assets/144d66fa-1b9c-498f-ae69-fda29130f6ae)
 3) přiřazení pomocí lambda výrazu ![Snímek obrazovky 2024-10-22 221921](https://github.com/user-attachments/assets/82a3c1c2-928e-4245-8c5a-773e437fcdc5)
 
-
+Volání delegátu: 
+![Snímek obrazovky 2024-10-22 222148](https://github.com/user-attachments/assets/7747576d-01c8-47ca-af6c-c6510973add5)
 
 
 
