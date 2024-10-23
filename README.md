@@ -16,6 +16,6 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 #### Termíny
 
 - **Kredba Petr** - [git](materials/git.md) - 16.10.2024 -> (PR) 23.10.2024
-- **Fíla Ondřej** - [C# generics](materials/cSharp/generics.md) - 23.10.2024
-- **Fuka Jan** - [C# delegates](materials/cSharp/delegates.md) - 23.10.2024
-- **Cinkl Stanislav** - [C# Kolekce](materilas/cSharp/collections.md) - 23.10.2024
+- **Fíla Ondřej** - [C# generics](materials/cSharp/generics.md) - 6.11.2024
+- **Fuka Jan** - [C# delegates](materials/cSharp/delegates.md) - 6.11.2024
+- **Cinkl Stanislav** - [C# Kolekce](materilas/cSharp/collections.md) - 6.11.2024
