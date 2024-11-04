@@ -2,7 +2,7 @@
 
 ## Úvod do Generiky
 
-V jazyce C# poskytují generika efektivní mechanismus pro tvorbu opakovaně použitelného kódu s podporou různých typů, což zvyšuje flexibilitu a typovou bezpečnost. Generika se využívají především tam, kde je potřeba pracovat s více datovými typy, aniž by docházelo ke ztrátě bezpečnosti nebo efektivity. Spolu s dědičností tvoří dva hlavní mechanismy pro psaní znovupoužitelného kódu.
+V jazyce C# poskytuje generika efektivní mechanismus pro tvorbu opakovaně použitelného kódu s podporou různých typů, což zvyšuje flexibilitu a typovou bezpečnost. Generika se využívá především tam, kde je potřeba pracovat s více datovými typy, aniž by docházelo ke ztrátě bezpečnosti nebo efektivity. Spolu s dědičností tvoří dva hlavní mechanismy pro psaní znovupoužitelného kódu.
 
 ## Příklad s Objektovým Zásobníkem
 
@@ -32,7 +32,7 @@ public class Stack<T> {
     public T Pop() => data[--position];
 }
 ```
-Zavedením generik tedy získáváme zásobník, který je bezpečný a efektivní. Typ `T` slouží jako "placeholder" pro libovolný typ určený uživatelem.
+Zavedením generiky tedy získáváme zásobník, který je bezpečný a efektivní. Typ `T` slouží jako "placeholder" pro libovolný typ určený uživatelem.
 
 # Typové Parametry a Otevřené vs. Uzavřené Typy
 
@@ -49,7 +49,6 @@ Uzavřený typ, jako `Stack<int>`, je konkrétní instance se specifikovaným ty
 ## Typová Bezpečnost
 
 V době běhu jsou všechny generické typy uzavřené, což umožňuje typovou bezpečnost a prediktivní chování aplikace. To zajišťuje, že aplikace funguje správně a bez typových chyb.
-
 
 # Generické Metody
 
@@ -105,15 +104,15 @@ Tyto koncepty jsou klíčové zejména při práci s delegáty a kolekcemi, prot
 
 # Význam Generik
 
-Generika představují efektivní způsob, jak vytvářet znovupoužitelný a bezpečný kód. Díky možnosti práce s typy bez nutnosti přetypování přinášejí generické třídy několik klíčových výhod.
+Generika představuje efektivní způsob, jak vytvářet znovupoužitelný a bezpečný kód. Díky možnosti práce s typy bez nutnosti přetypování přinášejí generické třídy několik klíčových výhod.
 
 ## Hlavní Výhody Generik
 
 - **Znovupoužitelnost**: Generické typy umožňují vytváření algoritmů a datových struktur, které mohou pracovat s různými datovými typy, což výrazně zvyšuje znovupoužitelnost kódu.
 
-- **Bezpečnost**: Generika poskytují typovou bezpečnost, což znamená, že chyby způsobené nesprávným přetypováním mohou být odhaleny během kompilace namísto běhu programu.
+- **Bezpečnost**: Generika poskytuje typovou bezpečnost, což znamená, že chyby způsobené nesprávným přetypováním mohou být odhaleny během kompilace namísto běhu programu.
 
 - **Efektivita**: Generické třídy a metody jsou rychlejší a efektivnější než starší techniky s objektovými typy, protože eliminují potřebu přetypování a zbytečné balení hodnot.
 
-Generika tedy představují moderní přístup k vývoji softwaru, který usnadňuje práci s typy a zvyšuje kvalitu kódu.
+Generika tedy představuje moderní přístup k vývoji softwaru, který usnadňuje práci s typy a zvyšuje kvalitu kódu.
 
