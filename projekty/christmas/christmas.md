@@ -23,6 +23,8 @@ Použijete knihovnu Monogame
 ## Důležité podmínky pro splnění
 
 - Rozdělování kodu do souborů (class), nebude celý program v jednom cs souboru
+- Repo neobsahuje build soubory (obj, bin) a lokální konfigurace (.vs, .idea)
+    - nastavte v `.gitignore`
 
 
 Pokud podmínky nebudou splněny, body za poloviční (max 75 bodů)
