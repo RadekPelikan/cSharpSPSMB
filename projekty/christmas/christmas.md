@@ -8,7 +8,12 @@ Může to být:
 - Desktopová aplikace
 
 
-Použijete knihovnu Monogame
+Použijete knihovnu Monogame nebo unity
+
+Pokud použijete unity budu potřebovat abyste udělali video toho jak to používáte
+
+Video můžete udělat i u monogame
+
 
 ## Odevzdání projektu
 
@@ -25,6 +30,7 @@ Použijete knihovnu Monogame
 - Rozdělování kodu do souborů (class), nebude celý program v jednom cs souboru
 - Repo neobsahuje build soubory (obj, bin) a lokální konfigurace (.vs, .idea)
     - nastavte v `.gitignore`
+- Smyslupné README obsahující ovládání a jednoduchý popisek
 
 
 Pokud podmínky nebudou splněny, body za poloviční (max 75 bodů)
