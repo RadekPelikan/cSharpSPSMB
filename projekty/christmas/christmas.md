@@ -1,6 +1,6 @@
 # Vánoční projekt
 
-Podejte mi návrh na projekt pro příští hodinu: 13.11.2024 a já vám dám body ke zlepšení návrhu projektu. 
+Podejte mi návrh na projekt s Vánoční tématikou pro příští hodinu: 13.11.2024 a já vám dám body ke zlepšení návrhu projektu. 
 
 ## Odevzdání projektu
 
@@ -21,3 +21,8 @@ Podejte mi návrh na projekt pro příští hodinu: 13.11.2024 a já vám dám b
     - např. trail za tankem když jezdí
     - výbuch zničeného nepřítelského tanku
 - Lokální multiplayer
+
+## Inspirace
+
+- https://www.youtube.com/@TheCodingTrain/videos
+- https://www.superhry.cz/
