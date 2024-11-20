@@ -2,15 +2,21 @@
 
 public class TiCoViException : Exception
 {
-    private const string _customMessage = "Standa opet chybi";
-    private readonly string _notTrueMessage = "Standa ma nulovou absenci";
-    
-    public TiCoViException(string? message) : base($"{_customMessage}: {message}")
+    public string Name;
+    private const string _customMessage = $"opet chybi";
+
+    public TiCoViException(string name)
     {
-        
+        Name = name;
+    }
+    
+    public TiCoViException(string name, string? message) : base($"{name} {_customMessage}: {message}")
+    {
+        Name = name;
     }
 
-    public TiCoViException(string? message, Exception? innerException) : base($"{_customMessage}: {message}", innerException)
+    public TiCoViException(string name, string? message, Exception? innerException) : base($"{name} {_customMessage}: {message}", innerException)
     {
+        Name = name;
     }
 }

@@ -2,7 +2,4 @@
 
 using CustomExceptions;
 
-
-StandaMissing standaMissing = new StandaMissing("Tadeas", "Lukas", "Matej", "Michal", "Roman", StandaMissing.Standa);
-
-bool isStandaMissing = standaMissing.IsStandaMissing();
+Console.WriteLine("Hello");
