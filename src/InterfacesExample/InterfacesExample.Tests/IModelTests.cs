@@ -1,6 +1,6 @@
 namespace InterfacesExample.Tests;
 
-public class UnitTest1
+public class IModelTests
 {
     [Fact]
     public void ModifyingNameOnCarModel_ShouldChangeDateModified()
