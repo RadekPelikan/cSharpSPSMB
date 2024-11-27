@@ -3,9 +3,19 @@
 public class RocketModel : IModel
 {
     public Guid Id { get; }
-    public string Name { get; set; }
-    public DateOnly DateCreate { get; }
-    public DateOnly DateModified { get; }
+    private string _name;
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            _name = value;
+            DateModified = DateTime.Now;
+        }
+    }
+
+    public DateTime DateCreate { get; }
+    public DateTime DateModified { get; private set; }
     
     public float Power { get; }
 
@@ -14,8 +24,8 @@ public class RocketModel : IModel
         Id = Guid.NewGuid();
         Name = name;
         Power = power;
-        DateCreate = DateOnly.FromDateTime(DateTime.Now);
-        DateModified = DateOnly.FromDateTime(DateTime.Now);
+        DateCreate = DateTime.Now;
+        DateModified = DateTime.Now;
     }
 
 
