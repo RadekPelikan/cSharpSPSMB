@@ -1,6 +1,6 @@
 ﻿namespace InterfacesExample;
 
-public interface IRespository<T> where T : IModel
+public interface IRepository<T> where T : IModel
 {
     T? Get(Guid Id);
     List<T> Get();
