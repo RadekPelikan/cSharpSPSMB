@@ -2,7 +2,7 @@
 
 public class CarRepository : IRespository<CarModel>
 {
-    public CarModel Get(Guid Id)
+    public CarModel? Get(Guid Id)
     {
         throw new NotImplementedException();
     }
@@ -23,6 +23,11 @@ public class CarRepository : IRespository<CarModel>
     }
 
     public void Delete(Guid Id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int RecordCount()
     {
         throw new NotImplementedException();
     }
