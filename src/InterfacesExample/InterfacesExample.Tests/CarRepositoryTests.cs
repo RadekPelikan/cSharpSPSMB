@@ -1,6 +1,6 @@
 ﻿namespace InterfacesExample.Tests;
 
-public class IRepositoryTests
+public class CarRepositoryTests
 {
     [Fact]
     public void InsertingNewModel_ShouldIncreaseRecordCount()
