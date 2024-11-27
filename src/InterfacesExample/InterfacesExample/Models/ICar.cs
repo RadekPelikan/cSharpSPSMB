@@ -2,5 +2,5 @@
 
 public interface ICar
 {
-    string Brand { get; }
+    string Brand { get; set; }
 }

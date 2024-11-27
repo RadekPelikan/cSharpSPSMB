@@ -17,7 +17,7 @@ public class CarModel : IModel, ICar
     public DateTime DateCreate { get; }
     public DateTime DateModified { get; private set; }
     
-    public string Brand { get; }
+    public string Brand { get; set; }
 
     public CarModel(string name, string brand)
     {
