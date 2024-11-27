@@ -2,33 +2,58 @@
 
 public class CarRepository : ICarRepository
 {
-    public CarModel? Get(Guid Id)
+    private List<CarModel> cars;
+
+    public CarRepository()
     {
-        throw new NotImplementedException();
+        cars = new List<CarModel>();
+    }
+    
+    public CarModel Get(Guid id)
+    {
+        try
+        {
+            return cars.Single(car => car.Id == id);
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
     }
 
     public List<CarModel> Get()
     {
-        throw new NotImplementedException();
+        return cars;
     }
 
     public void Insert(CarModel model)
     {
-        throw new NotImplementedException();
+        cars.Add(model);
     }
 
     public void Update(CarModel model)
     {
-        throw new NotImplementedException();
+        int before = RecordSize();
+        Delete(model.Id);
+        if (RecordSize() < before)
+        {
+            cars.Add(model);
+        }
     }
 
-    public void Delete(Guid Id)
+    public void Delete(Guid id)
     {
-        throw new NotImplementedException();
+        CarModel toDelete = Get(id);
+        if(toDelete != null) cars.Remove(toDelete);
     }
 
-    public int RecordCount()
+    public int RecordSize()
     {
-        throw new NotImplementedException();
+        int count = cars.Count;
+        foreach (var carModel in cars)
+        {
+            if (carModel == null) count--;
+        }
+        return count;
     }
 }

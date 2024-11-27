@@ -3,7 +3,9 @@
 public class RocketModel : IModel
 {
     public Guid Id { get; }
+
     private string _name;
+
     public string Name
     {
         get => _name;
@@ -16,7 +18,7 @@ public class RocketModel : IModel
 
     public DateTime DateCreate { get; }
     public DateTime DateModified { get; private set; }
-    
+
     public float Power { get; }
 
     public RocketModel(string name, float power)
@@ -27,7 +29,6 @@ public class RocketModel : IModel
         DateCreate = DateTime.Now;
         DateModified = DateTime.Now;
     }
-
 
     public string Describe()
     {

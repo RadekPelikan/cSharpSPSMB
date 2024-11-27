@@ -1,7 +1,8 @@
 namespace InterfacesExample.Tests;
 
-public class IModelTests
+public class UnitTest1
 {
+    
     [Fact]
     public void ModifyingNameOnCarModel_ShouldChangeDateModified()
     {
@@ -12,23 +13,29 @@ public class IModelTests
         // Act
         model.Name = "superb 2";
         DateTime dateAfter = model.DateModified;
-
+        
         // Assert
-        Assert.NotEqual(dateBefore, dateAfter);
+        Assert.NotNull(dateBefore);
+        Assert.NotNull(dateAfter);
+        Assert.True(dateBefore != dateAfter);
+        Assert.True(dateAfter > dateBefore);
     }
-
+    
     [Fact]
-    public void ModifyingNameOnRocketModel_ShouldChangeDateModified()
+    public void ModifyingNameOnModelRocket_ShouldChangeDateModified()
     {
         // Arrange
-        IModel model = new RocketModel("Nasa", 5);
+        IModel model = new RocketModel("superb", 10);
         DateTime dateBefore = model.DateModified;
         
         // Act
-        model.Name = "Nasa 2";
+        model.Name = "superb 2";
         DateTime dateAfter = model.DateModified;
-
+        
         // Assert
-        Assert.NotEqual(dateBefore, dateAfter);
+        Assert.NotNull(dateBefore);
+        Assert.NotNull(dateAfter);
+        Assert.True(dateBefore != dateAfter);
+        Assert.True(dateAfter > dateBefore);
     }
 }

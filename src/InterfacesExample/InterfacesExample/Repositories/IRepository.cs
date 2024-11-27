@@ -2,10 +2,10 @@
 
 public interface IRepository<T> where T : IModel
 {
-    T? Get(Guid Id);
+    T Get(Guid id);
     List<T> Get();
     void Insert(T model);
     void Update(T model);
-    void Delete(Guid Id);
-    int RecordCount();
+    void Delete(Guid id);
+    int RecordSize();
 }
