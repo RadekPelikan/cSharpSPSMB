@@ -16,8 +16,8 @@ public class CarModel : IModel, ICar
         }
     }
 
-    public DateTime DateCreate { get; }
-    public DateTime DateModified { get; private set; }
+    public DateTime DateCreate { get; set; }
+    public DateTime DateModified { get; set; }
 
     public string Brand { get; }
     
@@ -38,9 +38,23 @@ public class CarModel : IModel, ICar
         DateCreate = DateTime.Now;
         DateModified = DateTime.Now;
     }
+    
+    public CarModel(Guid id, string name, string brand, DateTime dateCreate, DateTime dateModified)
+    {
+        Id = id;
+        _name = name;
+        Brand = brand;
+        DateCreate = dateCreate;
+        DateModified = dateModified;
+    }
 
     public string Describe()
     {
         return $"{Id}: {Brand}({Name})";
+    }
+
+    public override string ToString()
+    {
+        return $"{Id}: {_name} ({Brand}) (CREATE-{DateCreate}, MODIFY-{DateModified})";
     }
 }

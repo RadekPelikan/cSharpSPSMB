@@ -1,27 +1,10 @@
 ﻿using InterfacesExample;
 
-IModel model;
-
-// model = new CarModel("superb", "skoda");
-model = new RocketModel("superb", 161);
-
-
-RocketModel myRocket;
-myRocket = model as RocketModel;
-myRocket = (RocketModel) model;
-// Identicke oprace
-
-
-// Console.WriteLine(model.Describe());
-
-
-if (model is CarModel car)
+CarCsvFileRepository carCsvFileRepository = new CarCsvFileRepository();
+carCsvFileRepository.Delete(Guid.Parse("2b1b2218-2231-4d31-bbd6-f5e3c090ca04"));
+//carCsvFileRepository.Insert(new CarModel("Testt", "twqetw"));
+List<CarModel> models = carCsvFileRepository.Get();
+foreach (var carModel in models)
 {
-    Console.WriteLine(car.Brand);
-    Console.WriteLine("Model is a car!");
-}
-else if (model is RocketModel rocket)
-{
-    Console.WriteLine(rocket.Power);
-    Console.WriteLine("Model is a rocket!");
+    Console.WriteLine(carModel.ToString());
 }
