@@ -1,6 +1,8 @@
 ﻿namespace InterfacesExample;
 
+
 public interface IRespository<T> where T : IModel
+
 {
     T? Get(Guid Id);
     List<T> Get();

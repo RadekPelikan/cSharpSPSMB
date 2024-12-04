@@ -1,5 +1,6 @@
 ﻿namespace InterfacesExample;
 
+
 public class CarRepository : IRespository<CarModel>
 {
     public List<CarModel> Allcars = new List<CarModel>();
@@ -11,6 +12,7 @@ public class CarRepository : IRespository<CarModel>
         }
 
         return null;
+
     }
 
     public List<CarModel> Get()
@@ -28,11 +30,11 @@ public class CarRepository : IRespository<CarModel>
        CarModel car = Allcars.Single(car => car.Id == model.Id);
        car.Name = model.Name;
        car.Brand = model.Brand;
+
     }
 
     public void Delete(Guid Id)
     {
-        
         Allcars.Remove(Get(Id));
     }
 
