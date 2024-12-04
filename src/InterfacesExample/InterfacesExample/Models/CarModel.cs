@@ -29,6 +29,15 @@ public class CarModel : IModel, ICar
         DateCreate = DateTime.Now;
         DateModified = DateTime.Now;
     }
+    
+    public CarModel(Guid id, string name, string brand)
+    {
+        Id = id;
+        _name = name;
+        Brand = brand;
+        DateCreate = DateTime.Now;
+        DateModified = DateTime.Now;
+    }
 
     public string Describe()
     {

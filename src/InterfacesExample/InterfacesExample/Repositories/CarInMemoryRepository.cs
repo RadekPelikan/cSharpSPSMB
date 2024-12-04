@@ -1,13 +1,8 @@
 ﻿namespace InterfacesExample;
 
-public class CarRepository : ICarRepository
+public class CarInMemoryRepository : ICarRepository
 {
-    private List<CarModel> cars;
-
-    public CarRepository()
-    {
-        cars = new List<CarModel>();
-    }
+    private List<CarModel> cars = new List<CarModel>(); 
     
     public CarModel Get(Guid id)
     {

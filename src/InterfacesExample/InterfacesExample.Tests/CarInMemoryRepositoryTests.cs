@@ -1,12 +1,12 @@
 ﻿namespace InterfacesExample.Tests;
 
-public class CarRepositoryTests
+public class CarInMemoryRepositoryTests
 {
     [Fact]
     public void InsertingNewModel_ShouldIncreaseRecordCount()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         int oldCount = carRepository.RecordSize();
         
         //Act
@@ -21,7 +21,7 @@ public class CarRepositoryTests
     public void InsertingNull_ShouldSustainRecordCount()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         int oldCount = carRepository.RecordSize();
         
         //Act
@@ -36,7 +36,7 @@ public class CarRepositoryTests
     public void GettingAllRecords_WithTwoRecords_ShouldReturnListOfTwoRecords()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         List<CarModel> wantedList = new List<CarModel>();
         wantedList.Add(new CarModel("test", "test"));
         wantedList.Add(new CarModel("test", "test"));
@@ -55,7 +55,7 @@ public class CarRepositoryTests
     public void GettingInsertedRecordWithId_WithTwoRecords_ShouldReturnInsertedRecord()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         CarModel wanted = new CarModel("Wanted", "Wanted");
         
         //Act
@@ -70,7 +70,7 @@ public class CarRepositoryTests
     public void GettingNotInsertedRecordWithId_WithTwoRecords_ShouldReturnNull()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         CarModel wanted = new CarModel("Wanted", "Wanted");
         
         //Act
@@ -85,7 +85,7 @@ public class CarRepositoryTests
     public void UpdatingModel_ShouldBeChanged()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         CarModel changed = new CarModel("Test", "Test");
         Guid id = changed.Id;
         string before = changed.Name;
@@ -105,7 +105,7 @@ public class CarRepositoryTests
     public void DeletingModel_ShouldBeDeleted()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         CarModel deleted = new CarModel("Test", "Test");
         
         //Act
@@ -122,7 +122,7 @@ public class CarRepositoryTests
     public void DeletingNotInsertedModel_WithTwoRecords_ShouldSustainCount()
     {
         //Arrange
-        ICarRepository carRepository = new CarRepository();
+        ICarRepository carRepository = new CarInMemoryRepository();
         CarModel notInserted = new CarModel("Test", "Test");
         
         //Act
