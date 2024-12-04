@@ -1,34 +1,45 @@
 ﻿namespace InterfacesExample;
 
-public class CarRepository : ICarRepository
+
+public class CarRepository : IRespository<CarModel>
 {
+    public List<CarModel> Allcars = new List<CarModel>();
     public CarModel? Get(Guid Id)
     {
-        throw new NotImplementedException();
+        foreach (var car in Allcars)
+        {
+            if (car.Id == Id) return car;
+        }
+
+        return null;
+
     }
 
     public List<CarModel> Get()
     {
-        throw new NotImplementedException();
+        return Allcars;
     }
 
     public void Insert(CarModel model)
-    {
-        throw new NotImplementedException();
+    { 
+        if(model != null) Allcars.Add(model);
     }
 
     public void Update(CarModel model)
     {
-        throw new NotImplementedException();
+       CarModel car = Allcars.Single(car => car.Id == model.Id);
+       car.Name = model.Name;
+       car.Brand = model.Brand;
+
     }
 
     public void Delete(Guid Id)
     {
-        throw new NotImplementedException();
+        Allcars.Remove(Get(Id));
     }
 
     public int RecordCount()
     {
-        throw new NotImplementedException();
+        return Allcars.Count();
     }
 }

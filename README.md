@@ -6,12 +6,18 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 
 ### Referáty
 
-- Správné vyplnění: +30 bodů
+- Správné vyplnění: +30 bodůS
 - Neodevzdání: -10 bodů
 - odevzdávat se budou formou gitu
 - žák si forkne tento repozitář a udělá změny na svém forku
 - žák odevzdá referát formou pull requestu
 - žák může kontaktovat vyučujícího před termínem pro zkonzultování pull requestu
+
+**Kredba Petr** - `materials/git.md` - 16.10.2024
+**Fíla Ondřej** - `materials/cSharp/generics.md` - 16.10.2024
+
+
+Doslova tady pisu halooo 
 
 #### Termíny
 
@@ -24,3 +30,4 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 
 - [Monogame](projekty/monogame.md)
 - [Vánoční projekt](projekty/christmas/christmas.md)
+
