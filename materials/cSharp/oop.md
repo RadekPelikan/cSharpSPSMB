@@ -308,14 +308,13 @@ class Example
 ---
 
 # Neměnné kolekce - příklady nejčastějších kolekcí
-ImmutableList<T> – Neměnný seznam
-ImmutableArray<T> – Neměnné pole
-ImmutableDictionary<TKey, TValue> – Neměnný slovník
-ImmutableQueue<T> – Neměnná fronta
-ImmutableStack<T> – Neměnný zásobník
-ImmutableSortedSet<T> – Neměnná seřazená množina
-ImmutableSortedDictionary<TKey, TValue> – Neměnný seřazený slovník
-
+ - ImmutableList<T> – Neměnný seznam
+ - ImmutableArray<T> – Neměnné pole
+ - ImmutableDictionary<TKey, TValue> – Neměnný slovník
+ - ImmutableQueue<T> – Neměnná fronta
+ - ImmutableSortedSet<T> – Neměnná seřazená množina
+ - ImmutableSortedDictionary<TKey, TValue> – Neměnný seřazený slovník
+   
 # Readonly struct
 ```csharp
 public readonly struct Point
