@@ -227,7 +227,7 @@ public static class Extensions
 
 ### 7.4 Přetížení metod
 Podle:
-1. Počtu parametrů.
+1. Počtu parametrů:
 ```csharp
 public class Calculator
 {
@@ -242,7 +242,7 @@ public class Calculator
     }
 }
 ```
-2. Typu parametrů.
+2. Typu parametrů:
 ```csharp
 public class Calculator
 {
