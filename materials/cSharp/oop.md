@@ -86,8 +86,8 @@ public class Example
 ---
 
 ## 4. Konstruktor
-Konstruktor je speciální metoda, která se používá k inicializaci nových instancí třídy
-Automaticky se volá při vytváření objektu
+ - Konstruktor je speciální metoda, která se používá k inicializaci nových instancí třídy
+ - Automaticky se volá při vytváření objektu
 
 ### 4.1 Návratová hodnota
 Konstruktor nemá návratovou hodnotu.
@@ -215,8 +215,8 @@ public void Example(out int x, ref int y, in int z) { x = z + y; }
 ```
 
 ### 7.3 Extension methods
-Umožňují přidávat nové funkce existujícím typům
-Používají klíčové slovo `this`.
+ - Umožňují přidávat nové funkce existujícím typům
+ - Používají klíčové slovo `this`
 ```csharp
 public static class Extensions
 {
@@ -294,8 +294,8 @@ car.Drive(); // Car má Engine a může volat jeho metodu Start bez nutnosti dě
 ---
 
 ## 14. Readonly datové struktury
-Readonly datové struktury v C# pomáhají zajistit, že data zůstanou neměnná po jejich inicializaci
-Mezi nejběžnější příklady patří readonly pole, imutabilní (neměnné) kolekce a readonly struct
+ - Readonly datové struktury v C# pomáhají zajistit, že data zůstanou neměnná po jejich inicializaci
+ - Mezi nejběžnější příklady patří readonly pole, imutabilní (neměnné) kolekce a readonly struct
 
 
 # Readonly pole
