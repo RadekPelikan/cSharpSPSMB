@@ -228,8 +228,37 @@ public static class Extensions
 ### 7.4 Přetížení metod
 Podle:
 1. Počtu parametrů.
-2. Typu parametrů.
+```csharp
+public class Calculator
+{
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
 
+    public int Add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+}
+```
+2. Typu parametrů.
+```csharp
+public class Calculator
+{
+    // Metoda pro sčítání celých čísel
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    // Přetížená metoda pro sčítání desetinných čísel
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+}
+```
 ---
 
 ## 8. `abstract`, `virtual`, `override`, `new`
