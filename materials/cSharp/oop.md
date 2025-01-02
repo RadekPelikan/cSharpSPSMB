@@ -246,13 +246,11 @@ public class Calculator
 ```csharp
 public class Calculator
 {
-    // Metoda pro sčítání celých čísel
     public int Add(int a, int b)
     {
         return a + b;
     }
 
-    // Přetížená metoda pro sčítání desetinných čísel
     public double Add(double a, double b)
     {
         return a + b;
