@@ -265,8 +265,31 @@ Podle:
 ---
 
 ## 13. Inheritance vs Composition
-- **Inheritance**: "Is-a" vztah
-- **Composition**: "Has-a" vztah
+- **Inheritance**: vyjadřuje vztah mezi třídami, kde podtřída (dědící třída) je speciálním případem nadtřídy (základní třídy). Tento vztah se často označuje jako "Is-a" vztah. Třída, která dědí, je typem třídy, ze které dědí, a může tedy využívat její metody a vlastnosti, případně je přepsat nebo rozšířit.
+- **Composition**: vyjadřuje vztah, kde třída obsahuje jinou třídu jako svůj člen. Tento vztah se označuje jako "Has-a". Třída, která obsahuje jinou třídu, má tuto třídu jako součást svého stavu. Kompozice umožňuje větší flexibilitu, protože třídy nemusí být přímo navzájem propojené prostřednictvím dědičnosti.
+
+# Příklad kompozice
+```csharp
+class Engine
+{
+    public void Start() => Console.WriteLine("wruum wruum");
+}
+
+class Car 
+{
+    public Engine CarEngine { get; set; }
+
+    public Car()
+    {
+        CarEngine = new Engine();
+    }
+
+    public void Drive() => CarEngine.Start();
+}
+
+Car car = new Car();
+car.Drive(); // Car má Engine a může volat jeho metodu Start bez nutnosti dědičnosti
+```
 
 ---
 
