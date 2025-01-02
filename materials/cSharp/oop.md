@@ -297,7 +297,7 @@ car.Drive(); // Car má Engine a může volat jeho metodu Start bez nutnosti dě
  - Mezi nejběžnější příklady patří readonly pole, imutabilní (neměnné) kolekce a readonly struct
 
 
-# Readonly pole
+### Readonly pole
 ```csharp
 class Example
 {
@@ -307,7 +307,7 @@ class Example
 
 ---
 
-# Neměnné kolekce - příklady nejčastějších kolekcí
+### Neměnné kolekce - příklady nejčastějších kolekcí
  - `ImmutableList<T>` – Neměnný seznam
  - `ImmutableArray<T>` – Neměnné pole
  - `ImmutableDictionary<TKey, TValue>` – Neměnný slovník
@@ -315,7 +315,7 @@ class Example
  - `ImmutableSortedSet<T>` – Neměnná seřazená množina
  - `ImmutableSortedDictionary<TKey, TValue>` – Neměnný seřazený slovník
    
-# Readonly struct
+### Readonly struct
 ```csharp
 public readonly struct Point
 {
