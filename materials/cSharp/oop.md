@@ -62,6 +62,7 @@ Referenční typy se ukládají v Heapě, hodnotové typy ve Stacku
 
 - **Příklady value types:** `int`, `double`, `bool`, `struct`.
 - **Příklady reference types:** `string`, `class`, `interface`.
+![ReferenceXValueTypes](https://github.com/user-attachments/assets/b9693c94-35f8-4848-af25-73b2f1c4349a)
 
 ---
 
