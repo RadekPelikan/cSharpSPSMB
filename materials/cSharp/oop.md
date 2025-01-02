@@ -42,8 +42,7 @@ public class MathUtils
 }
 ```
 
-#### 1.3.2 Method Overriding
-Přepsání metody
+#### 1.3.2 Method Overriding (přepsání metody)
 ```csharp
 public class Animal
 {
