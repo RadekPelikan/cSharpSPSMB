@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseConnection", "DatabaseConnection\DatabaseConnection.csproj", "{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatbaseApp", "DatbaseApp\DatbaseApp.csproj", "{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1CF794D0-296E-4C6B-BAFC-578E6A234705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

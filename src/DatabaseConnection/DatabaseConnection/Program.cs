@@ -1,14 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-using System.Data;
-using DatabaseConnection;
+﻿using DatabaseConnection;
 using MySql.Data.MySqlClient;
 
-var serverDomain = "vydb1.spsmb.cz";
-var username = "radek.pelikan";
-var password = Helpers.ReadSecret("Enter password: ");
-var database = "student_radek.pelikan_duolingo";
+var serverDomain = "localhost";
+var username = "root";
+var password = "";
+var database = "duolingo";
 
 string connectionString = $"Server={serverDomain};Database={database};User={username};Password={password};Port=3306;";
 
