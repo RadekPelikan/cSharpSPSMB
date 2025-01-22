@@ -8,6 +8,7 @@ var database = "student_radek.pelikan_duolingo";
 
 string connectionString = $"Server={serverDomain};Database={database};User={username};Password={password};Port=3306;";
 
+// ukol2
 void PrintUsers()
 {
     
@@ -18,6 +19,19 @@ void InsertUser(string username)
     
 }
 
+// ukol3
+void PrinteUserWithName(string username)
+{
+    
+}
+
+// ukol 4
+/*
+ * Aby metody vraceli objekt User misto printovani
+ * InsertUser zustane stejny
+List<User> GetUsers()
+User GetUserWithName(string username)
+ */
 using (MySqlConnection connection = new MySqlConnection(connectionString))
 {
     try
