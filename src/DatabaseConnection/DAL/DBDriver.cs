@@ -1,27 +1,28 @@
-﻿using MySqlConnector;
+﻿using DatabaseConnection;
+using MySqlConnector;
 
 namespace DBDriver;
 
 public class DBDriver
 {
-    private string serverDomain = "localhost";
-    private string username = "root";
-    private string password = "";
-    private string database = "duolingo";
+    public string ServerDomain = "vydb1.spsmb.cz";
+    public string Username = "radek.pelikan";
+    public string Password = "heslo123";
+    public string Database = "student_radek.pelikan_duolingo";
 
     public DBDriver()
     {
     }
 
     string connectionString =>
-        $"Server={serverDomain};Database={database};User={username};Password={password};SslMode=None;";
+        $"Server={ServerDomain};Database={Database};User={Username};Password={Password};SslMode=None;";
 
     public DBDriver(string serverDomain, string username, string password, string database)
     {
-        this.serverDomain = serverDomain;
-        this.username = username;
-        this.password = password;
-        this.database = database;
+        this.ServerDomain = serverDomain;
+        this.Username = username;
+        this.Password = password;
+        this.Database = database;
     }
 
     public MySqlConnection GetConnection()

@@ -1,12 +1,22 @@
 ﻿using DatabaseConnection;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
-var serverDomain = "localhost";
-var username = "root";
-var password = "";
-var database = "duolingo";
+var serverDomain = "vydb1.spsmb.cz";
+var username = "radek.pelikan";
+var password = Helpers.ReadSecret("Enter password: ");
+var database = "student_radek.pelikan_duolingo";
 
 string connectionString = $"Server={serverDomain};Database={database};User={username};Password={password};Port=3306;";
+
+void PrintUsers()
+{
+    
+}
+
+void InsertUser(string username)
+{
+    
+}
 
 using (MySqlConnection connection = new MySqlConnection(connectionString))
 {

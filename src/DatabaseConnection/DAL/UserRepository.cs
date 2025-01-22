@@ -5,13 +5,18 @@ namespace DBDriver;
 
 public class UserRepository
 {
-    private DBDriver dbDriver = new DBDriver();
+    private DBDriver _dbDriver;
+
+    public UserRepository(DBDriver dbDriver)
+    {
+        _dbDriver = dbDriver;
+    }
 
     public List<User> GetUsers()
     {
         List<User> users = new List<User>();
 
-        using (var reader = dbDriver.ExecuteReader("SELECT * FROM users"))
+        using (var reader = _dbDriver.ExecuteReader("SELECT * FROM users"))
         {
             while (reader.Read())
             {
@@ -30,7 +35,7 @@ public class UserRepository
 
     public void InsertUser(string username)
     {
-        using (var connection = dbDriver.GetConnection())
+        using (var connection = _dbDriver.GetConnection())
         {
             using (var command = new MySqlCommand("INSERT INTO users (username) VALUES (@username);", connection))
             {

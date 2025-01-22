@@ -1,3 +1,4 @@
+using DatabaseConnection;
 using DBDriver;
 using DBDriver.Entites;
 
@@ -5,6 +6,7 @@ namespace DatbaseApp;
 
 public partial class Form1 : Form
 {
+    private DBDriver.DBDriver _dbDriver;
     private uint count = 0;
 
     public Form1()
@@ -15,7 +17,7 @@ public partial class Form1 : Form
     private void LoadUserList()
     {
         UserList.Items.Clear();
-        UserRepository userRepository = new UserRepository();
+        UserRepository userRepository = new UserRepository(_dbDriver);
         List<User> users = userRepository.GetUsers();
         foreach (User user in users)
         {
@@ -30,6 +32,8 @@ public partial class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
+        _dbDriver = new DBDriver.DBDriver();
+        _dbDriver.Password = File.ReadAllText("password.env");
         LoadUserList();
     }
 
@@ -38,7 +42,7 @@ public partial class Form1 : Form
     {
         if (UserNameInput.Text == "") return;
 
-        UserRepository userRepository = new UserRepository();
+        UserRepository userRepository = new UserRepository(_dbDriver);
         userRepository.InsertUser(UserNameInput.Text);
         UserNameInput.Text = "";
         LoadUserList();
