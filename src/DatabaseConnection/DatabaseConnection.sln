@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatbaseApp", "DatbaseApp\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1CF794D0-296E-4C6B-BAFC-578E6A234705}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWinForm", "FirstWinForm\FirstWinForm.csproj", "{F613BC70-5351-4B71-99A6-34E950E3C2E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewForm", "DatabaseViewForm\DatabaseViewForm.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -20,11 +20,11 @@ void InsertUser(string username)
 }
 
 // ukol3
-void PrinteUserWithName(string username)
+void PrintUserWithName(string username)
 {
     
 }
-
+    
 // ukol 4
 /*
  * Aby metody vraceli objekt User misto printovani
