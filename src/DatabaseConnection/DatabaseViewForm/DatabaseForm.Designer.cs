@@ -36,6 +36,7 @@ partial class DatabaseForm
         modifiedDateCol = new System.Windows.Forms.ColumnHeader();
         PasswordTextBox = new System.Windows.Forms.TextBox();
         button1 = new System.Windows.Forms.Button();
+        ErrorLabel = new System.Windows.Forms.Label();
         SuspendLayout();
         // 
         // UserListView
@@ -79,11 +80,12 @@ partial class DatabaseForm
         PasswordTextBox.Size = new System.Drawing.Size(287, 23);
         PasswordTextBox.TabIndex = 1;
         PasswordTextBox.Enter += PasswordTextBox_Enter;
+        PasswordTextBox.KeyPress += PasswordTextBox_KeyPressed;
         PasswordTextBox.Leave += PasswordTextBox_Leave;
         // 
         // button1
         // 
-        button1.Location = new System.Drawing.Point(470, 328);
+        button1.Location = new System.Drawing.Point(609, 286);
         button1.Name = "button1";
         button1.Size = new System.Drawing.Size(123, 26);
         button1.TabIndex = 2;
@@ -91,11 +93,21 @@ partial class DatabaseForm
         button1.UseVisualStyleBackColor = true;
         button1.Click += FetchButton_Click;
         // 
+        // ErrorLabel
+        // 
+        ErrorLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)238));
+        ErrorLabel.ForeColor = System.Drawing.Color.Red;
+        ErrorLabel.Location = new System.Drawing.Point(306, 312);
+        ErrorLabel.Name = "ErrorLabel";
+        ErrorLabel.Size = new System.Drawing.Size(426, 24);
+        ErrorLabel.TabIndex = 3;
+        // 
         // DatabaseForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
+        Controls.Add(ErrorLabel);
         Controls.Add(button1);
         Controls.Add(PasswordTextBox);
         Controls.Add(UserListView);
@@ -103,6 +115,8 @@ partial class DatabaseForm
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Label ErrorLabel;
 
     private System.Windows.Forms.Button button1;
 

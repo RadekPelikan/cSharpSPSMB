@@ -8,8 +8,11 @@ public class DBDriver
     public string Username = "radek.pelikan";
     public string Password = "";
     public string Database = "student_radek.pelikan_duolingo";
-    public string connectionString => 
+
+    public string connectionString =>
         $"Server={ServerDomain};Database={Database};User={Username};Password={Password};Port=3306;";
+
+    public MySqlException? ThrownException;
 
     public DBDriver(string password)
     {
@@ -25,22 +28,29 @@ public class DBDriver
     {
         List<User> users = new List<User>();
         MySqlConnection connection = GetConnection();
-        connection.Open();
-        string query = "SELECT * FROM users";
-        MySqlCommand command = new MySqlCommand(query, connection);
-        // execute reader
-        var reader = command.ExecuteReader();
-        // while reader.next
-        while (reader.Read())
+        try
         {
-            // create new user
-            var user = new User();
-            user.Id = reader.GetInt32(0);
-            user.Username = reader.GetString(1);
-            user.CreatedAt = reader.GetDateTime(2);
-            user.ModifiedAt = reader.GetDateTime(3);
-            // add user to the list
-            users.Add(user);
+            connection.Open();
+            string query = "SELECT * FROM users";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            // execute reader
+            var reader = command.ExecuteReader();
+            // while reader.next
+            while (reader.Read())
+            {
+                // create new user
+                var user = new User();
+                user.Id = reader.GetInt32(0);
+                user.Username = reader.GetString(1);
+                user.CreatedAt = reader.GetDateTime(2);
+                user.ModifiedAt = reader.GetDateTime(3);
+                // add user to the list
+                users.Add(user);
+            }
+        }
+        catch (MySqlException ex)
+        {
+            ThrownException = ex;
         }
 
         // return list
