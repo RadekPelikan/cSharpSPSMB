@@ -11,3 +11,11 @@ else
 {
     Console.WriteLine("Nejsme stejni");
 }
+
+System.Collections.Generic.HashSet<string> set = new HashSet<string>();
+
+set.Add("ahoj");
+set.Add("nazdar");
+set.Add("ahoj");
+
+Console.WriteLine(string.Join(" ", set));
