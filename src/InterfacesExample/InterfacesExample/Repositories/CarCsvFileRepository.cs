@@ -2,45 +2,14 @@
 
 public class CarCsvFileRepository : ICarRepository
 {
-    private string CsvPath = "cars.csv";
-    
-    public CarModel Get(Guid id)
+    public CarModel? Get(Guid Id)
     {
-        List<CarModel> models = Get();
-        foreach (CarModel model in models)
-        {
-            if (model.Id.ToString().Equals(id.ToString()))
-            {
-                return model;
-            }
-        }
-        
-        return null;
-    }
-
-    private List<string> LineToList(string line)
-    {
-        return new List<string>(line.Split(","));
-    }
-
-    private void SaveCsv(List<string> lines)
-    {
-        StreamWriter streamWriter = new StreamWriter(CsvPath);
-        foreach (string line in lines)
-        {
-            
-        }
+        throw new NotImplementedException();
     }
 
     public List<CarModel> Get()
     {
-        List<CarModel> models = new List<CarModel>();
-        foreach (string line in File.ReadLines(CsvPath))
-        {
-            models.Add(new CarModel(Guid.Parse(LineToList(line)[0]), LineToList(line)[1], LineToList(line)[2]));
-        }
-        
-        return models;
+        throw new NotImplementedException();
     }
 
     public void Insert(CarModel model)
@@ -53,12 +22,12 @@ public class CarCsvFileRepository : ICarRepository
         throw new NotImplementedException();
     }
 
-    public void Delete(Guid id)
+    public void Delete(Guid Id)
     {
         throw new NotImplementedException();
     }
 
-    public int RecordSize()
+    public int RecordCount()
     {
         throw new NotImplementedException();
     }
