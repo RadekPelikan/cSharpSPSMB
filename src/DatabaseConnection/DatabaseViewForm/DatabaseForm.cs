@@ -31,8 +31,24 @@ public partial class DatabaseForm : Form
         }
     }
 
+    private void PopulateListView(List<User> users)
+    {
+        foreach (var user in users)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Text = user.Id.ToString();
+            item.SubItems.Add(user.Username);
+            item.SubItems.Add(user.CreatedAt.ToString());
+            item.SubItems.Add(user.ModifiedAt.ToString());
+            UserListView.Items.Add(item);
+        }
+    }
+
     private void FetchButton_Click(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
+        DBDriver dbDriver = new DBDriver(PasswordTextBox.Text);
+        List<User> users = dbDriver.GetUsers();
+        PopulateListView(users);
     }
+
 }
