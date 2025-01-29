@@ -5,9 +5,9 @@ namespace DatabaseViewForm;
 public class DBDriver
 {
     public string ServerDomain = "vydb1.spsmb.cz";
-    public string Username = "radek.pelikan";
+    public string Username = "tomas.urban";
     public string Password = "";
-    public string Database = "student_radek.pelikan_duolingo";
+    public string Database = "student_tomas.urban_duolingo";
     public string connectionString => 
         $"Server={ServerDomain};Database={Database};User={Username};Password={Password};Port=3306;";
 
@@ -21,6 +21,40 @@ public class DBDriver
         return new MySqlConnection(connectionString);
     }
 
+    public void AddUser(string username)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("INSERT INTO users (name) VALUES (@username);", connection))
+        {
+            command.Parameters.AddWithValue("@username", username);
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public void UpdateName(string name, int id)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("UPDATE users SET name = @name WHERE ID = @id", connection))
+        {
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public void RemoveUser(int id)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("DELETE FROM users WHERE ID = @id;", connection))
+        {
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+    }
+    
     public List<User> GetUsers()
     {
         List<User> users = new List<User>();
