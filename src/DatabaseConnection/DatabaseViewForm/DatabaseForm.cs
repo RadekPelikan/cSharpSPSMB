@@ -2,7 +2,7 @@ namespace DatabaseViewForm;
 
 public partial class DatabaseForm : Form
 {
-    private DBDriver _dbDriver;
+    private DBDriver? _dbDriver;
 
     public DatabaseForm()
     {
@@ -84,6 +84,73 @@ public partial class DatabaseForm : Form
         {
             Login();
             LoadUsers();
+        }
+    }
+
+    private void CreateNewUser(string username)
+    {
+        if (_dbDriver is null) return;
+
+        User newUser = new User()
+        {
+            Username = username,
+        };
+        _dbDriver.InsertUser(newUser);
+        LoadUsers();
+    }
+
+    private void ButtonNewUser_Click(object sender, EventArgs e)
+    {
+        if (TextBoxNewUser.Text == "") return;
+        
+        CreateNewUser(TextBoxNewUser.Text);
+        TextBoxNewUser.Text = "";
+    }
+
+    private void TextBoxNewUser_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            if (TextBoxNewUser.Text == "") return;
+            
+            CreateNewUser(TextBoxNewUser.Text);
+            TextBoxNewUser.Text = "";
+        }
+    }
+
+    private void DeleteUserWithId(string stringId)
+    {
+        if (_dbDriver is null) return;
+
+        ErrorLabel.Text = "";
+        int id;
+        if (int.TryParse(stringId, out id) is false)
+        {
+            ErrorLabel.Text = "Please enter a valid ID";
+            return;
+        }
+        _dbDriver.DeteteUserWithId(id);
+        if (_dbDriver?.ThrownException is not null)
+        {
+            ErrorLabel.Text = _dbDriver.ThrownException.Message;
+            _dbDriver.ThrownException = null;
+            return;
+        }
+        LoadUsers();
+    }
+
+    private void ButtonDelete_Click(object sender, EventArgs e)
+    {
+        TextBoxDeleteUser.Text = "";
+        DeleteUserWithId(TextBoxDeleteUser.Text);
+    }
+
+    private void TextBoxDeleteUser_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            DeleteUserWithId(TextBoxDeleteUser.Text);
+            TextBoxDeleteUser.Text = "";
         }
     }
 }

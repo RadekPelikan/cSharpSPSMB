@@ -12,7 +12,7 @@ public class DBDriver
     public string connectionString =>
         $"Server={ServerDomain};Database={Database};User={Username};Password={Password};Port=3306;";
 
-    public MySqlException? ThrownException;
+    public Exception? ThrownException;
 
     public DBDriver(string password)
     {
@@ -55,5 +55,43 @@ public class DBDriver
 
         // return list
         return users;
+    }
+
+    public void InsertUser(User user)
+    {
+        MySqlConnection connection = GetConnection();
+        try
+        {
+            connection.Open();
+            string query = "INSERT INTO users (username) VALUES (@username);";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@username", user.Username);
+            command.ExecuteNonQuery();
+        }
+        catch (MySqlException ex)
+        {
+            ThrownException = ex;
+        }
+    }
+
+    public void DeteteUserWithId(int id)
+    {
+        MySqlConnection connection = GetConnection();
+        try
+        {
+            connection.Open();
+            string query = "DELETE FROM users WHERE id = @id;";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", id);
+            int effectedRows = command.ExecuteNonQuery();
+            if (effectedRows == 0)
+            {
+                ThrownException = new InvalidUserException(id);
+            }
+        }
+        catch (MySqlException ex)
+        {
+            ThrownException = ex;
+        }
     }
 }
