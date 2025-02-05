@@ -19,6 +19,7 @@ Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 - **Fíla Ondřej** - [C# generics](materials/cSharp/generics.md) - 6.11.2024
 - **Fuka Jan** - [C# delegates](materials/cSharp/delegates.md) - 6.11.2024
 - **Cinkl Stanislav** - [C# Kolekce](materilas/cSharp/collections.md) - 6.11.2024
+- **Fíla Ondřej** - [Novinky .NET 9](materials/cSharp/dotnet9.pptx) - 12.2.2025
 
 ### Projekty
 
