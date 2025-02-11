@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseConnection", "DatabaseConnection\DatabaseConnection.csproj", "{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatbaseApp", "DatbaseApp\DatbaseApp.csproj", "{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1CF794D0-296E-4C6B-BAFC-578E6A234705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWinForm", "FirstWinForm\FirstWinForm.csproj", "{F613BC70-5351-4B71-99A6-34E950E3C2E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewForm", "DatabaseViewForm\DatabaseViewForm.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duolingo", "Duolingo\Duolingo.csproj", "{7F025392-5DC9-496B-965A-10F52CC6335D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duolingo.Components", "Duolingo.Components\Duolingo.Components.csproj", "{EC61811A-E057-4197-928F-C53C05AB0656}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3327E118-8F23-4307-AFAD-5FD4F7C0F72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AD76C0-2101-4299-B05C-0EB2E093E7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF794D0-296E-4C6B-BAFC-578E6A234705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F613BC70-5351-4B71-99A6-34E950E3C2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F025392-5DC9-496B-965A-10F52CC6335D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F025392-5DC9-496B-965A-10F52CC6335D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F025392-5DC9-496B-965A-10F52CC6335D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F025392-5DC9-496B-965A-10F52CC6335D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC61811A-E057-4197-928F-C53C05AB0656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC61811A-E057-4197-928F-C53C05AB0656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC61811A-E057-4197-928F-C53C05AB0656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC61811A-E057-4197-928F-C53C05AB0656}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
