@@ -73,7 +73,7 @@ partial class NavigationView
         Controls.Add(button2);
         Controls.Add(button1);
         Controls.Add(label1);
-        Size = new System.Drawing.Size(816, 489);
+        Size = new System.Drawing.Size(816, 334);
         ResumeLayout(false);
     }
 

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace UserControlViews.Views;
+namespace UserControlViews.components;
 
-partial class StandaView
+partial class NextPrevious
 {
     /// <summary> 
     /// Required designer variable.
@@ -32,41 +32,41 @@ partial class StandaView
     private void InitializeComponent()
     {
         button1 = new System.Windows.Forms.Button();
-        label2 = new System.Windows.Forms.Label();
+        button2 = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // button1
         // 
-        button1.Location = new System.Drawing.Point(351, 170);
+        button1.Location = new System.Drawing.Point(686, 3);
         button1.Name = "button1";
-        button1.Size = new System.Drawing.Size(125, 37);
-        button1.TabIndex = 3;
-        button1.Text = "Back";
+        button1.Size = new System.Drawing.Size(111, 37);
+        button1.TabIndex = 0;
+        button1.Text = "Next";
         button1.UseVisualStyleBackColor = true;
-        button1.Click += BackButton_Click;
+        button1.Click += NextButton_Click;
         // 
-        // label2
+        // button2
         // 
-        label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        label2.Location = new System.Drawing.Point(-2, 89);
-        label2.Name = "label2";
-        label2.Size = new System.Drawing.Size(818, 49);
-        label2.TabIndex = 2;
-        label2.Text = "Standa View";
-        label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        button2.Location = new System.Drawing.Point(3, 3);
+        button2.Name = "button2";
+        button2.Size = new System.Drawing.Size(111, 37);
+        button2.TabIndex = 1;
+        button2.Text = "Previous";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += PreviousButton_Click;
         // 
-        // StandaView
+        // NextPrevious
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        Controls.Add(button2);
         Controls.Add(button1);
-        Controls.Add(label2);
-        Size = new System.Drawing.Size(816, 489);
+        Size = new System.Drawing.Size(800, 44);
         ResumeLayout(false);
     }
 
     private System.Windows.Forms.Button button1;
-    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Button button2;
 
     #endregion
 }

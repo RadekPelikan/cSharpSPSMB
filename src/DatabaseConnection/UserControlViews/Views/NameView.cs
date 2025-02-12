@@ -1,13 +1,14 @@
 ﻿namespace UserControlViews.Views;
 
-public partial class StandaView : UserControl
+public partial class NameView : UserControl
 {
     private readonly BaseForm _parentForm;
 
-    public StandaView(BaseForm parentForm)
+    public NameView(BaseForm parentForm, string name)
     {
-        _parentForm = parentForm;
         InitializeComponent();
+        _parentForm = parentForm;
+        NameLabel.Text = name;
     }
 
     private void BackButton_Click(object sender, EventArgs e)

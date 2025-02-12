@@ -2,18 +2,21 @@
 
 public partial class NavigationView : UserControl
 {
-    public NavigationView()
+    private readonly BaseForm _parentForm;
+
+    public NavigationView(BaseForm parentForm)
     {
+        _parentForm = parentForm;
         InitializeComponent();
     }
 
     private void StandaViewButton_Click(object? sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        _parentForm.SwitchView(BaseForm.ViewType.Standa);
     }
 
     private void ZdarskyViewButton_Click(object? sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        _parentForm.SwitchView(BaseForm.ViewType.Zdarsky);
     }
 }
