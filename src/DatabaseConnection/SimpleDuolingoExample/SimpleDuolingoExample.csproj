@@ -6,16 +6,17 @@
         <Nullable>enable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>DatabaseViewForm</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="MainForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
+      <PackageReference Include="MySqlConnector" Version="2.4.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Duolingo.Components\Duolingo.Components.csproj" />
+      <Compile Update="StartForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

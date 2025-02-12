@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel;
 
-namespace Duolingo.Components;
+namespace DatabaseViewForm;
 
-partial class BaseView
+partial class StartForm
 {
-    /// <summary> 
+    /// <summary>
     /// Required designer variable.
     /// </summary>
     private IContainer components = null;
 
-    /// <summary> 
+    /// <summary>
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -23,7 +23,7 @@ partial class BaseView
         base.Dispose(disposing);
     }
 
-    #region Component Designer generated code
+    #region Windows Form Designer generated code
 
     /// <summary>
     /// Required method for Designer support - do not modify
@@ -31,14 +31,10 @@ partial class BaseView
     /// </summary>
     private void InitializeComponent()
     {
-        SuspendLayout();
-        // 
-        // BaseView
-        // 
-        AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        Size = new System.Drawing.Size(816, 489);
-        ResumeLayout(false);
+        this.components = new System.ComponentModel.Container();
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        this.ClientSize = new System.Drawing.Size(800, 450);
+        this.Text = "StartForm";
     }
 
     #endregion

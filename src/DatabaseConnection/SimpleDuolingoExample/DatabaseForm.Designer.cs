@@ -41,7 +41,6 @@ partial class DatabaseForm
         CreateUserButton = new System.Windows.Forms.Button();
         ButtonDelete = new System.Windows.Forms.Button();
         TextBoxDeleteUser = new System.Windows.Forms.TextBox();
-        TestPanel = new System.Windows.Forms.Panel();
         SuspendLayout();
         // 
         // UserListView
@@ -143,19 +142,11 @@ partial class DatabaseForm
         TextBoxDeleteUser.TabIndex = 7;
         TextBoxDeleteUser.KeyDown += TextBoxDeleteUser_KeyDown;
         // 
-        // TestPanel
-        // 
-        TestPanel.Location = new System.Drawing.Point(28, 331);
-        TestPanel.Name = "TestPanel";
-        TestPanel.Size = new System.Drawing.Size(387, 107);
-        TestPanel.TabIndex = 8;
-        // 
         // DatabaseForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
-        Controls.Add(TestPanel);
         Controls.Add(TextBoxDeleteUser);
         Controls.Add(ButtonDelete);
         Controls.Add(CreateUserButton);
@@ -168,8 +159,6 @@ partial class DatabaseForm
         ResumeLayout(false);
         PerformLayout();
     }
-
-    private System.Windows.Forms.Panel TestPanel;
 
     private System.Windows.Forms.TextBox TextBoxDeleteUser;
 

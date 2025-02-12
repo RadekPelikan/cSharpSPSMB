@@ -8,11 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWinForm", "FirstWinForm\FirstWinForm.csproj", "{F613BC70-5351-4B71-99A6-34E950E3C2E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewForm", "DatabaseViewForm\DatabaseViewForm.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duolingo", "Duolingo\Duolingo.csproj", "{7F025392-5DC9-496B-965A-10F52CC6335D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duolingo.Components", "Duolingo.Components\Duolingo.Components.csproj", "{EC61811A-E057-4197-928F-C53C05AB0656}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDuolingoExample", "SimpleDuolingoExample\SimpleDuolingoExample.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,13 +36,5 @@ Global
 		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F025392-5DC9-496B-965A-10F52CC6335D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F025392-5DC9-496B-965A-10F52CC6335D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F025392-5DC9-496B-965A-10F52CC6335D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F025392-5DC9-496B-965A-10F52CC6335D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC61811A-E057-4197-928F-C53C05AB0656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC61811A-E057-4197-928F-C53C05AB0656}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC61811A-E057-4197-928F-C53C05AB0656}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC61811A-E057-4197-928F-C53C05AB0656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
