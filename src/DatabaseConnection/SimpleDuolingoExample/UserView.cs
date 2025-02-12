@@ -2,10 +2,12 @@
 
 public partial class UserView : UserControl
 {
+    private readonly StartForm _parentForm;
     private DBDriver? _dbDriver;
 
-    public UserView()
+    public UserView(StartForm parentForm)
     {
+        _parentForm = parentForm;
         InitializeComponent();
     }
     
