@@ -1,34 +1,26 @@
 ﻿namespace DatabaseViewForm;
 
-public partial class DatabaseForm : Form
+public partial class LanguageForm : Form
 {
-     private DBDriver dbDriver = null;
+    private DBDriver dbDriver = null;
     
-    public DatabaseForm()
+    public LanguageForm()
     {
         InitializeComponent();
     }
 
-    private void PopulateListView(List<User> users)
+    private void PopulateListView(List<Language> languages)
     {
-        UserListView.Items.Clear();
-        foreach (var user in users)
+        LanguageListView.Items.Clear();
+        foreach (var language in languages)
         {
-            if (user.Username.ToLower().Contains(finding.Text.ToLower()))
-            {
-                ListViewItem item = new ListViewItem();
-                item.Text = user.Id.ToString();
-                item.SubItems.Add(user.Username);
-                item.SubItems.Add(user.CreatedAt.ToString());
-                item.SubItems.Add(user.ModifiedAt.ToString());
-                UserListView.Items.Add(item);
-            }
+            ListViewItem item = new ListViewItem();
+            item.Text = language.Id.ToString();
+            item.SubItems.Add(language.Name);
+            item.SubItems.Add(language.CreatedAt.ToString());
+            item.SubItems.Add(language.ModifiedAt.ToString());
+            LanguageListView.Items.Add(item);
         }
-    }
-
-    private void FetchButton_Click(object sender, EventArgs e)
-    {
-        UpdateTable();
     }
 
     private void UpdateTable()
@@ -36,12 +28,12 @@ public partial class DatabaseForm : Form
         if(dbDriver == null) dbDriver = DBDriver.GetInstanceOrNull();
         try
         {
-            List<User> users = dbDriver.GetUsers();
-            PopulateListView(users);
+            List<Language> languages = dbDriver.GetLanguages();
+            PopulateListView(languages);
         }
         catch (Exception e)
         {
-            UserListView.Items.Clear();
+            LanguageListView.Items.Clear();
             dbDriver = null;
             PrintError(e.Message);
         } 
@@ -80,11 +72,11 @@ public partial class DatabaseForm : Form
         }
     }
 
-    private void AddUser()
+    private void AddLanguage()
     {
         if (username.Text.Trim() != "")
         {
-            dbDriver.AddUser(username.Text.Trim());
+            dbDriver.AddLanguage(username.Text.Trim());
             UpdateTable();
             username.Text = "";
         }
@@ -92,18 +84,18 @@ public partial class DatabaseForm : Form
     
     private void usernameButton_Click(object sender, EventArgs e)
     {
-        AddUser();
+        AddLanguage();
     }
 
     private void username_KeyPress(object sender, KeyPressEventArgs e)
     {
         if (e.KeyChar == (int) Keys.Enter)
         {
-            AddUser();
+            AddLanguage();
         }
     }
 
-    private void RemoveUsers()
+    private void RemoveLanguages()
     {
         if (IdBox.Text.Trim() != "")
         {
@@ -127,7 +119,7 @@ public partial class DatabaseForm : Form
             {
                 foreach (int id in ids)
                 {
-                    dbDriver.RemoveUser(id);
+                    dbDriver.RemoveLanguage(id);
                 }
 
                 UpdateTable();
@@ -140,43 +132,15 @@ public partial class DatabaseForm : Form
 
     private void IdButton_Click(object sender, EventArgs e)
     {
-        RemoveUsers();
+        RemoveLanguages();
     }
 
     private void IdBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         if (e.KeyChar == (int) Keys.Enter)
         {
-            RemoveUsers();
+            RemoveLanguages();
         }
-    }
-
-    private void finding_KeyUp(object sender, KeyEventArgs e)
-    {
-        UpdateTable();
-    }
-
-    private void UpdateName()
-    {
-        if (!nameBox.Text.Trim().Equals("") && !idBox2.Text.Trim().Equals(""))
-        {
-            if (int.TryParse(idBox2.Text.Trim(), out int id))
-            {
-                dbDriver.UpdateName(nameBox.Text, id);
-                UpdateTable(); 
-            }
-        }   
-    }
-    
-    private void nameButton_Click(object sender, EventArgs e)
-    {
-        UpdateName();
-    }
-    
-    private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if(e.KeyChar == (int) Keys.Enter)
-            UpdateName();
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -187,5 +151,10 @@ public partial class DatabaseForm : Form
         MainForm.MainPanel.Controls.Clear();
         MainForm.MainPanel.Controls.Add(databaseListForm);
         databaseListForm.Show();
+    }
+
+    private void UserForm_Load(object sender, EventArgs e)
+    {
+        UpdateTable();
     }
 }

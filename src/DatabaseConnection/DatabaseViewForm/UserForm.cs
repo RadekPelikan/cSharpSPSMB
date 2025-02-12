@@ -1,10 +1,10 @@
 ﻿namespace DatabaseViewForm;
 
-public partial class DatabaseForm : Form
+public partial class UserForm : Form
 {
-     private DBDriver dbDriver = null;
+    private DBDriver dbDriver = null;
     
-    public DatabaseForm()
+    public UserForm()
     {
         InitializeComponent();
     }
@@ -14,15 +14,12 @@ public partial class DatabaseForm : Form
         UserListView.Items.Clear();
         foreach (var user in users)
         {
-            if (user.Username.ToLower().Contains(finding.Text.ToLower()))
-            {
-                ListViewItem item = new ListViewItem();
-                item.Text = user.Id.ToString();
-                item.SubItems.Add(user.Username);
-                item.SubItems.Add(user.CreatedAt.ToString());
-                item.SubItems.Add(user.ModifiedAt.ToString());
-                UserListView.Items.Add(item);
-            }
+            ListViewItem item = new ListViewItem();
+            item.Text = user.Id.ToString();
+            item.SubItems.Add(user.Username);
+            item.SubItems.Add(user.CreatedAt.ToString());
+            item.SubItems.Add(user.ModifiedAt.ToString());
+            UserListView.Items.Add(item);
         }
     }
 
@@ -156,29 +153,6 @@ public partial class DatabaseForm : Form
         UpdateTable();
     }
 
-    private void UpdateName()
-    {
-        if (!nameBox.Text.Trim().Equals("") && !idBox2.Text.Trim().Equals(""))
-        {
-            if (int.TryParse(idBox2.Text.Trim(), out int id))
-            {
-                dbDriver.UpdateName(nameBox.Text, id);
-                UpdateTable(); 
-            }
-        }   
-    }
-    
-    private void nameButton_Click(object sender, EventArgs e)
-    {
-        UpdateName();
-    }
-    
-    private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if(e.KeyChar == (int) Keys.Enter)
-            UpdateName();
-    }
-
     private void button2_Click(object sender, EventArgs e)
     {
         DatabaseListForm databaseListForm = new DatabaseListForm();
@@ -188,4 +162,10 @@ public partial class DatabaseForm : Form
         MainForm.MainPanel.Controls.Add(databaseListForm);
         databaseListForm.Show();
     }
+
+    private void UserForm_Load(object sender, EventArgs e)
+    {
+        UpdateTable();
+    }
+
 }

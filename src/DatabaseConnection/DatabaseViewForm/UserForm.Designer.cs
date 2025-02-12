@@ -2,15 +2,15 @@
 
 namespace DatabaseViewForm;
 
-partial class DatabaseForm
+partial class UserForm
 {
     /// <summary>
-    ///  Required designer variable.
+    /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     /// <summary>
-    ///  Clean up any resources being used.
+    /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
     protected override void Dispose(bool disposing)
@@ -36,25 +36,22 @@ partial class DatabaseForm
         usernameCol = new System.Windows.Forms.ColumnHeader();
         createdDateCol = new System.Windows.Forms.ColumnHeader();
         modifiedDateCol = new System.Windows.Forms.ColumnHeader();
-        button1 = new System.Windows.Forms.Button();
         ErrorLabel = new System.Windows.Forms.Label();
         usernameButton = new System.Windows.Forms.Button();
         username = new System.Windows.Forms.TextBox();
         IdButton = new System.Windows.Forms.Button();
         IdBox = new System.Windows.Forms.TextBox();
-        finding = new System.Windows.Forms.TextBox();
-        nameBox = new System.Windows.Forms.TextBox();
-        idBox2 = new System.Windows.Forms.TextBox();
-        nameButton = new System.Windows.Forms.Button();
         button2 = new System.Windows.Forms.Button();
+        label1 = new System.Windows.Forms.Label();
+        label2 = new System.Windows.Forms.Label();
         SuspendLayout();
         // 
         // UserListView
         // 
         UserListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { idCol, usernameCol, createdDateCol, modifiedDateCol });
-        UserListView.Location = new System.Drawing.Point(12, 41);
+        UserListView.Location = new System.Drawing.Point(313, 21);
         UserListView.Name = "UserListView";
-        UserListView.Size = new System.Drawing.Size(483, 352);
+        UserListView.Size = new System.Drawing.Size(416, 373);
         UserListView.TabIndex = 0;
         UserListView.UseCompatibleStateImageBehavior = false;
         UserListView.View = System.Windows.Forms.View.Details;
@@ -83,20 +80,10 @@ partial class DatabaseForm
         modifiedDateCol.Text = "Modified";
         modifiedDateCol.Width = 162;
         // 
-        // button1
-        // 
-        button1.Location = new System.Drawing.Point(665, 9);
-        button1.Name = "button1";
-        button1.Size = new System.Drawing.Size(123, 26);
-        button1.TabIndex = 2;
-        button1.Text = "Fetch";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += FetchButton_Click;
-        // 
         // ErrorLabel
         // 
         ErrorLabel.Enabled = false;
-        ErrorLabel.Location = new System.Drawing.Point(12, 418);
+        ErrorLabel.Location = new System.Drawing.Point(313, 397);
         ErrorLabel.Name = "ErrorLabel";
         ErrorLabel.Size = new System.Drawing.Size(197, 23);
         ErrorLabel.TabIndex = 3;
@@ -105,9 +92,9 @@ partial class DatabaseForm
         // 
         // usernameButton
         // 
-        usernameButton.Location = new System.Drawing.Point(665, 169);
+        usernameButton.Location = new System.Drawing.Point(122, 61);
         usernameButton.Name = "usernameButton";
-        usernameButton.Size = new System.Drawing.Size(123, 26);
+        usernameButton.Size = new System.Drawing.Size(185, 26);
         usernameButton.TabIndex = 5;
         usernameButton.Text = "Add";
         usernameButton.UseVisualStyleBackColor = true;
@@ -115,9 +102,9 @@ partial class DatabaseForm
         // 
         // username
         // 
-        username.Location = new System.Drawing.Point(501, 140);
+        username.Location = new System.Drawing.Point(122, 32);
         username.Name = "username";
-        username.Size = new System.Drawing.Size(287, 23);
+        username.Size = new System.Drawing.Size(185, 23);
         username.TabIndex = 4;
         username.Enter += username_Enter;
         username.KeyPress += username_KeyPress;
@@ -125,9 +112,9 @@ partial class DatabaseForm
         // 
         // IdButton
         // 
-        IdButton.Location = new System.Drawing.Point(665, 321);
+        IdButton.Location = new System.Drawing.Point(122, 142);
         IdButton.Name = "IdButton";
-        IdButton.Size = new System.Drawing.Size(123, 26);
+        IdButton.Size = new System.Drawing.Size(185, 26);
         IdButton.TabIndex = 7;
         IdButton.Text = "Remove";
         IdButton.UseVisualStyleBackColor = true;
@@ -135,48 +122,15 @@ partial class DatabaseForm
         // 
         // IdBox
         // 
-        IdBox.Location = new System.Drawing.Point(501, 324);
+        IdBox.Location = new System.Drawing.Point(122, 113);
         IdBox.Name = "IdBox";
-        IdBox.Size = new System.Drawing.Size(158, 23);
+        IdBox.Size = new System.Drawing.Size(185, 23);
         IdBox.TabIndex = 6;
         IdBox.KeyPress += IdBox_KeyPress;
         // 
-        // finding
-        // 
-        finding.Location = new System.Drawing.Point(12, 12);
-        finding.Name = "finding";
-        finding.Size = new System.Drawing.Size(483, 23);
-        finding.TabIndex = 8;
-        finding.KeyUp += finding_KeyUp;
-        // 
-        // nameBox
-        // 
-        nameBox.Location = new System.Drawing.Point(501, 253);
-        nameBox.Name = "nameBox";
-        nameBox.Size = new System.Drawing.Size(287, 23);
-        nameBox.TabIndex = 9;
-        nameBox.KeyPress += nameBox_KeyPress;
-        // 
-        // idBox2
-        // 
-        idBox2.Location = new System.Drawing.Point(501, 211);
-        idBox2.Name = "idBox2";
-        idBox2.Size = new System.Drawing.Size(158, 23);
-        idBox2.TabIndex = 10;
-        // 
-        // nameButton
-        // 
-        nameButton.Location = new System.Drawing.Point(665, 282);
-        nameButton.Name = "nameButton";
-        nameButton.Size = new System.Drawing.Size(123, 26);
-        nameButton.TabIndex = 11;
-        nameButton.Text = "Name";
-        nameButton.UseVisualStyleBackColor = true;
-        nameButton.Click += nameButton_Click;
-        // 
         // button2
         // 
-        button2.Location = new System.Drawing.Point(665, 412);
+        button2.Location = new System.Drawing.Point(606, 412);
         button2.Name = "button2";
         button2.Size = new System.Drawing.Size(123, 26);
         button2.TabIndex = 12;
@@ -184,37 +138,53 @@ partial class DatabaseForm
         button2.UseVisualStyleBackColor = true;
         button2.Click += button2_Click;
         // 
-        // DatabaseForm
+        // label1
+        // 
+        label1.ForeColor = System.Drawing.Color.Black;
+        label1.Location = new System.Drawing.Point(16, 32);
+        label1.Name = "label1";
+        label1.Size = new System.Drawing.Size(100, 23);
+        label1.TabIndex = 13;
+        label1.Text = "Username";
+        label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        // 
+        // label2
+        // 
+        label2.ForeColor = System.Drawing.Color.Black;
+        label2.Location = new System.Drawing.Point(16, 113);
+        label2.Name = "label2";
+        label2.Size = new System.Drawing.Size(100, 23);
+        label2.TabIndex = 14;
+        label2.Text = "Id";
+        label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        // 
+        // UserForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
+        Controls.Add(label2);
+        Controls.Add(label1);
         Controls.Add(button2);
-        Controls.Add(nameButton);
-        Controls.Add(idBox2);
-        Controls.Add(nameBox);
-        Controls.Add(finding);
         Controls.Add(IdButton);
         Controls.Add(IdBox);
         Controls.Add(usernameButton);
         Controls.Add(username);
         Controls.Add(ErrorLabel);
-        Controls.Add(button1);
         Controls.Add(UserListView);
         ForeColor = System.Drawing.Color.DarkRed;
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         Text = "Form1";
+        Load += UserForm_Load;
         ResumeLayout(false);
         PerformLayout();
     }
 
+    private System.Windows.Forms.Label label2;
+
+    private System.Windows.Forms.Label label1;
+
     private System.Windows.Forms.Button button2;
-
-    private System.Windows.Forms.TextBox nameBox;
-    private System.Windows.Forms.TextBox idBox2;
-    private System.Windows.Forms.Button nameButton;
-
-    private System.Windows.Forms.TextBox finding;
 
     private System.Windows.Forms.Button IdButton;
     private System.Windows.Forms.TextBox IdBox;
@@ -223,8 +193,6 @@ partial class DatabaseForm
     private System.Windows.Forms.Button usernameButton;
 
     private System.Windows.Forms.Label ErrorLabel;
-
-    private System.Windows.Forms.Button button1;
 
     private System.Windows.Forms.ColumnHeader idCol;
     private System.Windows.Forms.ColumnHeader usernameCol;

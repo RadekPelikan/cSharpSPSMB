@@ -1,10 +1,11 @@
-﻿namespace DatabaseViewForm;
+namespace DatabaseViewForm;
 
-public partial class DatabaseForm : Form
+public partial class ExercisesForm : Form
 {
-     private DBDriver dbDriver = null;
+
+    private DBDriver dbDriver = null;
     
-    public DatabaseForm()
+    public ExercisesForm()
     {
         InitializeComponent();
     }

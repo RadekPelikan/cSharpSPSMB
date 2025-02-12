@@ -4,6 +4,7 @@ namespace DatabaseViewForm;
 
 public class DBDriver
 {
+    private static DBDriver? instance;
     public string ServerDomain = "vydb1.spsmb.cz";
     public string Username = "tomas.urban";
     public string Password = "";
@@ -14,6 +15,12 @@ public class DBDriver
     public DBDriver(string password)
     {
         Password = password;
+        DBDriver.instance = this;
+    }
+
+    public static DBDriver GetInstanceOrNull()
+    {
+        return instance;
     }
 
     public MySqlConnection GetConnection()
@@ -25,9 +32,32 @@ public class DBDriver
     {
         MySqlConnection connection = GetConnection();
         connection.Open();
-        using (var command = new MySqlCommand("INSERT INTO users (name) VALUES (@username);", connection))
+        using (var command = new MySqlCommand("INSERT INTO users (username) VALUES (@username);", connection))
         {
             command.Parameters.AddWithValue("@username", username);
+            command.ExecuteNonQuery();
+        }
+    }
+    
+    public void AddRegistration(int id1, int id2)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("INSERT INTO user_language_registrations (user_id, language_id) VALUES (@id1, @id2);", connection))
+        {
+            command.Parameters.AddWithValue("@id1", id1);
+            command.Parameters.AddWithValue("@id2", id2);
+            command.ExecuteNonQuery();
+        }
+    }
+    
+    public void AddLanguage(string name)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("INSERT INTO languages (name) VALUES (@name);", connection))
+        {
+            command.Parameters.AddWithValue("@name", name);
             command.ExecuteNonQuery();
         }
     }
@@ -49,6 +79,28 @@ public class DBDriver
         MySqlConnection connection = GetConnection();
         connection.Open();
         using (var command = new MySqlCommand("DELETE FROM users WHERE ID = @id;", connection))
+        {
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+    }
+    
+    public void RemoveLanguage(int id)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("DELETE FROM languages WHERE ID = @id;", connection))
+        {
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+    }
+    
+    public void RemoveRegistration(int id)
+    {
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("DELETE FROM user_language_registrations WHERE ID = @id;", connection))
         {
             command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
@@ -79,5 +131,56 @@ public class DBDriver
 
         // return list
         return users;
+    }
+    
+    public List<Registration> GetRegistrations()
+    {
+        List<Registration> registrations = new List<Registration>();
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        string query = "SELECT * FROM user_language_registrations";
+        MySqlCommand command = new MySqlCommand(query, connection);
+        // execute reader
+        var reader = command.ExecuteReader();
+        // while reader.next
+        while (reader.Read())
+        {
+            // create new user
+            var registration = new Registration();
+            registration.Id = reader.GetInt32(0);
+            registration.UserId = reader.GetInt32(1);
+            registration.LanguageId= reader.GetInt32(2);
+            // add user to the list
+            registrations.Add(registration);
+        }
+
+        // return list
+        return registrations;
+    }
+    
+    public List<Language> GetLanguages()
+    {
+        List<Language> languages = new List<Language>();
+        MySqlConnection connection = GetConnection();
+        connection.Open();
+        string query = "SELECT * FROM languages";
+        MySqlCommand command = new MySqlCommand(query, connection);
+        // execute reader
+        var reader = command.ExecuteReader();
+        // while reader.next
+        while (reader.Read())
+        {
+            // create new user
+            var language = new Language();
+            language.Id = reader.GetInt32(0);
+            language.Name = reader.GetString(1);
+            language.CreatedAt = reader.GetDateTime(2);
+            language.ModifiedAt = reader.GetDateTime(3);
+            // add user to the list
+            languages.Add(language);
+        }
+
+        // return list
+        return languages;
     }
 }

@@ -1,8 +1,6 @@
-﻿using System.ComponentModel;
+﻿namespace DatabaseViewForm;
 
-namespace DatabaseViewForm;
-
-partial class DatabaseForm
+partial class ExercisesForm
 {
     /// <summary>
     ///  Required designer variable.
