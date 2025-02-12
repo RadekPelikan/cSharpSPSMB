@@ -31,11 +31,30 @@ partial class StartForm
     /// </summary>
     private void InitializeComponent()
     {
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "StartForm";
+        button1 = new System.Windows.Forms.Button();
+        SuspendLayout();
+        // 
+        // button1
+        // 
+        button1.Location = new System.Drawing.Point(176, 151);
+        button1.Name = "button1";
+        button1.Size = new System.Drawing.Size(124, 42);
+        button1.TabIndex = 0;
+        button1.Text = "User";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click_1;
+        // 
+        // StartForm
+        // 
+        AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        ClientSize = new System.Drawing.Size(800, 450);
+        Controls.Add(button1);
+        Text = "StartForm";
+        ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Button button1;
 
     #endregion
 }
