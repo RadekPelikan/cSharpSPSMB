@@ -9,7 +9,7 @@ public partial class StartForm : Form
 
     private void button1_Click_1(object sender, EventArgs e)
     {
-        var databaseForm = new DatabaseForm();
-        databaseForm.Show();
+        var userView = new UserView();
+        this.Controls.Add(userView);
     }
 }
