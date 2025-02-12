@@ -3,10 +3,10 @@
 public partial class NextPrevious : UserControl
 {
     private readonly BaseForm _parentForm;
-    private readonly BaseForm.ViewType _previous;
-    private readonly BaseForm.ViewType _next;
+    private readonly int _previous;
+    private readonly int _next;
 
-    public NextPrevious(BaseForm parentForm, BaseForm.ViewType previous, BaseForm.ViewType next)
+    public NextPrevious(BaseForm parentForm, int previous, int next)
     {
         _parentForm = parentForm;
         _previous = previous;

@@ -155,4 +155,9 @@ public partial class UserView : UserControl
             TextBoxDeleteUser.Text = "";
         }
     }
+
+    private void UserListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+    {
+        Console.WriteLine($"{e.Item.Text}: {e.Item.SubItems[1].Text}: {e.Item.SubItems[2].Text}");
+    }
 }

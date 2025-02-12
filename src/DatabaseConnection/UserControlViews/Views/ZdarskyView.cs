@@ -12,7 +12,7 @@ public partial class ZdarskyView : UserControl
 
     private void BackButton_Click(object sender, EventArgs e)
     {
-        _parentForm.SwitchView(BaseForm.ViewType.Navigation);
+        _parentForm.SwitchView(0);
     }
 
     public ZdarskyView ColoredCopy(Color color)

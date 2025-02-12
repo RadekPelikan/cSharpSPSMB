@@ -12,11 +12,11 @@ public partial class NavigationView : UserControl
 
     private void StandaViewButton_Click(object? sender, EventArgs e)
     {
-        _parentForm.SwitchView(BaseForm.ViewType.Standa);
+        _parentForm.SwitchView(0);
     }
 
     private void ZdarskyViewButton_Click(object? sender, EventArgs e)
     {
-        _parentForm.SwitchView(BaseForm.ViewType.Zdarsky);
+        _parentForm.SwitchView(0);
     }
 }

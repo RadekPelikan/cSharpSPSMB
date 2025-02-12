@@ -5,59 +5,43 @@ namespace UserControlViews;
 
 public partial class BaseForm : Form
 {
-    private NavigationView _navigationView;
-    private StandaView _standaView;
-    private ZdarskyView _zdarskyView;
-    private List<NameView> _nameViews = new List<NameView>();
-    
+    private List<UserControl> _views = new List<UserControl>();
 
     private UserControl _currentView;
-
-    public enum ViewType
-    {
-        Navigation,
-        Standa,
-        Zdarsky,
-        // Zdarsky_RED,
-        // Zdarsky_BLUE,
-        // Zdarsky_GREEN,
-        Pepa1,
-        Pepa2,
-        Pepa3
-    }
+    
 
     public BaseForm()
     {
         InitializeComponent();
-        _navigationView = new NavigationView(this)
+        _views.Add(new NavigationView(this)
         {
             Dock = DockStyle.Top,
             Size = Size with { Height = 300 }
-        };
-        _standaView = new StandaView(this)
+        });
+        _views.Add(new StandaView(this)
         {
             Dock = DockStyle.Top,
             Size = Size with { Height = 300 }
-        };
-        _zdarskyView = new ZdarskyView(this)
+        });
+        _views.Add(new ZdarskyView(this)
         {
             Dock = DockStyle.Top,
             Size = Size with { Height = 300 }
-        };
+        });
 
         for (int i = 0; i < 3; ++i)
         {
-            _nameViews.Add(new NameView(this, $"Pepa{i}")
+            _views.Add(new NameView(this, $"Pepa{i}")
             {
                 Dock = DockStyle.Top,
                 Size = Size with { Height = 300 }
             });
         }
 
-        SwitchView(ViewType.Navigation);
+        SwitchView(0);
     }
 
-    public void SwitchView(ViewType viewType)
+    public void SwitchView(int index)
     {
         FlowLayoutPanel container = new FlowLayoutPanel()
         {
@@ -68,25 +52,14 @@ public partial class BaseForm : Form
         };
 
         Controls.Clear();
+        
+        _currentView = _views[index];
 
-        _currentView = viewType switch
-        {
-            ViewType.Navigation => _navigationView,
-            ViewType.Standa => _standaView,
-            ViewType.Zdarsky => _zdarskyView,
-            // ViewType.Zdarsky_RED => _zdarskyView.ColoredCopy(Color.Red),
-            // ViewType.Zdarsky_BLUE => _zdarskyView.ColoredCopy(Color.Blue),
-            // ViewType.Zdarsky_GREEN => _zdarskyView.ColoredCopy(Color.Green),
-            ViewType.Pepa1 => _nameViews[0],
-            ViewType.Pepa2 => _nameViews[1],
-            ViewType.Pepa3 => _nameViews[2],
-        };
-
-        ViewType previous = viewType - 1;
-        if (viewType == 0)
-            previous = Enum.GetValues(typeof(ViewType)).Cast<ViewType>().Last();
-        ViewType next = viewType + 1;
-        if (viewType == Enum.GetValues(typeof(ViewType)).Cast<ViewType>().Last())
+        int previous = index - 1;
+        if (index == 0)
+            previous = _views.Count - 1;
+        int next = index + 1;
+        if (index == _views.Count - 1)
             next = 0;
 
         NextPrevious nextPreviousButtons = new NextPrevious(this, previous, next);
