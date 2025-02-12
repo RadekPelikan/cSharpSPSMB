@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWinForm", "FirstWinFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewForm", "DatabaseViewForm\DatabaseViewForm.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewFormVersion1", "DatabaseViewFormVersion1\DatabaseViewFormVersion1.csproj", "{9E325788-64E1-49DA-A87D-66D98758D3D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46E52E50-FC26-45C9-944F-4D5BE0398106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
