@@ -25,8 +25,8 @@ partial class LoginView
 
     #region Component Designer generated code
 
-    /// <summary> 
-    /// Required method for Designer support - do not modify 
+    /// <summary>
+    /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent()
@@ -55,14 +55,14 @@ partial class LoginView
         button1.UseVisualStyleBackColor = true;
         button1.Click += button1_Click;
         // 
-        // LoginForm
+        // LoginView
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(800, 450);
+        BackColor = System.Drawing.SystemColors.Highlight;
         Controls.Add(button1);
         Controls.Add(textBox1);
-        Text = "LoginForm";
+        Size = new System.Drawing.Size(800, 450);
         ResumeLayout(false);
         PerformLayout();
     }

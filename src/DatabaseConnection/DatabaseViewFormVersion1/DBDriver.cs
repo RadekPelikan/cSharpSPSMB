@@ -39,9 +39,21 @@ public class DBDriver
         }
     }
     
-    public void AddRegistration(int id1, int id2)
+    public bool AddRegistration(int id1, int id2)
     {
         MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("SELECT user_id, language_id FROM user_language_registrations", connection))
+        {
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int id1R = reader.GetInt32(0);
+                int id2R = reader.GetInt32(1);
+                if ((id1R == id1 && id2R == id2) || (id1R == id2 && id2R == id1)) return false;
+            }
+        }
+        connection = GetConnection();
         connection.Open();
         using (var command = new MySqlCommand("INSERT INTO user_language_registrations (user_id, language_id) VALUES (@id1, @id2);", connection))
         {
@@ -49,6 +61,8 @@ public class DBDriver
             command.Parameters.AddWithValue("@id2", id2);
             command.ExecuteNonQuery();
         }
+
+        return true;
     }
     
     public void AddLanguage(string name)
@@ -74,37 +88,72 @@ public class DBDriver
         }
     }
 
-    public void RemoveUser(int id)
+    public bool RemoveUser(int id)
     {
         MySqlConnection connection = GetConnection();
+        connection.Open();
+
+        using (var command = new MySqlCommand("SELECT COUNT(id) FROM users WHERE id = @id;", connection))
+        {
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            int count = reader.GetInt32(0);
+            if (count <= 0) return false;
+        }
+        connection = GetConnection();
         connection.Open();
         using (var command = new MySqlCommand("DELETE FROM users WHERE ID = @id;", connection))
         {
             command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
         }
+        return true;
     }
     
-    public void RemoveLanguage(int id)
+    public bool RemoveLanguage(int id)
     {
         MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("SELECT COUNT(id) FROM languages WHERE id = @id;", connection))
+        {
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            int count = reader.GetInt32(0);
+            if (count <= 0) return false;
+        }
+        connection = GetConnection();
         connection.Open();
         using (var command = new MySqlCommand("DELETE FROM languages WHERE ID = @id;", connection))
         {
             command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
         }
+
+        return true;
     }
     
-    public void RemoveRegistration(int id)
+    public bool RemoveRegistration(int id)
     {
         MySqlConnection connection = GetConnection();
+        connection.Open();
+        using (var command = new MySqlCommand("SELECT COUNT(id) FROM user_language_registrations WHERE id = @id;", connection))
+        {
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            int count = reader.GetInt32(0);
+            if (count <= 0) return false;
+        }
+        connection = GetConnection();
         connection.Open();
         using (var command = new MySqlCommand("DELETE FROM user_language_registrations WHERE ID = @id;", connection))
         {
             command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
         }
+        return true;
     }
     
     public List<User> GetUsers()

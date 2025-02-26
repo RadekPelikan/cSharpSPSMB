@@ -12,6 +12,18 @@
       <Compile Update="LoginView.cs">
         <SubType>UserControl</SubType>
       </Compile>
+      <Compile Update="DatabaseListView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="UserView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="LanguageView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="RegistrationView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

@@ -10,8 +10,15 @@ public partial class Main : Form
     public Main()
     {
         InitializeComponent();
+        FormBorderStyle = FormBorderStyle.FixedSingle;
+        MaximizeBox = false;
+        MinimizeBox = false;
         views = new List<UserControl>();
         views.Add(new LoginView(this));
+        views.Add(new DatabaseListView(this));
+        views.Add(new LanguageView(this));
+        views.Add(new UserView(this));
+        views.Add(new RegistrationView(this));
         SwitchView(GetView(0));
     }
 
