@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\NavigationView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="Views\StandaView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="Views\ZdarskyView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="components\NextPrevious.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="Views\NameView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+    </ItemGroup>
+
+</Project>

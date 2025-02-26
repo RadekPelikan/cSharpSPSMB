@@ -8,7 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWinForm", "FirstWinForm\FirstWinForm.csproj", "{F613BC70-5351-4B71-99A6-34E950E3C2E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewForm", "DatabaseViewForm\DatabaseViewForm.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDuolingoExample", "SimpleDuolingoExample\SimpleDuolingoExample.csproj", "{46E52E50-FC26-45C9-944F-4D5BE0398106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserControlViews", "UserControlViews\UserControlViews.csproj", "{C520A0D1-A1F4-4844-A0F3-C0A5963EA054}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseViewFormVersion1", "DatabaseViewFormVersion1\DatabaseViewFormVersion1.csproj", "{9E325788-64E1-49DA-A87D-66D98758D3D8}"
 EndProject
@@ -42,5 +44,9 @@ Global
 		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E325788-64E1-49DA-A87D-66D98758D3D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C520A0D1-A1F4-4844-A0F3-C0A5963EA054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C520A0D1-A1F4-4844-A0F3-C0A5963EA054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C520A0D1-A1F4-4844-A0F3-C0A5963EA054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C520A0D1-A1F4-4844-A0F3-C0A5963EA054}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

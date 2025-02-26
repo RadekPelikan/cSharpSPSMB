@@ -1,3 +1,4 @@
+
 using MySqlConnector;
 
 namespace DatabaseViewForm;

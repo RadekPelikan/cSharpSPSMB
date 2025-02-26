@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>SimpleDuolingoExample</RootNamespace>
+        <RootNamespace>SimpleDuolingoExample</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MySqlConnector" Version="2.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+<<<<<<< HEAD:src/DatabaseConnection/DatabaseViewForm/DatabaseViewForm.csproj
+      <Compile Update="LoginForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="MainForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="DatabaseListForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="DatabaseForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="UserForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="LanguageForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="RegistrationForm.cs">
+        <SubType>Form</SubType>
+=======
+      <Compile Update="StartForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="UserView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="NavigationView.cs">
+        <SubType>UserControl</SubType>
+>>>>>>> 975091a92faf03191424914a32dbdc15ff7f52de:src/DatabaseConnection/SimpleDuolingoExample/SimpleDuolingoExample.csproj
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="StartForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="UserView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="NavigationView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="LoginForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="MainForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="DatabaseListForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="DatabaseForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="UserForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="LanguageForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="RegistrationForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+</Project>
