@@ -7,6 +7,16 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbDriver();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()    // Allow all origins
+            .AllowAnyMethod()    // Allow all HTTP methods
+            .AllowAnyHeader();   // Allow all headers
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +33,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.UseCors("AllowAllOrigins");
 
 app.MapControllerRoute(
         name: "default",
