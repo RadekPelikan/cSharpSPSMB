@@ -6,12 +6,12 @@ namespace DatabaseViewForm;
 public class DBDriver
 {
     public string ServerDomain = "vydb1.spsmb.cz";
-    public string Enemyname = "radek.pelikan";
+    public string Username = "radek.pelikan";
     public string Password = "";
-    public string Database = "student_radek.pelikan_duolingo";
+    public string Database => $"student_{Username}_RPGApp";
 
     public string connectionString =>
-        $"Server={ServerDomain};Database={Database};Enemy={Enemyname};Password={Password};Port=3306;";
+        $"Server={ServerDomain};Database={Database};User={Username};Password={Password};Port=3306;";
 
     public Exception? ThrownException;
 
@@ -25,7 +25,7 @@ public class DBDriver
         return new MySqlConnection(connectionString);
     }
 
-    public List<Enemy> GetAll()
+    public List<Enemy> GetAllEnemies()
     {
         List<Enemy> enemies = new List<Enemy>();
         MySqlConnection connection = GetConnection();
@@ -57,6 +57,7 @@ public class DBDriver
         catch (MySqlException ex)
         {
             ThrownException = ex;
+            Console.Error.WriteLine(ex.Message);
         }
 
         // return list
@@ -71,7 +72,7 @@ public class DBDriver
             connection.Open();
             string query = @"
                 INSERT INTO enemy VALUES 
-                (@id, @name, @health, @damage, @armor, @criticalChance, @critialScaler);";
+                (@id, @name, @health, @damage, @armor, @criticalChance, @criticalScaler);";
             MySqlCommand command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("@id", Enemy.Id);
             command.Parameters.AddWithValue("@name", Enemy.Name);
@@ -85,6 +86,7 @@ public class DBDriver
         catch (MySqlException ex)
         {
             ThrownException = ex;
+            Console.Error.WriteLine(ex.Message);
         }
     }
 }

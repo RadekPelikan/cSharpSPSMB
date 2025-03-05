@@ -1,7 +1,11 @@
+using RPGApp.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+builder.Services.AddDbDriver();
 
 var app = builder.Build();
 
