@@ -33,6 +33,15 @@ public class Game1 : Game
             new Vector2(10, 40),
             Map.Factory.CreateBoundsMap(3, 3));
         Components.Add(mapRenderer);
+
+        var playerRenderer = new PlayerRenderer2D(
+            this,
+            GraphicsDevice,
+            _spriteBatch,
+            new Vector2(0, 0),
+            new Player());
+        
+        Components.Add(playerRenderer);
     }
 
     protected override void LoadContent()
