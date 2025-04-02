@@ -9,4 +9,9 @@ public class Enemy
     public int Armor { get; set; }
     public float CriticalChance { get; set; }
     public float CriticalScaler { get; set; }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}";
+    }
 }

@@ -26,12 +26,15 @@ public class Game1 : Game
 
         base.Initialize();
         // After load
+        Map map = Map.Factory.CreateBoundsMap(4, 4);
+        Player player = new Player();
+        
         var mapRenderer = new MapRenderer2D(
             this,
             GraphicsDevice,
             _spriteBatch,
             new Vector2(10, 40),
-            Map.Factory.CreateBoundsMap(3, 3));
+            map);
         Components.Add(mapRenderer);
 
         var playerRenderer = new PlayerRenderer2D(
@@ -39,7 +42,7 @@ public class Game1 : Game
             GraphicsDevice,
             _spriteBatch,
             new Vector2(0, 0),
-            new Player());
+            player);
         
         Components.Add(playerRenderer);
     }

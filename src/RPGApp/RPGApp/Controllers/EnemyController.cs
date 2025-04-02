@@ -25,6 +25,7 @@ public class EnemyController : Controller
     [HttpPost]
     public Enemy InsertEnemy([FromBody] Enemy enemy)
     {
+        Console.WriteLine(enemy);
         _dbDriver.InsertEnemy(enemy);
         return enemy;
     } 
