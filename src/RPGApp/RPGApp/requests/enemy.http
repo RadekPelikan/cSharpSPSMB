@@ -5,7 +5,7 @@ POST http://{{client.host_url}}/api/enemy
 Content-Type: application/json
 
 {
-    "name": "Alfonzo",
+    "name": "Honza",
     "health": 100,
     "damage": 10,
     "armor": 3,
