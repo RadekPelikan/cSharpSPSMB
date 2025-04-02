@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Wolfenstein.Components;
+using Wolfenstein.Domain;
 
 namespace Wolfenstein;
 
@@ -8,6 +10,7 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Texture2D _texture;
 
     public Game1()
     {
@@ -19,8 +22,11 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-
+        _texture = new Texture2D(GraphicsDevice, 1, 1);
+        
         base.Initialize();
+        // After load
+        Components.Add(new MapRenderer2D(this, GraphicsDevice, _spriteBatch, Map.Factory.CreateBoundsMap(3, 3)));
     }
 
     protected override void LoadContent()
@@ -45,6 +51,12 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
+        // _spriteBatch.Begin();
+        //
+        // _texture.SetData<Color>(new Color[] { Color.White });
+        // _spriteBatch.Draw(_texture, new Vector2(0, 0), new Rectangle(0, 0, 100, 100), Color.White);
+        //
+        // _spriteBatch.End();
 
         base.Draw(gameTime);
     }
