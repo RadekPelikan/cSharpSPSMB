@@ -2,13 +2,21 @@
 
 public partial class ZdarskyView : UserControl
 {
-    public ZdarskyView()
+    private readonly BaseForm _parentForm;
+
+    public ZdarskyView(BaseForm parentForm)
     {
+        _parentForm = parentForm;
         InitializeComponent();
     }
 
     private void BackButton_Click(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
+        _parentForm.SwitchView(0);
+    }
+
+    public ZdarskyView ColoredCopy(Color color)
+    {
+        return new ZdarskyView(_parentForm) { BackColor = color };
     }
 }

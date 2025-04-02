@@ -25,11 +25,11 @@ partial class UserView
 
     #region Component Designer generated code
 
-    /// <summary> 
-    /// Required method for Designer support - do not modify 
+    /// <summary>
+    /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-   private void InitializeComponent()
+    private void InitializeComponent()
     {
         UserListView = new System.Windows.Forms.ListView();
         idCol = new System.Windows.Forms.ColumnHeader();
@@ -54,6 +54,7 @@ partial class UserView
         UserListView.TabIndex = 0;
         UserListView.UseCompatibleStateImageBehavior = false;
         UserListView.View = System.Windows.Forms.View.Details;
+        UserListView.ItemSelectionChanged += UserListView_ItemSelectionChanged;
         // 
         // idCol
         // 
@@ -144,11 +145,10 @@ partial class UserView
         TextBoxDeleteUser.TabIndex = 7;
         TextBoxDeleteUser.KeyDown += TextBoxDeleteUser_KeyDown;
         // 
-        // DatabaseForm
+        // UserView
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(800, 450);
         Controls.Add(TextBoxDeleteUser);
         Controls.Add(ButtonDelete);
         Controls.Add(CreateUserButton);
@@ -157,7 +157,7 @@ partial class UserView
         Controls.Add(button1);
         Controls.Add(PasswordTextBox);
         Controls.Add(UserListView);
-        Text = "Form1";
+        Size = new System.Drawing.Size(800, 450);
         ResumeLayout(false);
         PerformLayout();
     }

@@ -18,6 +18,12 @@
       <Compile Update="Views\ZdarskyView.cs">
         <SubType>UserControl</SubType>
       </Compile>
+      <Compile Update="components\NextPrevious.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="Views\NameView.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

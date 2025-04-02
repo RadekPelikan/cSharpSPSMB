@@ -2,13 +2,16 @@
 
 public partial class StandaView : UserControl
 {
-    public StandaView()
+    private readonly BaseForm _parentForm;
+
+    public StandaView(BaseForm parentForm)
     {
+        _parentForm = parentForm;
         InitializeComponent();
     }
 
     private void BackButton_Click(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
+        _parentForm.SwitchView(0);
     }
 }

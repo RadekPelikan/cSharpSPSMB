@@ -31,43 +31,42 @@ partial class StandaView
     /// </summary>
     private void InitializeComponent()
     {
-        label1 = new System.Windows.Forms.Label();
         button1 = new System.Windows.Forms.Button();
+        label2 = new System.Windows.Forms.Label();
         SuspendLayout();
-        // 
-        // label1
-        // 
-        label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        label1.Location = new System.Drawing.Point(0, 93);
-        label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(815, 49);
-        label1.TabIndex = 0;
-        label1.Text = "Standa View";
-        label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // button1
         // 
-        button1.Location = new System.Drawing.Point(352, 178);
+        button1.Location = new System.Drawing.Point(351, 170);
         button1.Name = "button1";
-        button1.Size = new System.Drawing.Size(122, 37);
-        button1.TabIndex = 1;
+        button1.Size = new System.Drawing.Size(125, 37);
+        button1.TabIndex = 3;
         button1.Text = "Back";
         button1.UseVisualStyleBackColor = true;
         button1.Click += BackButton_Click;
+        // 
+        // label2
+        // 
+        label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
+        label2.Location = new System.Drawing.Point(-2, 89);
+        label2.Name = "label2";
+        label2.Size = new System.Drawing.Size(818, 49);
+        label2.TabIndex = 2;
+        label2.Text = "Standa View";
+        label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // StandaView
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         Controls.Add(button1);
-        Controls.Add(label1);
+        Controls.Add(label2);
         Size = new System.Drawing.Size(816, 489);
         ResumeLayout(false);
     }
 
     private System.Windows.Forms.Button button1;
-
-    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label label2;
 
     #endregion
 }

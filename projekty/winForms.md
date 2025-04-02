@@ -1,5 +1,7 @@
 # Simple Duolingo
 
+Odevzdání: **11.3.2025 23:59:59**
+
 ![alt text](../res/winForms.zadani.png)
 
 - Chci aplikaci ve Winforms s použití .NET a C#
