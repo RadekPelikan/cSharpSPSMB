@@ -8,7 +8,7 @@ namespace Wolfenstein.Components;
 public class MapRenderer2D : DrawableGameComponent
 {
     public uint CellSizePx { get; set; } = 100;
-    public uint BorderWidthPx { get; set; } = 20;
+    public uint BorderWidthPx { get; set; } = 5;
     public Map Map { get; private set; }
     private readonly GraphicsDevice _graphicsDevice;
     private readonly SpriteBatch _spriteBatch;
@@ -90,16 +90,16 @@ public class MapRenderer2D : DrawableGameComponent
         // Right line
         _spriteBatch.Draw(
             _texture,
-            position with { X = position.X + rectangle.Width },
-            verticalLine with { X = -borderWidthPx },
+            position with { X = position.X + rectangle.Width - borderWidthPx },
+            verticalLine,
             Color.Black
             );
 
         // Bottom line
         _spriteBatch.Draw(
             _texture,
-            position with { Y = position.Y + rectangle.Height },
-            horizontalLine with { Y = -borderWidthPx },
+            position with { Y = position.Y + rectangle.Height - borderWidthPx },
+            horizontalLine,
             Color.Black
             );
         
