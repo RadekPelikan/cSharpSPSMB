@@ -10,13 +10,14 @@ public class MapRenderer2D : DrawableGameComponent
     public uint CellSizePx { get; set; } = 100;
     public uint BorderWidthPx { get; set; } = 5;
     public Map Map { get; private set; }
-    
+
     private readonly GraphicsDevice _graphicsDevice;
     private readonly SpriteBatch _spriteBatch;
     private readonly Vector2 _position;
     private readonly Texture2D _texture;
 
-    public MapRenderer2D(Game game, GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Vector2 position, Map map) : base(game)
+    public MapRenderer2D(Game game, GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Vector2 position,
+        Map map) : base(game)
     {
         Map = map;
         _graphicsDevice = graphicsDevice;
@@ -46,7 +47,6 @@ public class MapRenderer2D : DrawableGameComponent
                     X = x * CellSizePx,
                     Y = y * CellSizePx
                 };
-                position += _position;
 
                 switch (cells[y, x].Type)
                 {
@@ -68,8 +68,8 @@ public class MapRenderer2D : DrawableGameComponent
 
     private void DrawWall(Vector2 position, Rectangle rectangle)
     {
-        var borderWidthPx = (int) BorderWidthPx;
-        
+        var borderWidthPx = (int)BorderWidthPx;
+
         var horizontalLine = new Rectangle()
         {
             Width = rectangle.Width,
@@ -80,25 +80,24 @@ public class MapRenderer2D : DrawableGameComponent
             Width = borderWidthPx,
             Height = rectangle.Height,
         };
-        _spriteBatch.Draw(_texture, position, rectangle, Color.White);
-        
-        
+        _spriteBatch.Draw(_texture, position + _position, rectangle, Color.White);
+
+
         // return;
         // Top line
         _spriteBatch.Draw(
-            _texture, 
-            position, 
-            horizontalLine, 
+            _texture,
+            position + _position,
+            horizontalLine,
             Color.Black
-            );
+        );
 
         // Right line
         {
-            var linePosition = position - new Vector2(borderWidthPx, 0);
-            linePosition.X += rectangle.Width;
+            var linePosition = new Vector2(position.X + rectangle.Width - borderWidthPx, position.Y);
             _spriteBatch.Draw(
                 _texture,
-                linePosition,
+                linePosition + _position,
                 verticalLine,
                 Color.Black
             );
@@ -106,23 +105,22 @@ public class MapRenderer2D : DrawableGameComponent
 
         // Bottom line
         {
-            var linePosition = position - new Vector2(0, borderWidthPx);
-            linePosition.Y += rectangle.Height;
+            var linePosition = new Vector2(position.X, position.Y + rectangle.Height - borderWidthPx);
             _spriteBatch.Draw(
                 _texture,
-                linePosition,
+                linePosition + _position,
                 horizontalLine,
                 Color.Black
             );
         }
-        
+
         // Left line
         _spriteBatch.Draw(
             _texture,
-            position,
+            position + _position,
             verticalLine,
             Color.Black
-            );
+        );
     }
 
     private void DrawEmpty(Vector2 position, Rectangle rectangle)
