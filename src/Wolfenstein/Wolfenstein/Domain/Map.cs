@@ -26,9 +26,9 @@ public class Map
         }
     }
 
-    public class Factory
+    public static class Factory
     {
-        public Map CreateEmptyMap(uint width, uint height)
+        public static Map CreateEmptyMap(uint width, uint height)
         {
             Map map = new Map(width, height);
             foreach (var cell in map.Cells)
@@ -38,7 +38,7 @@ public class Map
 
             return map;
         }
-        public Map CreateWallMap(uint width, uint height)
+        public static Map CreateWallMap(uint width, uint height)
         {
             Map map = new Map(width, height);
             foreach (var cell in map.Cells)
@@ -49,7 +49,7 @@ public class Map
             return map;
         }
         
-        public Map CreateBoundsMap(uint width, uint height)
+        public static Map CreateBoundsMap(uint width, uint height)
         {
             Map map = new Map(width, height);
             for (uint y = 0; y < height; y++)
