@@ -23,10 +23,16 @@ public class Game1 : Game
     {
         // TODO: Add your initialization logic here
         _texture = new Texture2D(GraphicsDevice, 1, 1);
-        
+
         base.Initialize();
         // After load
-        Components.Add(new MapRenderer2D(this, GraphicsDevice, _spriteBatch, Map.Factory.CreateBoundsMap(3, 3)));
+        var mapRenderer = new MapRenderer2D(
+            this,
+            GraphicsDevice,
+            _spriteBatch,
+            new Vector2(10, 40),
+            Map.Factory.CreateBoundsMap(3, 3));
+        Components.Add(mapRenderer);
     }
 
     protected override void LoadContent()
@@ -38,7 +44,8 @@ public class Game1 : Game
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+            Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
         // TODO: Add your update logic here
