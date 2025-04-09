@@ -7,6 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Wolfenstein.Common\Wolfenstein.Common.csproj"/>
+        <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.2.1105"/>
     </ItemGroup>
 </Project>
