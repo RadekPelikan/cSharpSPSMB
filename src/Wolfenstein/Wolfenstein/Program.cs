@@ -1,2 +1,4 @@
-﻿using var game = new Wolfenstein.WolfensteinGame();
+﻿using Wolfenstein;
+
+using var game = new WolfensteinGame();
 game.Run();

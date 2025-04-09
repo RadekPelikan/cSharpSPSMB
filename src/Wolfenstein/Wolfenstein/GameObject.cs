@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Wolfenstein;
 
@@ -13,6 +12,6 @@ public abstract class GameObject
     }
 
     public abstract void Update();
-    
+
     public abstract void Draw();
 }

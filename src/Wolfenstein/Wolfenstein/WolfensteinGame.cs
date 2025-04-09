@@ -6,14 +6,14 @@ namespace Wolfenstein;
 
 public class WolfensteinGame : Game
 {
-    private GraphicsDeviceManager _graphics;
+    private readonly GraphicsDeviceManager _graphics;
+    private readonly GameServiceContainer _services;
     private SpriteBatch _spriteBatch;
-    private GameServiceContainer _services;
 
     public WolfensteinGame()
     {
         _services = new GameServiceContainer();
-        
+
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
@@ -29,16 +29,17 @@ public class WolfensteinGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        
-        _services.AddService(typeof(GraphicsDevice), _graphics);
-        _services.AddService(typeof(SpriteBatch), _spriteBatch);
+
+        // _services.AddService(typeof(GraphicsDevice), _graphics);
+        // _services.AddService(typeof(SpriteBatch), _spriteBatch);
 
         // TODO: use this.Content to load your game content here
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+            Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
         // TODO: Add your update logic here
