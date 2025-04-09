@@ -1,6 +1,6 @@
 ﻿namespace Wolfenstein.interfaces;
 
-public interface IPoint
+public interface ICollisionPoint
 {
     IWallSegment WallSegment { get; }
     IRay Ray { get; }

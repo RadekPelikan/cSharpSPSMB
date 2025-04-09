@@ -57,9 +57,9 @@ public class Drawing : IDrawing
 
         // Draw the rectangle using the 1x1 texture stretched to the desired size
         spriteBatch.Draw(
-            texture,      // The texture to draw (1x1 pixel)
-            rect,                  // The rectangle's position and size
-            color                 // The color to fill the rectangle
+            texture, // The texture to draw (1x1 pixel)
+            rect, // The rectangle's position and size
+            color // The color to fill the rectangle
         );
 
         // End drawing with the SpriteBatch

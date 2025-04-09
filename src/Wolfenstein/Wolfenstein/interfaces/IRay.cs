@@ -6,4 +6,5 @@ public interface IRay : IGameObject
 {
     Vector2 Pos { get; }
     float Angle { get; }
+    ICollisionPoint CollisionPoint { get; }
 }
