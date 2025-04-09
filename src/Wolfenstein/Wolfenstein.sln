@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfenstein", "Wolfenstein\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingLayer", "DrawingLayer\DrawingLayer.csproj", "{2EECBC47-59C3-4287-876B-630C36EF40B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfenstein.Common", "Wolfenstein.Common\Wolfenstein.Common.csproj", "{1F544D7E-D529-4819-93E6-C0D73A64B64A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2EECBC47-59C3-4287-876B-630C36EF40B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EECBC47-59C3-4287-876B-630C36EF40B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EECBC47-59C3-4287-876B-630C36EF40B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F544D7E-D529-4819-93E6-C0D73A64B64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F544D7E-D529-4819-93E6-C0D73A64B64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F544D7E-D529-4819-93E6-C0D73A64B64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F544D7E-D529-4819-93E6-C0D73A64B64A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

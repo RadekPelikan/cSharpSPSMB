@@ -1,20 +1,16 @@
-﻿using DrawingLayer;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Wolfenstein;
+namespace Wolfenstein.Common;
 
-public class WolfensteinGame : Game
+public class Game1 : Game
 {
-    private readonly GraphicsDeviceManager _graphics;
-    private readonly GameServiceContainer _services;
+    private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    public WolfensteinGame()
+    public Game1()
     {
-        _services = new GameServiceContainer();
-
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
@@ -30,19 +26,13 @@ public class WolfensteinGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        var drawing = new Drawing(_services);
-
-        _services.AddService<IDrawing>(drawing);
-        _services.AddService(_graphics);
-        _services.AddService(_spriteBatch);
 
         // TODO: use this.Content to load your game content here
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
         // TODO: Add your update logic here

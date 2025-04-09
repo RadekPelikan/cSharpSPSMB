@@ -5,13 +5,11 @@ namespace DrawingLayer;
 
 public class Drawing : IDrawing
 {
-    private GameServiceContainer _services;
+    private readonly GameServiceContainer _services;
 
     public Drawing(GameServiceContainer services)
     {
-        _services = services;
-
-        var graphicsDevice = services.GetService<GraphicsDevice>();
+        throw new NotImplementedException();
     }
 
     public void DrawLine(Vector2 pos1, Vector2 pos2, Color color)
