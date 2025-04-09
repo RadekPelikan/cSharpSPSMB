@@ -1,21 +1,32 @@
+using DrawingLayer;
 using Microsoft.Xna.Framework;
+using Wolfenstein.interfaces;
 
 namespace Wolfenstein;
 
-public class WallSegment : GameObject
+public class WallSegment : GameObject, IWallSegment
 {
-    public WallSegment(GameServiceContainer services) : base(services)
+    private IDrawing _drawing;
+    
+    public WallSegment(Vector2 pos1, Vector2 pos2, Color color, GameServiceContainer services) : base(services)
     {
-        
+        Pos1 = pos1;
+        Pos2 = pos2;
+        Color = color;
+        _drawing = services.GetService<IDrawing>();
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Draw()
     {
-        throw new System.NotImplementedException();
+        _drawing.DrawLine(Pos1, Pos2, Color);
     }
+
+    public Vector2 Pos1 { get; }
+    public Vector2 Pos2 { get; }
+    public Color Color { get; }
 }
