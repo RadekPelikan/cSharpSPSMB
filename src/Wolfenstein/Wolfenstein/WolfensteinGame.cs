@@ -9,6 +9,7 @@ public class WolfensteinGame : Game
 {
     private readonly GraphicsDeviceManager _graphics;
     private readonly GameServiceContainer _services;
+    private Drawing _drawing;
     private SpriteBatch _spriteBatch;
     private Texture2D _texture;
 
@@ -30,11 +31,14 @@ public class WolfensteinGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        _texture = new Texture2D(GraphicsDevice, 1, 1);
-        _texture.SetData(new[] { Color.White });
-        var drawing = new Drawing(_services);
+        _drawing = new Drawing(_services);
 
-        _services.AddService<IDrawing>(drawing);
+        var texture = new Texture2D(GraphicsDevice, 1, 1);y
+        texture.SetData(new[] { Color.White });
+
+        _services.AddService(texture);
+        _services.AddService<IDrawing>(_drawing);
+
         _services.AddService(_graphics);
         _services.AddService(_spriteBatch);
         _services.AddService(_texture);
@@ -56,10 +60,8 @@ public class WolfensteinGame : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        
-        var drawing = _services.GetService<IDrawing>();
-        
-        drawing.DrawRectangle(new Rectangle(0, 0, 100, 100), Color.White);
+        // TODO: Add your drawing code here
+        _drawing.DrawLine(Vector2.Zero, Vector2.One * 1000f, 10, Color.White);
 
         base.Draw(gameTime);
     }

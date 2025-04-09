@@ -5,5 +5,5 @@ namespace Wolfenstein.interfaces;
 public interface IRay : IGameObject
 {
     Vector2 Pos { get; }
-    int Angle { get; }
+    float Angle { get; }
 }
