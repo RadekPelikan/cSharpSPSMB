@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -30,8 +31,8 @@ public class WolfensteinGame : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // _services.AddService(typeof(GraphicsDevice), _graphics);
-        // _services.AddService(typeof(SpriteBatch), _spriteBatch);
+        _services.AddService<GraphicsDeviceManager>(_graphics);
+        _services.AddService<SpriteBatch>(_spriteBatch);
 
         // TODO: use this.Content to load your game content here
     }
