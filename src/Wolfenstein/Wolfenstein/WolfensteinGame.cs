@@ -60,7 +60,6 @@ public class WolfensteinGame : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
-        _drawing.DrawLine(Vector2.Zero, Vector2.One * 1000f, 10, Color.White);
 
         base.Draw(gameTime);
     }
