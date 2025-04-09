@@ -47,10 +47,14 @@ public class Drawing : IDrawing
     {
         throw new NotImplementedException();
     }
-
     public void DrawRectangle(Rectangle rect, Color color)
     {
-        throw new NotImplementedException();
+        var _spriteBatch = _services.GetService<SpriteBatch>();
+        var texture = _services.GetService<Texture2D>();
+        
+        _spriteBatch.Begin();
+        _spriteBatch.Draw(texture, rect, color);
+        _spriteBatch.End();
     }
 
     public void DrawImage(string path, Vector2 pos, Color color)

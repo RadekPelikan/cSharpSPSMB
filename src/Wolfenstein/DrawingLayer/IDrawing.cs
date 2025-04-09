@@ -14,7 +14,10 @@ public interface IDrawing
 
     public void DrawCircle(Vector2 pos, float radius, Color color);
 
-    public void DrawRectangle(Rectangle rect, Color color);
+    public void DrawRectangle(Rectangle rect, Color color)
+    {
+        
+    }
 
     public void DrawImage(string path, Vector2 pos, Color color);
 }
