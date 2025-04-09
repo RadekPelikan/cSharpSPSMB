@@ -11,7 +11,7 @@ public class Drawing : IDrawing
     {
         _services = services;
 
-        GraphicsDevice graphicsDevice = services.GetService<GraphicsDevice>();
+        var graphicsDevice = services.GetService<GraphicsDevice>();
     }
 
     public void DrawLine(Vector2 pos1, Vector2 pos2, Color color)
