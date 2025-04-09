@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DrawingLayer;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,11 +10,11 @@ public class WolfensteinGame : Game
     private readonly GraphicsDeviceManager _graphics;
     private readonly GameServiceContainer _services;
     private SpriteBatch _spriteBatch;
+    private Texture2D _texture;
 
     public WolfensteinGame()
     {
         _services = new GameServiceContainer();
-
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
@@ -29,9 +30,14 @@ public class WolfensteinGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        _texture = new Texture2D(GraphicsDevice, 1, 1);
+        _texture.SetData(new[] { Color.White });
+        var drawing = new Drawing(_services);
 
+        _services.AddService<IDrawing>(drawing);
         _services.AddService(_graphics);
         _services.AddService(_spriteBatch);
+        _services.AddService(_texture);
 
         // TODO: use this.Content to load your game content here
     }
@@ -50,8 +56,10 @@ public class WolfensteinGame : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
+        
+        var drawing = _services.GetService<IDrawing>();
+        
+        drawing.DrawRectangle(new Rectangle(0, 0, 100, 100), Color.White);
 
         base.Draw(gameTime);
     }

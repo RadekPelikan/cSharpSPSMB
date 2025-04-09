@@ -10,8 +10,6 @@ public class Drawing : IDrawing
     public Drawing(GameServiceContainer services)
     {
         _services = services;
-
-        var graphicsDevice = services.GetService<GraphicsDevice>();
     }
 
     public void DrawLine(Vector2 pos1, Vector2 pos2, Color color)
@@ -23,10 +21,14 @@ public class Drawing : IDrawing
     {
         throw new NotImplementedException();
     }
-
     public void DrawRectangle(Rectangle rect, Color color)
     {
-        throw new NotImplementedException();
+        var _spriteBatch = _services.GetService<SpriteBatch>();
+        var texture = _services.GetService<Texture2D>();
+        
+        _spriteBatch.Begin();
+        _spriteBatch.Draw(texture, rect, color);
+        _spriteBatch.End();
     }
 
     public void DrawImage(string path, Vector2 pos, Color color)
