@@ -1,19 +1,20 @@
-﻿using Microsoft.Xna.Framework;
+﻿
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Wolfenstein.Components;
-using Wolfenstein.Domain;
 
 namespace Wolfenstein;
 
-public class Game1 : Game
+public class WolfensteinGame : Game
 {
-    private GraphicsDeviceManager _graphics;
+    private readonly GraphicsDeviceManager _graphics;
+    private readonly GameServiceContainer _services;
     private SpriteBatch _spriteBatch;
-    private Texture2D _texture;
 
-    public Game1()
+    public WolfensteinGame()
     {
+        _services = new GameServiceContainer();
+
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
@@ -22,31 +23,16 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-        _texture = new Texture2D(GraphicsDevice, 1, 1);
 
         base.Initialize();
-        // After load
-        var mapRenderer = new MapRenderer2D(
-            this,
-            GraphicsDevice,
-            _spriteBatch,
-            new Vector2(10, 40),
-            Map.Factory.CreateBoundsMap(3, 3));
-        Components.Add(mapRenderer);
-
-        var playerRenderer = new PlayerRenderer2D(
-            this,
-            GraphicsDevice,
-            _spriteBatch,
-            new Vector2(0, 0),
-            new Player());
-        
-        Components.Add(playerRenderer);
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        _services.AddService<GraphicsDeviceManager>(_graphics);
+        _services.AddService<SpriteBatch>(_spriteBatch);
 
         // TODO: use this.Content to load your game content here
     }
@@ -67,12 +53,6 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
-        // _spriteBatch.Begin();
-        //
-        // _texture.SetData<Color>(new Color[] { Color.White });
-        // _spriteBatch.Draw(_texture, new Vector2(0, 0), new Rectangle(0, 0, 100, 100), Color.White);
-        //
-        // _spriteBatch.End();
 
         base.Draw(gameTime);
     }
