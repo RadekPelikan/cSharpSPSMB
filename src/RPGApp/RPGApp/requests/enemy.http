@@ -1,0 +1,14 @@
+GET http://{{client.host_url}}/api/enemy
+
+###
+POST http://{{client.host_url}}/api/enemy
+Content-Type: application/json
+
+{
+    "name": "Honza",
+    "health": 100,
+    "damage": 10,
+    "armor": 3,
+    "criticalChance": 0.3,
+    "criticalScaler": 1.1
+}
