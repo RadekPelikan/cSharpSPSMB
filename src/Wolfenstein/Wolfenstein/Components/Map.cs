@@ -15,7 +15,7 @@ public class Map : GameObject, IMap
         WallSegments.Add(new WallSegment(
             services,
             new Vector2(100, 100),
-            new Vector2(200, 200),
+            new Vector2(200, 100),
             Color.White));
 
         // right
@@ -50,9 +50,6 @@ public class Map : GameObject, IMap
 
     public override void Draw()
     {
-        foreach (var wallSegment in WallSegments)
-        {
-            wallSegment.Draw();
-        }
+        foreach (var wallSegment in WallSegments) wallSegment.Draw();
     }
 }

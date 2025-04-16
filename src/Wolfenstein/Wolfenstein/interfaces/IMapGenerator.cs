@@ -1,6 +1,6 @@
 ﻿namespace Wolfenstein.interfaces;
 
-public interface IMapGenerator
+public interface IMapGenerator : IGameObject
 {
     IMap GenerateRandomMap();
 }

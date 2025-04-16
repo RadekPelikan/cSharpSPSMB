@@ -1,7 +1,10 @@
-﻿namespace Wolfenstein.interfaces;
+﻿using Microsoft.Xna.Framework;
 
-public interface ICollisionPoint
+namespace Wolfenstein.interfaces;
+
+public interface ICollisionPoint : IGameObject
 {
     IWallSegment WallSegment { get; }
     IRay Ray { get; }
+    Vector2? Position { get; }
 }

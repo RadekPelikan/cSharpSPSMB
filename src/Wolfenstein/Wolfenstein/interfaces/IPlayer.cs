@@ -4,7 +4,7 @@ namespace Wolfenstein.interfaces;
 
 /// <summary>
 /// </summary>
-public interface IPlayer
+public interface IPlayer : IGameObject
 {
     Vector2 Pos { get; }
 }
