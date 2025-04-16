@@ -23,7 +23,7 @@ public abstract class GameObject : IGameObject
         Initialized = true;
     }
 
-    public virtual void Update()
+    public virtual void Update(GameTime gameTime)
     {
         if (!Initialized)
             Initialize();
