@@ -1,9 +1,11 @@
+using Microsoft.Xna.Framework;
+
 namespace TestGames.Abstract;
 
 public interface IGameObject
 {
     float Scale { get; }
     
-    void Update();
+    void Update(GameTime gameTime);
     void Draw();
 }

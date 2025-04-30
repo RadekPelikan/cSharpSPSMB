@@ -25,11 +25,11 @@ public class Sprite : GameObject
         _spriteSheet ??= Services.GetServiceOrThrow<ISpriteSheet>();
     }
 
-    public override void Update()
+    public override void Update(GameTime gameTime)
     {
-        base.Update();
+        base.Update(gameTime);
         
-        _spriteSheet.Update();
+        _spriteSheet.Update(gameTime);
     }
 
     public override void Draw()

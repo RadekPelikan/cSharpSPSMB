@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using TestGames.Abstract;
+using TestGames.Constants;
 using TestGames.Enums;
 using TestGames.Extensions;
 
@@ -28,12 +29,14 @@ public class LevelMap : GameObject
     /// </summary>
     private int[,] _map = new[,]
     {
-        { 0, 0, 0, 0, 0, 0 },
-        { 0, 1, 0, 2, 2, 0 },
-        { 0, 0, 0, 2, 2, 0 },
-        { 2, 2, 2, 2, 2, 2 },
-        { 2, 2, 2, 2, 2, 2 },
-        { 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 2, 0, 0, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+        { 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+        { 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+        { 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     };
 
     public LevelMap(GameServiceContainer services) : base(services)
@@ -49,8 +52,8 @@ public class LevelMap : GameObject
         _player ??= new Player(Services);
 
 
-        var mapWidth = _map.GetLength(0);
-        var mapHeight = _map.Length / mapWidth;
+        int mapWidth = _map.GetLength(1); // Columns (X)
+        int mapHeight = _map.GetLength(0); // Rows (Y)
         bool isPlayer = false;
         for (uint y = 0; y < mapHeight; y++)
         {
@@ -69,45 +72,99 @@ public class LevelMap : GameObject
         }
     }
 
-    public override void Update()
+    public override void Update(GameTime gameTime)
     {
-        base.Update();
+        base.Update(gameTime);
 
-        _player.Update();
+        _player.Update(gameTime);
 
+        ApplyPlayerVelocityWithCollision();
+        
         CheckPlayerOutOfBounds();
-
-        CheckPlayerGroundCollisions();
     }
 
-    private void CheckPlayerGroundCollisions()
+    private void ApplyPlayerVelocityWithCollision()
     {
-        Vector2 playerPos = _player.Pos;
-        Vector2 playerSize = Vector2.One * _spriteSheet.SpriteRenderSize; // Change if your player is larger
-        Vector2 tileSize = Vector2.One * _spriteSheet.SpriteRenderSize;
-
+        Vector2 velocity = _player.Velocity;
+        Vector2 size = Vector2.One * _spriteSheet.SpriteRenderSize;
+        Vector2 tileSize = size;
         int mapWidth = _map.GetLength(1);
         int mapHeight = _map.GetLength(0);
 
-        for (int y = 0; y < mapHeight; y++)
+        // Start with the current player position
+        Vector2 pos = _player.Pos;
+        bool isTouchingGround = false;
+
+        // --- Horizontal ---
+        if (velocity.X != 0)
         {
-            for (int x = 0; x < mapWidth; x++)
+            pos.X += velocity.X; // Move player horizontally
+
+            for (int y = 0; y < mapHeight; y++)
             {
-                if (_map[y, x] != 2) continue; // Not ground, skip
-
-                Vector2 tilePos = new Vector2(x, y) * _spriteSheet.SpriteRenderSize;
-
-                if (IsColliding(playerPos, playerSize, tilePos, tileSize))
+                for (int x = 0; x < mapWidth; x++)
                 {
-                    Vector2 pos = _player.Pos;
+                    if (_map[y, x] != 2) continue;
 
-                    ResolveCollision(ref pos, playerSize, tilePos, tileSize);
+                    Vector2 tilePos = new Vector2(x, y) * tileSize;
 
-                    _player.Pos = pos; // <- apply the updated position
+                    if (IsColliding(pos, size, tilePos, tileSize))
+                    {
+                        ResolveCollision(ref pos, size, tilePos, tileSize, Axis.X);
+                        velocity.X = 0; // Stop horizontal velocity after collision
+                    }
                 }
             }
         }
+
+        // --- Vertical ---
+        if (velocity.Y != 0)
+        {
+            pos.Y += velocity.Y; // Move player vertically
+
+            for (int y = 0; y < mapHeight; y++)
+            {
+                for (int x = 0; x < mapWidth; x++)
+                {
+                    if (_map[y, x] != 2) continue;
+
+                    Vector2 tilePos = new Vector2(x, y) * tileSize;
+
+                    if (IsColliding(pos, size, tilePos, tileSize))
+                    {
+                        ResolveCollision(ref pos, size, tilePos, tileSize, Axis.Y);
+                        if (velocity.Y >
+                            0) // If the player was falling (positive velocity), stop vertical movement and mark as touching the ground
+                        {
+                            isTouchingGround = true;
+                            velocity.Y = 0; // Stop downward velocity on collision with ground
+                            _player.State &= ~EntityState.Falling; // Clear falling state
+                        }
+                        else if (velocity.Y < 0) // If the player was moving upwards (jumping), stop upwards movement
+                        {
+                            velocity.Y = 0; // Stop upward velocity
+                        }
+                    }
+                }
+            }
+        }
+
+        // Apply final corrected position and velocity
+        _player.Pos = pos;
+        _player.Velocity = velocity;
+
+        // If the player is touching the ground and not jumping, ensure they can jump again
+        if (isTouchingGround)
+        {
+            Console.WriteLine("NOT FALLING");
+            _player.State &= ~EntityState.Falling; // Ensure they are not in the falling state if grounded
+        }
+        else if (!_player.State.HasFlag(EntityState.Falling)) // If not touching the ground and not already falling
+        {
+            _player.State |= EntityState.Falling; // Set falling state
+        }
     }
+    
 
     private bool IsColliding(Vector2 aPos, Vector2 aSize, Vector2 bPos, Vector2 bSize)
     {
@@ -117,7 +174,8 @@ public class LevelMap : GameObject
                aPos.Y + aSize.Y > bPos.Y;
     }
 
-    private void ResolveCollision(ref Vector2 playerPos, Vector2 playerSize, Vector2 tilePos, Vector2 tileSize)
+    private void ResolveCollision(ref Vector2 playerPos, Vector2 playerSize, Vector2 tilePos, Vector2 tileSize,
+        Axis axis)
     {
         float px = playerPos.X;
         float py = playerPos.Y;
@@ -129,25 +187,30 @@ public class LevelMap : GameObject
         float overlapY = MathF.Min(py + playerSize.Y, ty + tileSize.Y) - MathF.Max(py, ty);
 
         if (overlapX <= 0 || overlapY <= 0)
-            return; // No actual overlap, just in case
+            return;
 
-        // Push out along the axis of least overlap
-        if (overlapX < overlapY)
+        switch (axis)
         {
-            if (px < tx)
-                playerPos.X -= overlapX; // Push left
-            else
-                playerPos.X += overlapX; // Push right
-        }
-        else
-        {
-            if (py < ty)
-            {
-                _player.State &= ~EntityState.Falling;
-                playerPos.Y -= overlapY; // Push up
-            }
-            else
-                playerPos.Y += overlapY; // Push down
+            case Axis.X:
+                if (px < tx)
+                    playerPos.X -= overlapX;
+                else
+                    playerPos.X += overlapX;
+                break;
+
+            case Axis.Y:
+                if (py < ty) // Player is landing on the tile (touching from above)
+                {
+                    _player.State &= ~EntityState.Falling; // Player stops falling
+                    playerPos.Y -= overlapY; // Correct position
+                }
+                else
+                {
+                    _player.State &= ~EntityState.Falling; // Player stops falling
+                    playerPos.Y += overlapY;
+                }
+
+                break;
         }
     }
 
@@ -169,13 +232,16 @@ public class LevelMap : GameObject
         int windowHeight = _graphicsDevice.Viewport.Height;
 
 
-        _player.State |= EntityState.Falling;
+        // _player.State |= EntityState.Falling;
         if (_player.Pos.X < 0)
             _player.Pos = _player.Pos with { X = 0 };
         if (_player.Pos.X + _spriteSheet.SpriteRenderSize > windowWidth)
             _player.Pos = _player.Pos with { X = windowWidth - _spriteSheet.SpriteRenderSize };
         if (_player.Pos.Y < 0)
+        {
+            _player.Velocity = _player.Velocity with { Y = 0 };
             _player.Pos = _player.Pos with { Y = 0 };
+        }
         if (_player.Pos.Y + _spriteSheet.SpriteRenderSize > windowHeight)
         {
             _player.State &= ~EntityState.Falling;
@@ -189,8 +255,8 @@ public class LevelMap : GameObject
     {
         _player.Draw();
 
-        var mapWidth = _map.GetLength(0);
-        var mapHeight = _map.Length / mapWidth;
+        int mapWidth = _map.GetLength(1); // Columns (X)
+        int mapHeight = _map.GetLength(0); // Rows (Y)
         for (uint y = 0; y < mapHeight; y++)
         {
             for (uint x = 0; x < mapWidth; x++)
@@ -216,8 +282,8 @@ public class LevelMap : GameObject
 
     private Vector2 GetGround(uint x, uint y)
     {
-        int mapWidth = _map.GetLength(1);
-        int mapHeight = _map.Length / mapWidth;
+        int mapWidth = _map.GetLength(1); // Columns (X)
+        int mapHeight = _map.GetLength(0); // Rows (Y)
 
         bool IsGround(int tx, int ty)
         {

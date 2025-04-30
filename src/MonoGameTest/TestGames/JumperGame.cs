@@ -54,7 +54,7 @@ public class JumperGame : Game
 
         // TODO: Add your update logic here
 
-        _levelMap.Update();
+        _levelMap.Update(gameTime);
         
         base.Update(gameTime);
     }
@@ -65,44 +65,6 @@ public class JumperGame : Game
 
         // TODO: Add your drawing code here
         _levelMap.Draw();
-
-        // var platformPos = new Vector2(100, 100);
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileLeftTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileLeftBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileMidBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileRightTop);
-        // platformPos.Y -= -8 * 4;
-        // _spriteSheet.DrawSprite(platformPos, SpritePos.TileRightBottom);
-        // platformPos.Y += -8 * 4;
-        // platformPos.X += 8 * 4;
-
         base.Draw(gameTime);
     }
 }
