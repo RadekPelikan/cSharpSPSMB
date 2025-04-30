@@ -4,6 +4,7 @@
 
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
+using ThreadingLesson;
 
 void ProcessImage()
 {
@@ -18,5 +19,5 @@ void ProcessImage()
     }
 }
 
-ProcessImage();
+await ImageProcessingDone.Run();
 
