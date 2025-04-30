@@ -19,5 +19,5 @@ void ProcessImage()
     }
 }
 
-await ImageProcessingDone.Run();
+await ImageProcessingDone.RunSameImage();
 
