@@ -1,0 +1,18 @@
+﻿@model NewBlogViewModel
+@{
+    ViewData["Title"] = "New Blog";
+}
+
+<form action="/blogs/new" method="post">
+    <fieldset>
+        <div>
+            <label for="new--blog--title">Title</label>
+            <input id="new--blog--title" name="Title" value="@Model.Title" placeholder="Enter title..." />
+        </div>
+        <div>
+            <label for="new--blog--body">Body</label>
+            <textarea id="new--blog--body" name="Body" rows="4" cols="50" placeholder="Enter some text...">@Model.Body</textarea>
+        </div>
+    </fieldset>
+    <button type="submit">Send</button>
+</form>

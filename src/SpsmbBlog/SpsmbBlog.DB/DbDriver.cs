@@ -24,7 +24,7 @@ public class DbDriver
         return new MySqlConnection(connectionString);
     }
 
-    public bool OpenConnection()
+    public bool CanConnect()
     {
         try
         {

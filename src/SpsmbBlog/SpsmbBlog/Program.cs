@@ -11,12 +11,17 @@ builder.Services.AddControllersWithViews();
 // builder.Services.AddSingleton(); // Vytváří instanci pouze jednou na začátku procesu
 // builder.Services.AddScoped();    // Vytváří instanci pro každý jeden request nebo jiný definovaný scope
 
-builder.Services.AddSingleton<BlogRepository>(provider =>
+DbDriver dbDriver;
+while (true)
 {
     var password = Helpers.ReadSecret("Enter db password: ");
-    var dbDriver = new DbDriver(password);
-    return new BlogRepository(dbDriver);
-});
+    dbDriver = new DbDriver(password);
+    if (dbDriver.CanConnect())
+        break;
+    Console.WriteLine("Password is incorrect. Please try again.");
+}
+Console.WriteLine("Logged into database successfully.");
+builder.Services.AddSingleton<BlogRepository>(provider => new BlogRepository(dbDriver));
 
 var app = builder.Build();
 
