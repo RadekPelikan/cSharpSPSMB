@@ -23,5 +23,18 @@ public class DbDriver
     {
         return new MySqlConnection(connectionString);
     }
+
+    public bool OpenConnection()
+    {
+        try
+        {
+            GetConnection().Open();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
     
 }
