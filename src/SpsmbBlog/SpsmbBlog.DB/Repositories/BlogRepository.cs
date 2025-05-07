@@ -29,12 +29,50 @@ public class BlogRepository
 
     public List<BlogPost> GetAll()
     {
-        throw new NotImplementedException();
+        List<BlogPost> blogPosts = new List<BlogPost>();
+        using (MySqlConnection connection = _dbDriver.GetConnection())
+        {
+            connection.Open();
+            string query = "SELECT * FROM blog_post";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            var reader = command.ExecuteReader();
+            
+            while (reader.Read())
+            {
+                var blogPost = new BlogPost();
+                blogPost.Id = reader.GetGuid(0);
+                blogPost.Title = reader.GetString(1);
+                blogPost.Body = reader.GetString(2);
+                blogPost.DateCreated = reader.GetDateTime(3);
+                blogPost.DateModified = reader.GetDateTime(4);
+                blogPosts.Add(blogPost);
+            }
+        }
+
+        return blogPosts;
     }
 
     public BlogPost GetById(Guid id)
     {
-        throw new NotImplementedException();
+        BlogPost blogPost;
+        using (MySqlConnection connection = _dbDriver.GetConnection())
+        {
+            connection.Open();
+            string query = "SELECT * FROM blog_post WHERE id = @id";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            blogPost = new BlogPost()
+            {
+                Id = reader.GetGuid(0),
+                Title = reader.GetString(1),
+                Body = reader.GetString(2),
+                DateCreated = reader.GetDateTime(3),
+                DateModified = reader.GetDateTime(4),
+            };
+        }
+        return blogPost;
     }
     
     
