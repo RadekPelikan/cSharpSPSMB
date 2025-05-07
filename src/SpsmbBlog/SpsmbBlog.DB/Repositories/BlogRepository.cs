@@ -24,8 +24,6 @@ public class BlogRepository
             command.Parameters.AddWithValue("@title", blogPost.Title);
             command.Parameters.AddWithValue("@body", blogPost.Body);
             command.ExecuteNonQuery();
-            
-            connection.Close();
         }
     }
 
