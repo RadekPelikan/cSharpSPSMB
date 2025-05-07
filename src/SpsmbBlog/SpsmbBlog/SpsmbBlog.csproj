@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SpsmbBlog.DB\SpsmbBlog.DB.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@ public class DbDriver
 {
     public string ServerDomain = "vydb1.spsmb.cz";
     public string Username = "radek.pelikan";
-    public required string Password;
+    public string Password;
     public string Database => $"student_{Username}_SpsmbBlogDB";
     
     public string connectionString =>

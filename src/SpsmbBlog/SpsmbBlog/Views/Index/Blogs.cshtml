@@ -1,4 +1,15 @@
-﻿@{
+﻿@model BlogsViewModel
+@{
     ViewData["Title"] = "Blogs view";
 }
 
+<div class="blog--wrapper">
+    @foreach (var blog in Model.BlogPosts)
+    {
+        <div class="blog--post">
+            <p class="blog--id">@blog.Id</p>
+            <p class="blog--title">@blog.Title</p>
+            <p class="blog--body">@blog.Body</p>
+        </div>
+    }
+</div>

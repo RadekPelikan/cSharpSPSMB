@@ -40,7 +40,7 @@ public class BlogRepository
             while (reader.Read())
             {
                 var blogPost = new BlogPost();
-                blogPost.Id = reader.GetGuid(0);
+                blogPost.Id = Guid.Parse(reader.GetString(0));
                 blogPost.Title = reader.GetString(1);
                 blogPost.Body = reader.GetString(2);
                 blogPost.DateCreated = reader.GetDateTime(3);
@@ -48,7 +48,7 @@ public class BlogRepository
                 blogPosts.Add(blogPost);
             }
         }
-
+        
         return blogPosts;
     }
 

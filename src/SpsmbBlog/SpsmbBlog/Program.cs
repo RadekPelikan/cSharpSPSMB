@@ -1,7 +1,22 @@
+using SpsmbBlog;
+using SpsmbBlog.DB;
+using SpsmbBlog.DB.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// builder.Services.AddTransient(); // Vytváří instanci pro každou získanou službu
+// builder.Services.AddSingleton(); // Vytváří instanci pouze jednou na začátku procesu
+// builder.Services.AddScoped();    // Vytváří instanci pro každý jeden request nebo jiný definovaný scope
+
+builder.Services.AddSingleton<BlogRepository>(provider =>
+{
+    var password = Helpers.ReadSecret("Enter db password: ");
+    var dbDriver = new DbDriver(password);
+    return new BlogRepository(dbDriver);
+});
 
 var app = builder.Build();
 
