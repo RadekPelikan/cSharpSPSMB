@@ -13,23 +13,23 @@ public class BlogRepository
         _dbDriver = dbDriver;
     }
 
-    public void Create(BlogPost blogPost)
+    public void Create(BlogPostEntity blogPostEntity)
     {
         using (MySqlConnection connection = _dbDriver.GetConnection())
         {
             connection.Open();
             string query = "INSERT INTO blog_post (id, title, body) VALUES (@id, @title, @body);";
             MySqlCommand command = new MySqlCommand(query, connection);
-            command.Parameters.AddWithValue("@id", blogPost.Id);
-            command.Parameters.AddWithValue("@title", blogPost.Title);
-            command.Parameters.AddWithValue("@body", blogPost.Body);
+            command.Parameters.AddWithValue("@id", blogPostEntity.Id);
+            command.Parameters.AddWithValue("@title", blogPostEntity.Title);
+            command.Parameters.AddWithValue("@body", blogPostEntity.Body);
             command.ExecuteNonQuery();
         }
     }
 
-    public List<BlogPost> GetAll()
+    public List<BlogPostEntity> GetAll()
     {
-        List<BlogPost> blogPosts = new List<BlogPost>();
+        List<BlogPostEntity> blogPosts = new List<BlogPostEntity>();
         using (MySqlConnection connection = _dbDriver.GetConnection())
         {
             connection.Open();
@@ -39,7 +39,7 @@ public class BlogRepository
             
             while (reader.Read())
             {
-                var blogPost = new BlogPost();
+                var blogPost = new BlogPostEntity();
                 blogPost.Id = Guid.Parse(reader.GetString(0));
                 blogPost.Title = reader.GetString(1);
                 blogPost.Body = reader.GetString(2);
@@ -52,9 +52,9 @@ public class BlogRepository
         return blogPosts;
     }
 
-    public BlogPost GetById(Guid id)
+    public BlogPostEntity GetById(Guid id)
     {
-        BlogPost blogPost;
+        BlogPostEntity blogPostEntity;
         using (MySqlConnection connection = _dbDriver.GetConnection())
         {
             connection.Open();
@@ -63,7 +63,7 @@ public class BlogRepository
             command.Parameters.AddWithValue("@id", id);
             var reader = command.ExecuteReader();
             reader.Read();
-            blogPost = new BlogPost()
+            blogPostEntity = new BlogPostEntity()
             {
                 Id = reader.GetGuid(0),
                 Title = reader.GetString(1),
@@ -72,7 +72,7 @@ public class BlogRepository
                 DateModified = reader.GetDateTime(4),
             };
         }
-        return blogPost;
+        return blogPostEntity;
     }
     
     

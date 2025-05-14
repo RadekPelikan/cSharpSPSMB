@@ -5,7 +5,8 @@ using SpsmbBlog.DB.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
 
 // builder.Services.AddTransient(); // Vytváří instanci pro každou získanou službu
 // builder.Services.AddSingleton(); // Vytváří instanci pouze jednou na začátku procesu
@@ -22,6 +23,7 @@ while (true)
 }
 Console.WriteLine("Logged into database successfully.");
 builder.Services.AddSingleton<BlogRepository>(provider => new BlogRepository(dbDriver));
+
 
 var app = builder.Build();
 

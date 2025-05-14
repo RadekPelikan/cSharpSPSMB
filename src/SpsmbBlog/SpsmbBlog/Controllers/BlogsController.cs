@@ -8,6 +8,7 @@ namespace SpsmbBlog.Controllers;
 
 public class BlogsController : Controller
 {
+    private const int SummaryWordCount = 20;
     private readonly ILogger<IndexController> _logger;
     private readonly BlogRepository _blogRepository;
 
@@ -21,15 +22,43 @@ public class BlogsController : Controller
     {
         var blogPosts = _blogRepository.GetAll();
 
-        return View(new BlogsViewModel()
+        BlogSummaryListViewModel model = new BlogSummaryListViewModel
         {
-            BlogPosts = blogPosts
-        });
+            BlogPosts = blogPosts.Select<BlogPostEntity, BlogSummaryViewModel>(blogPost =>
+                new BlogSummaryViewModel()
+                {
+                    Id = blogPost.Id,
+                    Title = blogPost.Title,
+                    Body = $"{StripBody(blogPost.Body)}...",
+                })
+        };
+        return View(model);
     }
+
+    private string StripBody(string body) =>
+        string.Join(" ", body.Split("\n").First().Trim().Split(" ").Take(SummaryWordCount));
 
     public IActionResult New()
     {
         return View(new NewBlogViewModel());
+    }
+
+
+    [HttpGet("blogs/{id:guid}")]
+    public IActionResult Detail(Guid id)
+    {
+        _logger.LogInformation($"Blog Id: {id}");
+
+        var blogPost = _blogRepository.GetById(id);
+        
+        return View(new BlogDetailViewModel
+        {
+            Id = blogPost.Id,
+            Title = blogPost.Title,
+            Body = blogPost.Body,
+            DateCreated = blogPost.DateCreated,
+            DateModified = blogPost.DateModified,
+        });
     }
 
     [HttpPost("/blogs/new")]
@@ -39,17 +68,26 @@ public class BlogsController : Controller
             return BadRequest();
         if (string.IsNullOrEmpty(newBlog.Body))
             return BadRequest();
-        
-        _blogRepository.Create(new BlogPost()
+
+        _blogRepository.Create(new BlogPostEntity()
         {
             Title = newBlog.Title,
             Body = newBlog.Body,
         });
-        
+
         return RedirectToAction("Index", "Blogs");
     }
 
-[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+    [HttpPost, ActionName("Delete")]
+    public IActionResult Delete(Guid id)
+    {
+        Console.WriteLine($"Deleting blog with id: {id}");
+
+        return RedirectToAction("Index", "Blogs");
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
