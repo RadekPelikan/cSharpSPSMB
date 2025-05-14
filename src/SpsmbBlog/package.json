@@ -1,0 +1,16 @@
+{
+  "name": "spsmbblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css:watch": "npx tailwindcss -i ./Frontend/css/style.css -o ./SpsmbBlog/wwwroot/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

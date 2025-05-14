@@ -6,7 +6,7 @@
 <div class="blog--wrapper">
     @foreach (var blog in Model.BlogPosts)
     {
-        <div class="blog--post">
+        <div class="blog--post bg-teal-400">
             <form action="/blogs/delete/@blog.Id" method="post">
                 <button type="submit">Delete</button>
                 
@@ -17,3 +17,4 @@
         </div>
     }
 </div>
+`
