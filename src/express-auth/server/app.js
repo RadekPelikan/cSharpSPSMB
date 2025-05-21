@@ -9,6 +9,7 @@ const hash = require('pbkdf2-password')()
 const path = require('node:path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
+const cors = require("cors")
 
 const app = module.exports = express();
 
