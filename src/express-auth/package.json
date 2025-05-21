@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/passport/todos-express-starter#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
