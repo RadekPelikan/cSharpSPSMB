@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title><%= title %></title>
-    <style>
-      body {
-        padding: 50px;
-        font: 13px Helvetica, Arial, sans-serif;
-      }
-      .error {
-          color: red;
-      }
-      .success {
-          color: green;
-      }
-    </style>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <%= title %>
+  </title>
+  <style>
+    body {
+      padding: 50px;
+      font: 13px Helvetica, Arial, sans-serif;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: space-between;
+      max-width: 50vw;
+      margin-inline: auto;
+    }
+
+    header nav li {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li> <a href="/login">login</a>
+        </li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/restricted">Restricted</a></li>
+      </ul>
+    </nav>
+  </header>

@@ -102,6 +102,10 @@ app.get('/login', function(req, res){
   res.render('login');
 });
 
+app.get("/register", (req, res) => {
+  res.render("register")
+})
+
 app.post('/login', function (req, res, next) {
   if (!req.body) return res.sendStatus(400)
   authenticate(req.body.username, req.body.password, function(err, user){
