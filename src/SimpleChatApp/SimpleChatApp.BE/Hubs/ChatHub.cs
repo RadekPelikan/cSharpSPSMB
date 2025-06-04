@@ -1,21 +1,30 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 namespace SimpleChatApp.BE.Hubs;
 
 public class ChatHub : Hub
 {
-    public override Task OnConnectedAsync()
+    private ChatMessageRepository _chatMessageRepository;
+
+    public ChatHub()
     {
-        base.OnConnectedAsync();
-        Console.WriteLine(Clients.Client(Context.ConnectionId));
-        return Task.CompletedTask;
+        _chatMessageRepository = new ChatMessageRepository();
     }
 
-    public void SendMessage(string message)
+
+    public void Connect(Guid connectionId)
+    {
+        Console.WriteLine($"User connected to chat hub {connectionId}");
+        var messages = _chatMessageRepository.GetAll();
+        Clients.Caller.SendAsync("LoadMessages", messages);
+    }
+    
+    public void SendMessage(ChatMessage message)
     {
         // Call the broadcastMessage method to update clients.
         // Clients.All.broadcastMessage(name, message);
-        Console.WriteLine($"Sending message: {message}");
+        _chatMessageRepository.Insert(message);
         Clients.All.SendAsync("ReceiveMessage", message);
     }
     

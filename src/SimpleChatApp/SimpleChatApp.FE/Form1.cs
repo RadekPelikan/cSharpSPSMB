@@ -13,6 +13,7 @@ public partial class Form1 : Form
         try
         {
             connection.StartAsync().Wait();
+            _connection.SendAsync("Connect", Guid.NewGuid());
             Console.WriteLine("Connection started");
         }
         catch (Exception ex)
@@ -20,16 +21,39 @@ public partial class Form1 : Form
             Console.WriteLine(ex.Message);
         }
         
-        connection.On<string>("ReceiveMessage", (message) =>
+        connection.On<ChatMessage>("ReceiveMessage", (message) =>
         {
-            var listViewItem = new ListViewItem(message);
+            var listViewItem = new ListViewItem(message.Sender);
+            listViewItem.SubItems.Add(message.Message);
             ChatListView.Items.Add(listViewItem);
+        });
+        
+        connection.On<List<ChatMessage>>("LoadMessages", (messages) =>
+        {
+            foreach (var message in messages)
+            {
+                var listViewItem = new ListViewItem(message.Sender);
+                listViewItem.SubItems.Add(message.Message);
+                ChatListView.Items.Add(listViewItem);
+            }
+            
         });
         InitializeComponent();
     }
     
     private void SendButton_Click(object sender, EventArgs e)
     {
-        _connection.SendAsync("SendMessage", InputTextBox.Text);
+        if (string.IsNullOrWhiteSpace(SenderTextBox.Text) || string.IsNullOrWhiteSpace(MessageTextBox.Text))
+            return;
+        _connection.SendAsync("SendMessage", new ChatMessage(SenderTextBox.Text, MessageTextBox.Text));
+        MessageTextBox.Text = "";
     }
 }
+
+public record ChatMessage(string Sender, string Message)
+{
+    public override string ToString()
+    {
+        return $"{Sender}: {Message}";
+    }
+};
