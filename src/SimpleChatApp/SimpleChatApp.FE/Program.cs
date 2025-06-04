@@ -14,7 +14,7 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
         var connection = new HubConnectionBuilder()
-            .WithUrl("http://localhost:5190/chat")
+            .WithUrl("http://192.168.5.5:5190/chat")
             .Build();
         
         Application.Run(new Form1(connection));

@@ -9,10 +9,30 @@ public partial class Form1 : Form
 
     public Form1(HubConnection connection)
     {
+        InitializeComponent();
         _connection = connection;
         try
         {
-            connection.StartAsync().Wait();
+            _connection.StartAsync().Wait();
+            
+            _connection.On<ChatMessage>("ReceiveMessage", (message) =>
+            {
+                var listViewItem = new ListViewItem(message.Sender);
+                listViewItem.SubItems.Add(message.Message);
+                ChatListView.Items.Add(listViewItem);
+            });
+        
+            _connection.On<List<ChatMessage>>("LoadMessages", (messages) =>
+            {
+                foreach (var message in messages)
+                {
+                    var listViewItem = new ListViewItem(message.Sender);
+                    listViewItem.SubItems.Add(message.Message);
+                    ChatListView.Items.Add(listViewItem);
+                }
+            
+            });
+            
             _connection.SendAsync("Connect", Guid.NewGuid());
             Console.WriteLine("Connection started");
         }
@@ -21,24 +41,6 @@ public partial class Form1 : Form
             Console.WriteLine(ex.Message);
         }
         
-        connection.On<ChatMessage>("ReceiveMessage", (message) =>
-        {
-            var listViewItem = new ListViewItem(message.Sender);
-            listViewItem.SubItems.Add(message.Message);
-            ChatListView.Items.Add(listViewItem);
-        });
-        
-        connection.On<List<ChatMessage>>("LoadMessages", (messages) =>
-        {
-            foreach (var message in messages)
-            {
-                var listViewItem = new ListViewItem(message.Sender);
-                listViewItem.SubItems.Add(message.Message);
-                ChatListView.Items.Add(listViewItem);
-            }
-            
-        });
-        InitializeComponent();
     }
     
     private void SendButton_Click(object sender, EventArgs e)

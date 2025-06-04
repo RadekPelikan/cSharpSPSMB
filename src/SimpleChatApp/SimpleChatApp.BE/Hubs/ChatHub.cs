@@ -22,6 +22,7 @@ public class ChatHub : Hub
     
     public void SendMessage(ChatMessage message)
     {
+        Console.WriteLine($"Messge: {message}");
         // Call the broadcastMessage method to update clients.
         // Clients.All.broadcastMessage(name, message);
         _chatMessageRepository.Insert(message);
