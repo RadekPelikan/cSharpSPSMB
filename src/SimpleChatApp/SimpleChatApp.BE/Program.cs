@@ -12,6 +12,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ReactApp", policy =>
     {
         policy
+            .WithOrigins("http://192.168.5.5:5190")
             .WithOrigins("http://192.168.5.5")
             .WithOrigins("http://localhost:8080")
             .AllowAnyHeader()
