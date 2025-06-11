@@ -35,11 +35,11 @@ function App() {
     <>
       <div className='mx-auto container min-h-screen flex flex-col'>
 
-        <div ref={scrollable} className='grow-0 max-h-[45rem] overflow-scroll'>
+        <div ref={scrollable} className='grow-0 max-h-[45rem] overflow-y-scroll'>
 
           {messages.map((msg, i) => (
-            <div class="marked flex" key={i}>
-              <div>{msg.sender} [{new Date(msg.createdAt).toLocaleDateString()}]</div><div dangerouslySetInnerHTML={{__html:marked.parse(msg.message)}}></div>
+            <div className="marked flex gap-4 bg-amber-50 hover:brightness-95" key={i}>
+              <div className="shrink-0">{msg.sender?.length == 0 ? "None" : msg.sender} [{new Date(msg.createdAt).toLocaleTimeString()}]</div><div dangerouslySetInnerHTML={{__html:marked.parse(msg.message)}}></div>
             </div>
           ))}
         

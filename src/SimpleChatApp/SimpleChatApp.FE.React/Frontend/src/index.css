@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.marked * {
+    @apply overflow-auto break-words
+}
 .marked h1 {
     @apply text-2xl
 }
+
