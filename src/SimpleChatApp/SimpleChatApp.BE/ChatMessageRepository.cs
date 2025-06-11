@@ -17,7 +17,8 @@ public class ChatMessageRepository
                 CREATE TABLE IF NOT EXISTS chatMessages (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     sender TEXT NOT NULL,
-                    message TEXT NOT NULL
+                    message TEXT NOT NULL,
+                    created_at DATETIME NOT NULL
                 )
             ";
             command.ExecuteNonQuery();
@@ -32,11 +33,12 @@ public class ChatMessageRepository
             var command = connection.CreateCommand();
             command.CommandText =
                 @"
-                    INSERT INTO chatMessages (sender, message)
-                    VALUES ($sender, $message)
+                    INSERT INTO chatMessages (sender, message, created_at)
+                    VALUES ($sender, $message, $created_at)
                 ";
             command.Parameters.AddWithValue("$sender", chatMessage.Sender);
             command.Parameters.AddWithValue("$message", chatMessage.Message);
+            command.Parameters.AddWithValue("$created_at", DateTime.UtcNow);
 
             command.ExecuteNonQuery();
         }
@@ -50,7 +52,7 @@ public class ChatMessageRepository
             var command = connection.CreateCommand();
             command.CommandText =
                 @"
-                    SELECT sender, message
+                    SELECT sender, message, created_at
                     FROM chatMessages
                 ";
             
@@ -61,7 +63,8 @@ public class ChatMessageRepository
                 {
                     var message = new ChatMessage(
                         reader.GetString(0), 
-                        reader.GetString(1));
+                        reader.GetString(1),
+                        reader.GetDateTime(2));
                     messages.Add(message);
                 }
             }
@@ -70,10 +73,10 @@ public class ChatMessageRepository
     }
 }
 
-public record ChatMessage(string Sender, string Message)
+public record ChatMessage(string Sender, string Message, DateTime createdAt)
 {
     public override string ToString()
     {
-        return $"{Sender}: {Message}";
+        return $"{Sender} [{createdAt.ToLocalTime().ToShortTimeString()}]: {Message}";
     }
 };

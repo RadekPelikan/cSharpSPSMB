@@ -10,7 +10,7 @@ function generateUuidv4() {
 
 export const useSignalR = () => {
     const _connection = new signalR.HubConnectionBuilder()
-        .withUrl("http://192.168.5.5:5190/chat", { withCredentials: true, })
+        .withUrl("http://localhost:5190/chat", { withCredentials: true, })
         .configureLogging(signalR.LogLevel.Information)
         .build();
 

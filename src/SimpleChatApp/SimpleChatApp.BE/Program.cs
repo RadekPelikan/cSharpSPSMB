@@ -11,7 +11,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy
+            .WithOrigins("http://192.168.5.5")
+            .WithOrigins("http://localhost:8080")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials(); // Required for SignalR with cookies/auth

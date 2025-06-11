@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.marked h1 {
+    @apply text-2xl
+}
