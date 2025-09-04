@@ -63,5 +63,22 @@ namespace setup
                 }
             }
         }
+
+        private static void Calculator()
+        {
+            string firstNumberText, secondNumberText, operatorText;  
+            int firstNumberParsed, secondNumberParsed;
+            
+            string line =  Console.ReadLine();
+            string[] split = line.Split(' ');
+            
+            firstNumberText = split[0];
+            operatorText = split[1];
+            secondNumberText = split[2];
+            
+            int.TryParse(firstNumberText, out int firstNumberParsed);
+            int.TryParse(secondNumberText, out int secondNumberParsed);
+            
+        }
     }
 }
