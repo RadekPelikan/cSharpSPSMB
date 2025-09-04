@@ -18,9 +18,9 @@ namespace setup
                 if (vysledek == guess)
                     Console.WriteLine("Uhodl jsi to! Správné číslo bylo:" + vysledek);
                 else if (guess > vysledek)
-                    Console.WriteLine("Číslo je větší, než číslo které se snažíś uhodnout... číslo které jsi se snažil uhodnout je: " + guess);
+                    Console.WriteLine("Tvůj tip je větší, než číslo které se snažíś uhodnout... číslo které jsi se snažil uhodnout je: " + guess);
                 else if (vysledek > guess)
-                    Console.WriteLine("Číslo je menší, než číslo které se snažíś uhodnout...číslo které jsi se snažil uhodnout je: " + guess);
+                    Console.WriteLine("Tvůj tip je menší, než číslo které se snažíś uhodnout...číslo které jsi se snažil uhodnout je: " + guess);
                 else
                     Console.WriteLine("?");
             } 

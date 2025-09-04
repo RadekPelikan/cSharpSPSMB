@@ -12,7 +12,7 @@ Jak si stáhnout repozitář a přispět změnami?
 6. Checkout na base repozitář. Příkaz: `git checkout base/main`
 7. Udělám si vlastní branch dle vlastních inciálů (Radek Pelikán - rp). Příkaz: `git checkout -b rp/<tema>` (<tema> nahradím za aktuální téma nebo projekt na kterém pracujem)
 8. Pracuji na tomto branch
-9. Mohu si poté poslat změny na svůj fork následovně. Příkaz: `git push origin BASE` (origin je vlastní - fork repozitář. BASE je aktuální branch s inciály a tématem)
+9. Mohu si poté poslat změny na svůj fork následovně. Příkaz: `git push origin HEAD` (origin je vlastní - fork repozitář. `HEAD` je aktuální branch s inciály a tématem)
 
 ## 3.AI (IT1) 2024/2025
 
