@@ -6,7 +6,6 @@ namespace setup
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
         }
     }
 }
