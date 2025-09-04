@@ -8,7 +8,7 @@ namespace Setup3
         {
              double firstNumber = double.Parse(Console.ReadLine());
              double secondNumber = double.Parse(Console.ReadLine());
-             String op = Console.ReadLine();
+             String op = Console.ReadLine().Trim();
              double vysledek = 0;
              
              switch (op)
@@ -24,7 +24,6 @@ namespace Setup3
                  case "/":
                      vysledek = firstNumber / secondNumber;
                      Console.WriteLine(firstNumber + " / " + secondNumber + " = " + vysledek);
-
                      break;
                  case "*":
                      vysledek = firstNumber * secondNumber;
