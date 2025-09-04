@@ -1,19 +1,22 @@
 using System;
 
-class Program
+namespace setup
 {
-    static void Main()
+    internal class Program
     {
-        for (int i = 1; i <= 100; i++)
+        public static void Main(string[] args)
         {
-            if (i % 15 == 0)
-                Console.WriteLine("FizzBuzz");
-            else if (i % 3 == 0)
-                Console.WriteLine("Fizz");
-            else if (i % 5 == 0)
-                Console.WriteLine("Buzz");
-            else
-                Console.WriteLine(i);
+            for (int i = 0; i < 100; i++) 
+            {
+                if (i % 15 == 0)
+                    Console.WriteLine("FizzBuzz");
+                else if  (i % 3 == 0)
+                    Console.WriteLine("Fizz");
+                else if  (i % 5 == 0)
+                    Console.WriteLine("Buzz");
+                else
+                    Console.WriteLine(i);
+            }
         }
     }
 }
