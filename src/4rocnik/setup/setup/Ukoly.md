@@ -56,3 +56,14 @@ Validní user input:
 7  -  5.444
 ```
 
+## Otestovat Kalkulačku
+
+Udělejte unit testy pro každou operaci
+- happy case (output bude, který očekáváme). Příklad: 
+  - input: `4 + 5` 
+  - output: `4 + 5 = 9` 
+  - očekáváme: `4 + 5 = 9`
+- unhappy case (output bude, který neočekáváme). Příklad: 
+  - input: `4 + 5` 
+  - output: `4 + 5 = 9` 
+  - neočekáváme: `4 + 5 = -9`
