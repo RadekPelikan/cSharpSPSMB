@@ -18,3 +18,6 @@ Program vygeneruje náhodné číslo mezi spodní a horní hranicí
 Program zažádá o user input 
 Pokud číslo není stejné, tak program  vypíše, jestli je číslo větší nebo menší.
 Pokud je číslo stejné, tak vypíše, že správně uhádl číslo s počtem pokusů
+
+## Vytvořte kalkulačku
+
