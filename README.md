@@ -1,8 +1,22 @@
 # cSharpSPSMB learning materials 
 
-Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
+## Setup
+
+Jak si stáhnout repozitář a přispět změnami?
+
+1. Udělám si fork
+2. Udělám clone vlastního forku
+3. Otevřu terminál v tom repozitáři
+4. Spustím příkaz `git remote add base https://github.com/RadekPelikan/cSharpSPSMB.git`
+5. Fetch base repozitáře. Příkaz: `git fetch base`
+6. Checkout na base repozitář. Příkaz: `git checkout base/main`
+7. Udělám si vlastní branch dle vlastních inciálů (Radek Pelikán - rp). Příkaz: `git checkout -b rp/<tema>` (<tema> nahradím za aktuální téma nebo projekt na kterém pracujem)
+8. Pracuji na tomto branch
+9. Mohu si poté poslat změny na svůj fork následovně. Příkaz: `git push origin BASE` (origin je vlastní - fork repozitář. BASE je aktuální branch s inciály a tématem)
 
 ## 3.AI (IT1) 2024/2025
+
+Obsahuje referáty na různá témata a zdrojové kody z vyučovacích hodin
 
 ### Referáty
 
