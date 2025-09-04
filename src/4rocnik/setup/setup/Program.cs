@@ -1,13 +1,16 @@
 using System;
 
+
 namespace setup
 {
     internal class Program
     {
         public static void Main(string[] args)
         {
-            Fizzbuzz();
-            NumberGuessing();
+           // Fizzbuzz();
+           // NumberGuessing();
+           string ans = Calculator.Calculate(Console.ReadLine());
+           Console.WriteLine(ans);
         }
 
         private static void Fizzbuzz()
@@ -63,22 +66,6 @@ namespace setup
                 }
             }
         }
-
-        private static void Calculator()
-        {
-            string firstNumberText, secondNumberText, operatorText;  
-            int firstNumberParsed, secondNumberParsed;
-            
-            string line =  Console.ReadLine();
-            string[] split = line.Split(' ');
-            
-            firstNumberText = split[0];
-            operatorText = split[1];
-            secondNumberText = split[2];
-            
-            int.TryParse(firstNumberText, out int firstNumberParsed);
-            int.TryParse(secondNumberText, out int secondNumberParsed);
-            
-        }
+        
     }
 }
