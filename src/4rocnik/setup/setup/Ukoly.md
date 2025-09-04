@@ -33,11 +33,11 @@ Zažádá o new line a převede přechozí string na tyto tokeny (promněnné:
 - operator = "+"
 
 Operator bude switch statementem.
-- Pokud bude "+", čísla se sečtou
-- Pokud bude "-", čísla se odečtou
-- Pokud bude "/", čísla se vydělí
-- Pokud bude "*", čísla se vynásobí
-- Pokud bude "**", čísla se umocní
+- Pokud bude `+`, čísla se sečtou
+- Pokud bude `-`, čísla se odečtou
+- Pokud bude `/`, čísla se vydělí
+- Pokud bude `*`, čísla se vynásobí
+- Pokud bude `**`, čísla se umocní
 
 Tokeny mohou být rozděleny více mezerami a čísla musí podporovat destinnou čárku. Desetinné číslo je dané tečkou
 
