@@ -44,7 +44,7 @@ namespace setup
                 int number = Convert.ToInt32(Console.ReadLine());
                 if (number > max)
                 {
-                    pokusy++;
+                   // pokusy++;
                     Console.WriteLine("hledane cislo je mensi");
                 }
                 else if (number < min)
