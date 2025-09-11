@@ -6,8 +6,6 @@ using System.Linq;
 
 namespace Files
 {
-    // Třída Movie - reprezentuje 1 film (řádek z CSV)
-
     class Program
     {
         static void Main()
@@ -44,7 +42,7 @@ namespace Files
             }
 
             // 3) Medián roků
-            var years = movies.Select(m => m.Year).Distinct().OrderBy(y => y).ToList();
+            var years = movies.Select(m => m.Year).OrderBy(y => y).ToList();
             int medianYear = years[years.Count / 2];
             Console.WriteLine($"\n📌 Medián roků: {medianYear}");
 
@@ -70,7 +68,16 @@ namespace Files
             var lines = File.ReadAllLines(path);
             for (int i = 1; i < lines.Length; i++) // přeskočí header
             {
-                string[] parts = lines[i].Split(',');
+                var raw = lines[i];
+                if (string.IsNullOrWhiteSpace(raw)) continue;
+
+                string[] parts = raw.Split(',');
+
+                if (parts.Length < 8)
+                {
+                    Console.WriteLine($"⚠️ Chybný řádek: {raw}");
+                    continue;
+                }
 
                 try
                 {
@@ -80,17 +87,15 @@ namespace Files
                         Genre = parts[1].Trim(),
                         LeadStudio = parts[2].Trim(),
                         AudienceScore = int.Parse(parts[3].Trim()),
-                        Profitability = double.Parse(
-                            CleanNumber(parts[4]), CultureInfo.InvariantCulture),
+                        Profitability = double.Parse(CleanNumber(parts[4]), CultureInfo.InvariantCulture),
                         RottenTomatoes = int.Parse(parts[5].Trim()),
-                        WorldwideGross = double.Parse(
-                            CleanNumber(parts[6]), CultureInfo.InvariantCulture),
+                        WorldwideGross = double.Parse(CleanNumber(parts[6]), CultureInfo.InvariantCulture),
                         Year = int.Parse(parts[7].Trim())
                     });
                 }
                 catch
                 {
-                    Console.WriteLine($"⚠️ Chybný řádek: {lines[i]}");
+                    Console.WriteLine($"⚠️ Chybný řádek: {raw}");
                 }
             }
 
@@ -138,12 +143,49 @@ namespace Files
             return m;
         }
 
-        // Přidání nového filmu do CSV
+        // Přidání nového filmu do CSV (opravena nová řádka + header při vytvoření)
         static void AppendMovieToCsv(string path, Movie m)
         {
+            // Pokud soubor neexistuje, vytvoř ho s hlavičkou
+            if (!File.Exists(path))
+            {
+                using (var w = new StreamWriter(path, false))
+                {
+                    w.WriteLine("Film,Genre,Lead Studio,Audience score %,Profitability,Rotten Tomatoes %,Worldwide Gross,Year");
+                }
+            }
+
+            // Zjisti, jestli poslední znak v souboru je newline
+            bool needsNewline = false;
+            var fi = new FileInfo(path);
+            if (fi.Length > 0)
+            {
+                using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    if (fs.Length > 0)
+                    {
+                        fs.Seek(-1, SeekOrigin.End);
+                        int last = fs.ReadByte();
+                        needsNewline = last != '\n';
+                    }
+                }
+            }
+
+            // Připoj nový záznam
             using (var writer = new StreamWriter(path, true))
             {
-                writer.WriteLine($"{m.Film},{m.Genre},{m.LeadStudio},{m.AudienceScore},{m.Profitability.ToString(CultureInfo.InvariantCulture)},{m.RottenTomatoes},{m.WorldwideGross.ToString(CultureInfo.InvariantCulture)},{m.Year}");
+                if (needsNewline)
+                {
+                    writer.WriteLine();
+                }
+
+                writer.Write(
+                    $"{m.Film},{m.Genre},{m.LeadStudio},{m.AudienceScore}," +
+                    $"{m.Profitability.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{m.RottenTomatoes}," +
+                    $"{m.WorldwideGross.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{m.Year}"
+                );
             }
         }
     }
