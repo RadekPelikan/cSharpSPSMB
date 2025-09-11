@@ -12,6 +12,6 @@ Prezentace do: 18.9.2025
 - Lukáš Pavlíček: 6
 - Barbora Slavíková: 2
 - Matěj Šilhán: 7
-- Ondřej Tomšíček: 8
+- Ondřej Tomšíček: 8, 20
 - Tomáš Urban: 5
 - Štěpán Žďárský: 10
