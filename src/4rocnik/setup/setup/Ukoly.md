@@ -33,11 +33,11 @@ Zažádá o new line a převede přechozí string na tyto tokeny (promněnné:
 - operator = "+"
 
 Operator bude switch statementem.
-- Pokud bude "+", čísla se sečtou
-- Pokud bude "-", čísla se odečtou
-- Pokud bude "/", čísla se vydělí
-- Pokud bude "*", čísla se vynásobí
-- Pokud bude "**", čísla se umocní
+- Pokud bude `+`, čísla se sečtou
+- Pokud bude `-`, čísla se odečtou
+- Pokud bude `/`, čísla se vydělí
+- Pokud bude `*`, čísla se vynásobí
+- Pokud bude `**`, čísla se umocní
 
 Tokeny mohou být rozděleny více mezerami a čísla musí podporovat destinnou čárku. Desetinné číslo je dané tečkou
 
@@ -56,3 +56,14 @@ Validní user input:
 7  -  5.444
 ```
 
+## Otestovat Kalkulačku
+
+Udělejte unit testy pro každou operaci
+- happy case (output bude, který očekáváme). Příklad: 
+  - input: `4 + 5` 
+  - output: `4 + 5 = 9` 
+  - očekáváme: `4 + 5 = 9`
+- unhappy case (output bude, který neočekáváme). Příklad: 
+  - input: `4 + 5` 
+  - output: `4 + 5 = 9` 
+  - neočekáváme: `4 + 5 = -9`
