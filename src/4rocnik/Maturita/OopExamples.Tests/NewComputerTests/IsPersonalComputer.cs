@@ -10,7 +10,7 @@ public class IsPersonalComputer : NewComputerTests
     }
     
     [Fact]
-    public void IsPersonal_WithNoOwner_True()
+    public void IsPersonal_WithNoOwner_False()
     {
         Computer.ChangeOwner(null);
         
@@ -19,7 +19,7 @@ public class IsPersonalComputer : NewComputerTests
     }    
     
     [Fact]
-    public void IsPersonal_RemovedOwner_True()
+    public void IsPersonal_RemovedOwner_False()
     {
         Computer.RemoveOwner();
         
@@ -28,7 +28,7 @@ public class IsPersonalComputer : NewComputerTests
     } 
     
     [Fact]
-    public void IsPersonal_RemovedOwnerTwice_True()
+    public void IsPersonal_RemovedOwnerTwice_False()
     {
         Computer.RemoveOwner();
         Computer.RemoveOwner();
@@ -47,12 +47,12 @@ public class IsPersonalComputer : NewComputerTests
     }
     
     [Fact]
-    public void IsPersonal_WithCompany_True()
+    public void IsPersonal_WithCompany_False()
     {
         Computer.ChangeOwner(Company);
             
         Assert.NotNull(Computer.Owner);
-        Assert.True(Computer.IsPersonalPC);
+        Assert.False(Computer.IsPersonalPC);
     }
 
 }
