@@ -64,7 +64,7 @@ public class IsComputerOn
     {
         _computer.PressPowerButton();
         _computer.PressPowerButton();
-        Assert.True(_computer.IsOn);
+        Assert.False(_computer.IsOn);
     }
     
     [Fact]
