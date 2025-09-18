@@ -5,11 +5,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{FC6F269A-E7FD-4B16-AF3A-11A1957DCBDE}</ProjectGuid>
+        <ProjectGuid>{EC13D4EC-F508-4BA2-A097-FBC7FE055B34}</ProjectGuid>
         <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Setup2</RootNamespace>
-        <AssemblyName>Setup2</AssemblyName>
+        <RootNamespace>Setup3</RootNamespace>
+        <AssemblyName>Setup3</AssemblyName>
         <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

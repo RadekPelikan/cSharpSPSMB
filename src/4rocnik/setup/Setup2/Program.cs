@@ -1,18 +1,29 @@
 using System;
 
-namespace Setup2
+namespace setup
 {
     internal class Program
     {
-        static void Main()
+        public static void Main(string[] args)
         {
             Random rnd = new Random();
-            int number = rnd.Next(0, 100);
-            Console.WriteLine("Your random number is: " + number);
-            do
+            int vysledek = rnd.Next(0, 101);
+            int guess = -1;
+
+            while (guess != vysledek)
             {
-                String guess = Console.ReadLine();
-            }
+                Console.WriteLine("Uhodni číslo (1-101) : ");
+                guess = int.Parse(Console.ReadLine());
+                
+                if (vysledek == guess)
+                    Console.WriteLine("Uhodl jsi to! Správné číslo bylo:" + vysledek);
+                else if (guess > vysledek)
+                    Console.WriteLine("Tvůj tip je větší, než číslo které se snažíś uhodnout... číslo které jsi se snažil uhodnout je: " + guess);
+                else if (vysledek > guess)
+                    Console.WriteLine("Tvůj tip je menší, než číslo které se snažíś uhodnout...číslo které jsi se snažil uhodnout je: " + guess);
+                else
+                    Console.WriteLine("?");
+            } 
         }
     }
 }

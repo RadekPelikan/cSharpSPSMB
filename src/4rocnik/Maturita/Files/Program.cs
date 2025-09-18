@@ -1,59 +1,192 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 
 namespace Files
 {
-    public class Movie
-    {
-        public string Film { get; set; }
-        public string Genre { get; set; }
-        public string LeadStudio { get; set; }
-        public int AudienceScore { get; set; }
-        public double Profitability { get; set; }
-        public int RottenTomatoes { get; set; }
-        public double WorldwideGross { get; set; }
-        public int Year { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Film} ({Year}) | {Genre} | Studio: {LeadStudio} | " +
-                   $"Audience: {AudienceScore}% | RT: {RottenTomatoes}% | " +
-                   $"Profitability: {Profitability} | Gross: ${WorldwideGross}M";
-        }
-    }
-
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+            string filePath = "movies.csv";
 
-            List<Movie> movies = new List<Movie>
+            // 1) Načtení filmů
+            List<Movie> movies = LoadMovies(filePath);
+
+            if (movies.Count == 0)
             {
-                new Movie { Film="Zack and Miri Make a Porno", Genre="Romance", LeadStudio="The Weinstein Company", AudienceScore=70, Profitability=1.747541667, RottenTomatoes=64, WorldwideGross=41.94, Year=2008 },
-                new Movie { Film="Youth in Revolt", Genre="Comedy", LeadStudio="The Weinstein Company", AudienceScore=52, Profitability=1.09, RottenTomatoes=68, WorldwideGross=19.62, Year=2010 },
-                new Movie { Film="You Will Meet a Tall Dark Stranger", Genre="Comedy", LeadStudio="Independent", AudienceScore=35, Profitability=1.211818182, RottenTomatoes=43, WorldwideGross=26.66, Year=2010 },
-                new Movie { Film="When in Rome", Genre="Comedy", LeadStudio="Disney", AudienceScore=44, Profitability=0, RottenTomatoes=15, WorldwideGross=43.04, Year=2010 },
-                new Movie { Film="What Happens in Vegas", Genre="Comedy", LeadStudio="Fox", AudienceScore=72, Profitability=6.267647029, RottenTomatoes=28, WorldwideGross=219.37, Year=2008 },
-                new Movie { Film="WALL-E", Genre="Animation", LeadStudio="Disney", AudienceScore=89, Profitability=2.896019067, RottenTomatoes=96, WorldwideGross=521.28, Year=2008 },
-                new Movie { Film="Twilight", Genre="Romance", LeadStudio="Summit", AudienceScore=82, Profitability=10.18002703, RottenTomatoes=49, WorldwideGross=376.66, Year=2008 },
-                new Movie { Film="The Proposal", Genre="Comedy", LeadStudio="Disney", AudienceScore=74, Profitability=7.8675, RottenTomatoes=43, WorldwideGross=314.70, Year=2009 },
-                new Movie { Film="Tangled", Genre="Animation", LeadStudio="Disney", AudienceScore=88, Profitability=1.365692308, RottenTomatoes=89, WorldwideGross=355.01, Year=2010 },
-                new Movie { Film="The Twilight Saga: New Moon", Genre="Drama", LeadStudio="Summit", AudienceScore=78, Profitability=14.1964, RottenTomatoes=27, WorldwideGross=709.82, Year=2009 },
-            };
+                Console.WriteLine("Soubor je prázdný nebo neexistuje.");
+                return;
+            }
 
-            Console.WriteLine("=== All Movies ===");
-            movies.ForEach(m => Console.WriteLine(m));
+            // 2) Výpočty podle roků
+            var groupedByYear = movies.GroupBy(m => m.Year);
 
-            Console.WriteLine("\n=== Top 5 by Audience Score ===");
-            var topAudience = movies.OrderByDescending(m => m.AudienceScore).Take(5);
-            foreach (var m in topAudience) Console.WriteLine(m);
+            foreach (var group in groupedByYear)
+            {
+                Console.WriteLine($"\n📅 Rok {group.Key}");
 
-            Console.WriteLine("\n=== Average Rotten Tomatoes Score ===");
-            double avgRt = movies.Average(m => m.RottenTomatoes);
-            Console.WriteLine($"Average RT Score: {avgRt:F2}%");
+                var worstRated = group.OrderBy(m => m.RottenTomatoes).First();
+                var bestRated = group.OrderByDescending(m => m.RottenTomatoes).First();
+                var mostProfitable = group.OrderByDescending(m => m.Profitability).First();
+                var leastProfitable = group.OrderBy(m => m.Profitability).First();
+                double avgGross = group.Average(m => m.WorldwideGross);
+
+                Console.WriteLine($"  ❌ Nejhorší hodnocení: {worstRated.Film} ({worstRated.RottenTomatoes}%)");
+                Console.WriteLine($"  ✅ Nejlepší hodnocení: {bestRated.Film} ({bestRated.RottenTomatoes}%)");
+                Console.WriteLine($"  💰 Nejvýdělečnější: {mostProfitable.Film} (Profit: {mostProfitable.Profitability})");
+                Console.WriteLine($"  📉 Nejméně výdělečný: {leastProfitable.Film} (Profit: {leastProfitable.Profitability})");
+                Console.WriteLine($"  📊 Průměrný Worldwide Gross: {avgGross:F2}");
+            }
+
+            // 3) Medián roků
+            var years = movies.Select(m => m.Year).OrderBy(y => y).ToList();
+            int medianYear = years[years.Count / 2];
+            Console.WriteLine($"\n📌 Medián roků: {medianYear}");
+
+            // 4) Přidání nového filmu
+            Console.WriteLine("\nChcete přidat nový film? (a/n)");
+            string volba = Console.ReadLine()?.ToLower();
+
+            if (volba == "a")
+            {
+                Movie newMovie = CreateMovieFromInput();
+                AppendMovieToCsv(filePath, newMovie);
+                Console.WriteLine("✅ Nový film byl přidán do CSV.");
+            }
+        }
+
+        // Načtení CSV souboru
+        static List<Movie> LoadMovies(string path)
+        {
+            var movies = new List<Movie>();
+
+            if (!File.Exists(path)) return movies;
+
+            var lines = File.ReadAllLines(path);
+            for (int i = 1; i < lines.Length; i++) // přeskočí header
+            {
+                var raw = lines[i];
+                if (string.IsNullOrWhiteSpace(raw)) continue;
+
+                string[] parts = raw.Split(',');
+
+                if (parts.Length < 8)
+                {
+                    Console.WriteLine($"⚠️ Chybný řádek: {raw}");
+                    continue;
+                }
+
+                try
+                {
+                    movies.Add(new Movie
+                    {
+                        Film = parts[0].Trim(),
+                        Genre = parts[1].Trim(),
+                        LeadStudio = parts[2].Trim(),
+                        AudienceScore = int.Parse(parts[3].Trim()),
+                        Profitability = double.Parse(CleanNumber(parts[4]), CultureInfo.InvariantCulture),
+                        RottenTomatoes = int.Parse(parts[5].Trim()),
+                        WorldwideGross = double.Parse(CleanNumber(parts[6]), CultureInfo.InvariantCulture),
+                        Year = int.Parse(parts[7].Trim())
+                    });
+                }
+                catch
+                {
+                    Console.WriteLine($"⚠️ Chybný řádek: {raw}");
+                }
+            }
+
+            return movies;
+        }
+
+        // Vyčištění číselných hodnot (odstraní $, čárky, mezery)
+        static string CleanNumber(string input)
+        {
+            return input.Trim()
+                        .Replace("$", "")
+                        .Replace(",", "")
+                        .Replace(" ", "");
+        }
+
+        // Vytvoření filmu z inputu uživatele
+        static Movie CreateMovieFromInput()
+        {
+            Movie m = new Movie();
+
+            Console.Write("Film: ");
+            m.Film = Console.ReadLine();
+
+            Console.Write("Genre: ");
+            m.Genre = Console.ReadLine();
+
+            Console.Write("Lead Studio: ");
+            m.LeadStudio = Console.ReadLine();
+
+            Console.Write("Audience score %: ");
+            m.AudienceScore = int.Parse(Console.ReadLine());
+
+            Console.Write("Profitability: ");
+            m.Profitability = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Rotten Tomatoes %: ");
+            m.RottenTomatoes = int.Parse(Console.ReadLine());
+
+            Console.Write("Worldwide Gross: ");
+            m.WorldwideGross = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Year: ");
+            m.Year = int.Parse(Console.ReadLine());
+
+            return m;
+        }
+
+        // Přidání nového filmu do CSV (opravena nová řádka + header při vytvoření)
+        static void AppendMovieToCsv(string path, Movie m)
+        {
+            // Pokud soubor neexistuje, vytvoř ho s hlavičkou
+            if (!File.Exists(path))
+            {
+                using (var w = new StreamWriter(path, false))
+                {
+                    w.WriteLine("Film,Genre,Lead Studio,Audience score %,Profitability,Rotten Tomatoes %,Worldwide Gross,Year");
+                }
+            }
+
+            // Zjisti, jestli poslední znak v souboru je newline
+            bool needsNewline = false;
+            var fi = new FileInfo(path);
+            if (fi.Length > 0)
+            {
+                using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    if (fs.Length > 0)
+                    {
+                        fs.Seek(-1, SeekOrigin.End);
+                        int last = fs.ReadByte();
+                        needsNewline = last != '\n';
+                    }
+                }
+            }
+
+            // Připoj nový záznam
+            using (var writer = new StreamWriter(path, true))
+            {
+                if (needsNewline)
+                {
+                    writer.WriteLine();
+                }
+
+                writer.Write(
+                    $"{m.Film},{m.Genre},{m.LeadStudio},{m.AudienceScore}," +
+                    $"{m.Profitability.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{m.RottenTomatoes}," +
+                    $"{m.WorldwideGross.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{m.Year}"
+                );
+            }
         }
     }
 }
