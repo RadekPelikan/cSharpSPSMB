@@ -10,7 +10,7 @@ public class IsCompanyPC : NewComputerTests
     }
     
     [Fact]
-    public void IsCompany_WithNoOwner_True()
+    public void IsCompany_WithNoOwner_False()
     {
         Computer.ChangeOwner(null);
         
@@ -19,7 +19,7 @@ public class IsCompanyPC : NewComputerTests
     }    
     
     [Fact]
-    public void IsCompany_RemovedOwner_True()
+    public void IsCompany_RemovedOwner_False()
     {
         Computer.RemoveOwner();
         
@@ -28,7 +28,7 @@ public class IsCompanyPC : NewComputerTests
     } 
     
     [Fact]
-    public void IsCompany_RemovedOwnerTwice_True()
+    public void IsCompany_RemovedOwnerTwice_False()
     {
         Computer.RemoveOwner();
         Computer.RemoveOwner();
