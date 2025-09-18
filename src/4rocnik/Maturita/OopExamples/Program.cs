@@ -1,3 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        IComputerBuilder builder = new ComputerBuilder();
+        IComputer myPC = builder.Build();
 
-Console.WriteLine("Hello, World!");
+        Console.WriteLine(myPC);
+    }
+}
