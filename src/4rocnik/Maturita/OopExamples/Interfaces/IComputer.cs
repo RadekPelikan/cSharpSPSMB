@@ -9,6 +9,7 @@ public interface IComputer
     IRAM Ram { get; init; }
     IPowerSupply PowerSupply { get; init; }
     ICase Case { get; init; }
+    IMonitor[] Monitors { get; init; }
     
     bool IsOn { get; }
     bool IsPersonalPC { get; }

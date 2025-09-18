@@ -1,6 +1,6 @@
 ﻿namespace OopExamples.Interfaces;
 
-public interface ICase
+public interface ICase : IComponent
 {
     
 }

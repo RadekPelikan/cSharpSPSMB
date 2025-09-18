@@ -9,4 +9,5 @@ public interface IComputerBuilder
     IComputerBuilder AddRam(IRAM ram);
     IComputerBuilder AddPowerSupply(IPowerSupply powerSupply);
     IComputerBuilder AddCase(ICase pcCase);
+    IComputer Build();
 }
