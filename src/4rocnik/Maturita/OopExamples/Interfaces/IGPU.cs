@@ -2,7 +2,7 @@
 
 public interface IGPU : IComponent
 {
-    GPUConnector[] Connectors { get; init; }
+    GPUConnector[] Connectors { get; }
     IComputer? Computer { get; }
     GPUConnector[] AvailableConnectors { get; }
     IMonitor[] ConnectedMonitors { get; }

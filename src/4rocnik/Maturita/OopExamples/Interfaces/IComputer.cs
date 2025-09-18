@@ -2,14 +2,14 @@
 
 public interface IComputer
 {
-    IEntity Owner { get; init; }
-    IMotherBoard MotherBoard { get; init; }
-    ICPU Cpu { get; init; }
-    IGPU Gpu { get; init; }
-    IRAM Ram { get; init; }
-    IPowerSupply PowerSupply { get; init; }
-    ICase Case { get; init; }
-    IMonitor[] Monitors { get; init; }
+    IEntity Owner { get; }
+    IMotherBoard MotherBoard { get; }
+    ICPU Cpu { get; }
+    IGPU Gpu { get; }
+    IRAM Ram { get; }
+    IPowerSupply PowerSupply { get; }
+    ICase Case { get; }
+    IMonitor[] Monitors { get; }
     
     bool IsOn { get; }
     bool IsPersonalPC { get; }
