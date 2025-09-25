@@ -1,26 +1,17 @@
-﻿namespace Files
+namespace Movies
 {
     class Movies
     {
-        public string film;
-        public string genere;
-        public string studio;
-        public int audienceScore;
-        public double profit;
-        public int rottenTomatoes;
-        public double worldwideGross;
-        public int year;
-
-        public Movies(string film, string genere, string studio, int audienceScore, double profit, int rottenTomatoes, double worldwideGross, int year)
-        {
-            this.film = film;
-            this.genere = genere;
-            this.studio = studio;
-            this.audienceScore = audienceScore;
-            this.profit = profit;
-            this.rottenTomatoes = rottenTomatoes;
-            this.worldwideGross = worldwideGross;
-            this.year = year;
-        }
+        public string Film { get; set; }
+        public string Genre { get; set; }
+        public string LeadStudio {get; set;}
+        public int AudienceScore { get; set; }
+        public double Profitability  { get; set; }
+        public int RottenTomatoes { get; set; }
+        public double WorldwideGross {get; set;}
+        public int Year { get; set; }
     }
 }
+
+
+
