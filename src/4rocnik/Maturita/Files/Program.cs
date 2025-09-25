@@ -135,6 +135,7 @@ namespace Files
 
     public static int YearMedian(List<Movie> AllMovies)
     {
+      // dej all years a pak je sortni 
       return AllMovies[AllMovies.Count / 2].Year;
     }
   }

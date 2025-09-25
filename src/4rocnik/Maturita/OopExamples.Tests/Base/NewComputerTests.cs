@@ -1,3 +1,4 @@
+using OopExamples.classes;
 using OopExamples.Interfaces;
 
 namespace OopExamples.Tests;
@@ -23,11 +24,11 @@ public class NewComputerTests
     {
         // tests
         // Create instance of interfaces, using your implementation
-        ComputerConfiguration = null;
-        Builder = null;
-        Computer = null;
-        Person = null;
-        Company = null;
+        ComputerConfiguration = new ComputerConfiguration();
+        Builder = new ComputerBuilder();
+        Computer = new Computer();
+        Person = new Person();
+        Company = new Company();
         Monitors = MonitorConnectors.Select<GPUConnector, IMonitor>(connector =>
             // new Monitor("name", connector)
             (IMonitor)null
