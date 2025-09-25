@@ -20,7 +20,7 @@ public interface IComputer
     void PressPowerButton();
     void Print(string text);
     float Compute(string equation);
-    void ChangeOwner(IEntity? newOwner);
-    void RemoveOwner();
     IComputer BuildNewComputer(IComputerConfiguration configuration);
+    void ChangeOwner(IEntity person);
+    void RemoveOwner();
 }
