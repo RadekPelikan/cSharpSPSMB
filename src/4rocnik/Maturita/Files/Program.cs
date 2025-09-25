@@ -1,75 +1,91 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
+using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
+using static Files.Movies;
 
 namespace Files
 {
-    internal class Program
+  internal class Program
+  {
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            List<Movies.Movies> movies = new List<Movies.Movies>();
-            string[] items = new string[8];
-            bool isHeader = true;
+      List<Movies> movies = new List<Movies>();
+      var lines = File.ReadAllLines("movies.csv");
+      var header = true;
 
-            foreach (string line in File.ReadLines("movies.csv"))
-            {
-                if (isHeader)
-                {
-                    isHeader = false;
-                    continue;
-                }
+      foreach (var line in lines)
+      {
+        if (header) { header = false; continue; }
 
-                items = line.Split(',');
-                string worldwidegrossstring = items[6].Replace("$", "");
+        var parts = line.Split(',');
 
-                movies.Add(new Movies.Movies()
-                {
-                    Film = items[0],
-                    Genre = items[1],
-                    LeadStudio = items[2],
-                    AudienceScore = int.Parse(items[3]),
-                    Profitability = double.Parse(items[4], CultureInfo.InvariantCulture),
-                    RottenTomatoes = int.Parse(items[5]),
-                    WorldwideGross = double.Parse(worldwidegrossstring, CultureInfo.InvariantCulture),
-                    Year = int.Parse(items[7])
-                });
-            }
+        var film = parts[0];
+        var genre = parts[1];
+        var studio = parts[2];
+        var audienceScore = int.Parse(parts[3]);
+        var profit = double.Parse(parts[4] );
+        var rottenTomatoesScore = int.Parse(parts[5]);
+        var worldWideGross = double.Parse(parts[6]);
+        var year = int.Parse(parts[7]);
 
-            var moviesByYear = movies.GroupBy(m => m.Year).ToDictionary(g => g.Key, g => g.ToList());
+        movies.Add(new Movies(film, genre, studio, audienceScore, profit, rottenTomatoesScore, worldWideGross, year));
+      }
 
-            foreach (var yearGroup in moviesByYear)
-            {
-                var worstRatedMovie = yearGroup.Value.OrderBy(m => m.RottenTomatoes).First();
-                var bestRatedMovie = yearGroup.Value.OrderByDescending(m => m.RottenTomatoes).First();
-                var leastProfitableMovie = yearGroup.Value.OrderBy(m => m.Profitability).First();
-                var mostProfitableMovie = yearGroup.Value.OrderByDescending(m => m.Profitability).First();
-                var averageWorldwideGross = yearGroup.Value.Average(m => m.WorldwideGross);
+      foreach (var year in years)
+      {
+        var moviesInYear = movies.Where(m => m.year == year).ToList();
+        
+        var bestRT = movies.OrderByDescending(m => m.rottenTomatoes).First();
+        var worstRT = movies.OrderBy(m => m.rottenTomatoes).First();
+        var mostProfitable = movies.OrderByDescending(m => m.profit).First();
+        var leastProfitable = movies.OrderBy(m => m.profit).First();
+        var avgGross = movies.Average(m => m.worldwideGross);
 
-                Console.WriteLine($"Worst rated movie in {yearGroup.Key}, {worstRatedMovie.Film} {worstRatedMovie.RottenTomatoes}%");
-                Console.WriteLine($"Best rated movie in {yearGroup.Key}, {bestRatedMovie.Film} {bestRatedMovie.RottenTomatoes}%");
-                Console.WriteLine($"Least profitable movie in {yearGroup.Key}, {leastProfitableMovie.Film} {leastProfitableMovie.Profitability}$");
-                Console.WriteLine($"Most profitable movie in {yearGroup.Key}, {mostProfitableMovie.Film} {mostProfitableMovie.Profitability}$");
-                Console.WriteLine($"Average Worldwide Gross in {yearGroup.Key}, {averageWorldwideGross}$");
-            }
-
-            var allYears = movies.Select(m => m.Year).OrderBy(y => y).ToList();
-            double medianYear;
-            int count = allYears.Count();
-
-            if (count % 2 == 1)
-            {
-                medianYear = allYears[count / 2];
-            }
-            else
-            {
-                medianYear = (allYears[(count / 2) - 1] + allYears[count / 2]) / 2.0;
-            }
-
-            Console.WriteLine($"Median Year: {medianYear}");
-            /*done*/
-        }
+      }
+     
     }
+    
+    static void AddNewMovie(List<Movie> movies)
+    {
+      Console.WriteLine("\nPřidání nového filmu:");
+
+      Movie newMovie = new Movie();
+
+      Console.Write("Film: ");
+      newMovie.Film = Console.ReadLine();
+
+      Console.Write("Genre: ");
+      newMovie.Genre = Console.ReadLine();
+
+      Console.Write("Lead Studio: ");
+      newMovie.LeadStudio = Console.ReadLine();
+
+      Console.Write("Audience score %: ");
+      newMovie.AudienceScore = int.Parse(Console.ReadLine());
+
+      Console.Write("Profitability: ");
+      newMovie.Profitability = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+      Console.Write("Rotten Tomatoes %: ");
+      newMovie.RottenTomatoes = int.Parse(Console.ReadLine());
+
+      Console.Write("Worldwide Gross: ");
+      newMovie.WorldwideGross = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+      Console.Write("Year: ");
+      newMovie.Year = int.Parse(Console.ReadLine());
+
+      movies.Add(newMovie);
+
+      // Zápis do CSV
+      using (var writer = new StreamWriter(csvFile, append: true))
+      {
+        writer.WriteLine($"{newMovie.Film},{newMovie.Genre},{newMovie.LeadStudio},{newMovie.AudienceScore},{newMovie.Profitability.ToString(CultureInfo.InvariantCulture)},{newMovie.RottenTomatoes},{newMovie.WorldwideGross.ToString(CultureInfo.InvariantCulture)},{newMovie.Year}");
+      }
+
+      Console.WriteLine("Film byl přidán.");
+    }
+  }
 }

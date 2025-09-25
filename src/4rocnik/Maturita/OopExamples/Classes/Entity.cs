@@ -5,4 +5,9 @@ namespace OopExamples.Classes;
 public class Entity: IEntity
 {
     public string Name { get; set; }
+
+    public Entity(string name)
+    {
+        Name = name;
+    }
 }

@@ -1,4 +1,5 @@
 using OopExamples.Interfaces;
+using OopExamples.Interfaces.Exceptions;
 
 namespace OopExamples.Classes;
 
@@ -9,10 +10,23 @@ public class ComputerBuilder:IComputerBuilder
     private IPowerSupply _powerSupply;
     private ICase _case;
     private IMonitor[] _monitors;
+    private IPerson _owner;
+    private IComputer _computer;
+    private ICPU _cpu;
+    private IGPU _gpu;
+    private IRAM _ram;
+    
     
     public IComputer BuildFromConfiguration(IComputerConfiguration configuration)
     {
-        throw new NotImplementedException();
+        return this
+            .AddMotherBoard(configuration.MotherBoard)
+            .AddCPU(configuration.Cpu)
+            .AddGPU(configuration.Gpu)
+            .AddRam(configuration.Ram)
+            .AddPowerSupply(configuration.PowerSupply)
+            .AddCase(configuration.Case)
+            .Build();
     }
 
     public IComputerBuilder AddMotherBoard(IMotherBoard motherBoard)
@@ -53,6 +67,24 @@ public class ComputerBuilder:IComputerBuilder
 
     public IComputer Build()
     {
-        throw new NotImplementedException();
+        if (_motherBoard == null ||
+            _cpu == null ||
+            _gpu == null ||
+            _ram == null ||
+            _powerSupply == null ||
+            _case == null)
+        {
+            throw new ComputerMissingComponentsException();
+        }
+
+        return new Computer
+        {
+            MotherBoard = _motherBoard,
+            Cpu = _cpu,
+            Gpu = _gpu,
+            Ram = _ram,
+            PowerSupply = _powerSupply,
+            Case = _case,
+        };
     }
 }
