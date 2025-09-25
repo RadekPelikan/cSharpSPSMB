@@ -25,7 +25,7 @@ public class NewComputerTests
         Company = Company ?? throw new System.NotImplementedException($"{nameof(Company)} not implemented");
     }
 
-    protected bool IsValidComputer(IComputer computer)
+    protected void IsValidComputer(IComputer computer)
     {
         Assert.NotNull(Computer.MotherBoard);
         Assert.NotNull(Computer.Gpu);
