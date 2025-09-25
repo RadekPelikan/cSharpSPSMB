@@ -11,6 +11,7 @@ public class Computer:IComputer
     public IRAM Ram { get; init; }
     public IPowerSupply PowerSupply { get; init; }
     public ICase Case { get; init; }
+    public IMonitor[] Monitors { get; }
     public bool IsOn { get; }
     public bool IsPersonalPC { get; }
     public bool IsCompanyPC { get; }

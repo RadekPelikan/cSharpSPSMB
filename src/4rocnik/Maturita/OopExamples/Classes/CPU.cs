@@ -11,12 +11,29 @@ public class CPU: IComputer
     public IRAM Ram { get; init; }
     public IPowerSupply PowerSupply { get; init; }
     public ICase Case { get; init; }
+    public IMonitor[] Monitors { get; }
     public bool IsOn { get; }
     public bool IsPersonalPC { get; }
     public bool IsCompanyPC { get; }
+
+    public CPU(IEntity owner, IMotherBoard motherBoard, ICPU cpu, IGPU gpu, IRAM ram, IPowerSupply powerSupply, ICase @case, IMonitor[] monitors, bool isOn, bool isPersonalPc, bool isCompanyPc)
+    {
+        Owner = owner;
+        MotherBoard = motherBoard;
+        Cpu = cpu;
+        Gpu = gpu;
+        Ram = ram;
+        PowerSupply = powerSupply;
+        Case = @case;
+        Monitors = monitors;
+        IsOn = isOn;
+        IsPersonalPC = isPersonalPc;
+        IsCompanyPC = isCompanyPc;
+    }
+
     public void PowerUp()
     {
-        throw new NotImplementedException();
+        
     }
 
     public void ShutDown()

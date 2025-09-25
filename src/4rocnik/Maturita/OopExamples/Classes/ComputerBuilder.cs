@@ -4,6 +4,12 @@ namespace OopExamples.Classes;
 
 public class ComputerBuilder:IComputerBuilder
 {
+    private IMotherBoard _motherBoard;
+    private IComputerConfiguration _computerConfiguration;
+    private IPowerSupply _powerSupply;
+    private ICase _case;
+    private IMonitor[] _monitors;
+    
     public IComputer BuildFromConfiguration(IComputerConfiguration configuration)
     {
         throw new NotImplementedException();
@@ -11,30 +17,41 @@ public class ComputerBuilder:IComputerBuilder
 
     public IComputerBuilder AddMotherBoard(IMotherBoard motherBoard)
     {
-        throw new NotImplementedException();
+        _computerConfiguration.MotherBoard = motherBoard;
+        return this;
     }
 
     public IComputerBuilder AddCPU(ICPU cpu)
     {
-        throw new NotImplementedException();
+        _computerConfiguration.Cpu = cpu;
+        return this;
     }
 
     public IComputerBuilder AddGPU(IGPU gpu)
     {
-        throw new NotImplementedException();
+        _computerConfiguration.Gpu = gpu;
+        return this;
     }
 
     public IComputerBuilder AddRam(IRAM ram)
     {
-        throw new NotImplementedException();
+        _computerConfiguration.Ram = ram;
+        return this;
     }
 
     public IComputerBuilder AddPowerSupply(IPowerSupply powerSupply)
     {
-        throw new NotImplementedException();
+        _computerConfiguration.PowerSupply = powerSupply;
+        return this;
     }
 
     public IComputerBuilder AddCase(ICase pcCase)
+    {
+         _computerConfiguration.Case = pcCase;
+        return this;
+    }
+
+    public IComputer Build()
     {
         throw new NotImplementedException();
     }
