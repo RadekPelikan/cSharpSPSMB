@@ -1,6 +1,6 @@
 ﻿namespace OopExamples.Interfaces;
 
-public interface IPowerSupply : IComponent
+public interface IMonitor : IComponent
 {
     
 }

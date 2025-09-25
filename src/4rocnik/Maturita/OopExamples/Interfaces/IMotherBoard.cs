@@ -1,6 +1,6 @@
 ﻿namespace OopExamples.Interfaces;
 
-public interface IMotherBoard
+public interface IMotherBoard : IComponent
 {
     
 }

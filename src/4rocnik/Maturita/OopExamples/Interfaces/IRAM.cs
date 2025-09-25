@@ -1,6 +1,6 @@
 ﻿namespace OopExamples.Interfaces;
 
-public interface IRAM
+public interface IRAM : IComponent
 {
     
 }

@@ -1,6 +1,6 @@
 ﻿namespace OopExamples.Interfaces;
 
-public interface ICPU
+public interface ICPU : IComponent
 {
     
 }
