@@ -47,12 +47,13 @@ public class NewComputerTests
         
         Builder = InstantiateImplementation<IComputerBuilder>(
             InitProperties);
-        Computer = InstantiateImplementation<IComputer>(
-            InitProperties);
+        Computer = Builder.BuildFromConfiguration(ComputerConfiguration);
         Person = InstantiateImplementation<IPerson>(
             InitProperties);
         Company = InstantiateImplementation<ICompany>(
-            InitProperties);
+            InitProperties
+                .AddProperty(nameof(ICompany.Owner), "Test owner")
+            );
 
         // For Monitors, create one instance per connector
         Monitors = MonitorConnectors.Select(connector =>
