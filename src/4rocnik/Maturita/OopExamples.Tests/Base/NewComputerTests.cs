@@ -28,10 +28,10 @@ public class NewComputerTests
 
     protected void IsValidComputer(IComputer computer)
     {
-        Assert.NotNull(Computer.MotherBoard);
-        Assert.NotNull(Computer.Gpu);
-        Assert.NotNull(Computer.Ram);
-        Assert.NotNull(Computer.PowerSupply);
-        Assert.NotNull(Computer.Case);
+        Assert.NotNull(computer.MotherBoard);
+        Assert.NotNull(computer.Gpu);
+        Assert.NotNull(computer.Ram);
+        Assert.NotNull(computer.PowerSupply);
+        Assert.NotNull(computer.Case);
     }
 }
