@@ -17,7 +17,7 @@
 
 ---
 
-## 2. Základy programování v jazyce C\#
+## 2. Základy programování v jazyce C#
 
 - **Programování a jazyky**
 	- Co je program a co je programovací jazyk?
