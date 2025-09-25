@@ -12,6 +12,7 @@ public class NewComputerTests
 
     public NewComputerTests()
     {
+        // tests
         // Create instance of interfaces, using your implementation
         ComputerConfiguration = null;
         Builder = null;
