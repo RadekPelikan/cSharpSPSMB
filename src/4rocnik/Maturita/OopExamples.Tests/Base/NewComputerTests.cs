@@ -21,8 +21,7 @@ public class NewComputerTests
         GPUConnector.HDMI
     ];
 
-    private new Dictionary<string, object> InitProperties => new(
-        InitProperties)
+    private new Dictionary<string, object> InitProperties => new()
     {
         { "Name", "test name" },
     };
@@ -45,6 +44,7 @@ public class NewComputerTests
                     InstantiateImplementation<ICase>(InitProperties))
             );
         
+        
         Builder = InstantiateImplementation<IComputerBuilder>(
             InitProperties);
         Computer = Builder.BuildFromConfiguration(ComputerConfiguration);
@@ -54,7 +54,7 @@ public class NewComputerTests
             InitProperties
                 .AddProperty(nameof(ICompany.Owner), "Test owner")
             );
-
+        
         // For Monitors, create one instance per connector
         Monitors = MonitorConnectors.Select(connector =>
             InstantiateImplementation<IMonitor>(
