@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zkouseni", "Zkouseni\Zkouse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raylib", "Raylib\Raylib.csproj", "{FD6AC6ED-8B74-4FE2-9246-EC610E8B6746}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagement", "FileManagement\FileManagement.csproj", "{900CB090-CA8B-4578-8CF4-D96AC546CEF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{FD6AC6ED-8B74-4FE2-9246-EC610E8B6746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD6AC6ED-8B74-4FE2-9246-EC610E8B6746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD6AC6ED-8B74-4FE2-9246-EC610E8B6746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{900CB090-CA8B-4578-8CF4-D96AC546CEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900CB090-CA8B-4578-8CF4-D96AC546CEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900CB090-CA8B-4578-8CF4-D96AC546CEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900CB090-CA8B-4578-8CF4-D96AC546CEF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
