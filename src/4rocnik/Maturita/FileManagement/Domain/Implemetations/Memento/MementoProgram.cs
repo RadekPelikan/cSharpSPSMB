@@ -2,7 +2,7 @@ using System;
 
 namespace StrategyPattern
 {
-    internal class Program
+    internal class MementoProgram
     {
         public static void Main(string[] args)
         {

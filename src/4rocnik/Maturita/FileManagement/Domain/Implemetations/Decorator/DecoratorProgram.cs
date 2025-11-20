@@ -2,7 +2,7 @@
 using DecoratorExample.Decorators;
 using DecoratorExample.Interfaces;
 
-class Program
+class DecoratorProgram
 {
     static void Main()
     {
