@@ -16,7 +16,7 @@ public class IsPersonalComputer : NewComputerTests
         
         Assert.Null(Computer.Owner);
         Assert.False(Computer.IsPersonalPC);
-    }    
+    }
     
     [Fact]
     public void IsPersonal_RemovedOwner_False()
