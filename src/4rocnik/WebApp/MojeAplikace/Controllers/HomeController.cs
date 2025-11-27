@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
+using MojeAplikace.Models;
 
-namespace WebApp.Controllers;
+namespace MojeAplikace.Controllers;
 
 public class HomeController : Controller
 {
@@ -21,11 +21,6 @@ public class HomeController : Controller
     public IActionResult Privacy()
     {
         return View();
-    }
-
-    public IActionResult NewBlog()
-    {
-        return View(new NewBlogModel());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
