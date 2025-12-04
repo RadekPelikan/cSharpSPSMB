@@ -1,3 +1,3 @@
 namespace WebApp.Models;
 
-public record NewBlogModel();
+public record NewBlogModel(List<string>? Errors = null);

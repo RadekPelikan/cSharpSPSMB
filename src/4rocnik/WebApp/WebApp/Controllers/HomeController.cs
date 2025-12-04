@@ -23,10 +23,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult NewBlog()
-    {
-        return View(new NewBlogModel());
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
