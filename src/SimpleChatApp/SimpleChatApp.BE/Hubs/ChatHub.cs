@@ -1,33 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using SimpleChatApp.Contracts;
 
 namespace SimpleChatApp.BE.Hubs;
 
 public class ChatHub : Hub
 {
-    private ChatMessageRepository _chatMessageRepository;
+    private IClientChatContracts _contracts;
 
-    public ChatHub()
+    public ChatHub(IClientChatContracts contracts)
     {
-        _chatMessageRepository = new ChatMessageRepository();
+        _contracts = contracts;
     }
-
-
+    
     public void Connect(Guid connectionId)
     {
         Console.WriteLine($"User connected to chat hub {connectionId}");
-        var messages = _chatMessageRepository.GetAll();
-        Clients.Caller.SendAsync("LoadMessages", messages);
     }
     
-    public void SendMessage(ChatMessage message)
+    public void SendMessage(SendMessageModel message)
     {
         Console.WriteLine($"Messge: {message}");
-        // Call the broadcastMessage method to update clients.
-        // Clients.All.broadcastMessage(name, message);
-        _chatMessageRepository.Insert(message);
-        Clients.All.SendAsync("ReceiveMessage", message);
+        _contracts.SendMessage(message);
     }
     
+    public void SendJoin(SendJoinModel joinModel)
+    {
+        Console.WriteLine($"Joined: {joinModel}");
+        _contracts.SendJoin(joinModel);
+    }
     
 }
