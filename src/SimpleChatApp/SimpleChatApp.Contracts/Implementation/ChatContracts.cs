@@ -1,8 +1,8 @@
-using SimpleChatApp.BE.Hubs;
-using SimpleChatApp.Contracts;
-using SendJoinModel = SimpleChatApp.Contracts.SendJoinModel;
+using SimpleChatApp.Contracts.Abstract;
+using SimpleChatApp.Domain.Models;
+using SendJoinModel = SimpleChatApp.Domain.Models.SendJoinModel;
 
-namespace SimpleChatApp.BE.Contracts;
+namespace SimpleChatApp.Contracts.Implementation;
 
 public class ChatContracts : IClientChatContracts, IChatContracts
 {

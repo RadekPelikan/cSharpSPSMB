@@ -1,15 +1,31 @@
-using SimpleChatApp.Contracts;
+using SimpleChatApp.Contracts.Abstract;
+using SimpleChatApp.Data.Abstract.Repositories;
+using SimpleChatApp.Domain.Entities;
+using SimpleChatApp.Domain.Models;
 
 namespace SimpleChatApp.BE.Facades;
 
-public class ChatFacade
+public class ChatFacade(
+    IChatContracts _contracts,
+    IChatMessageRepository _messageRepository,
+    IUserRepository _userRepository,
+    IChannelRepository _channelRepository)
 {
-    public IChatContracts _contracts;
-    public IChatMessageRepository _repository;
-    
+
     public ChatFacade()
     {
-        _contracts.RegisterSendJoin(HandleSendMessage);
+        _contracts.RegisterSendMessage(HandleSendMessage);
+        _contracts.RegisterSendJoin(HandleSendJoin);
+    };
+
+    private void HandleSendJoin(SendContractModel model)
+    {
+        if (model is not SendJoinModel)
+        {
+            throw new InvalidDataException("Non valid model for sending Messages");
+        }
+
+        var sendJoinModel = model as SendJoinModel;
     }
 
     private void HandleSendMessage(SendContractModel model)
@@ -20,6 +36,17 @@ public class ChatFacade
         }
 
         var sendMessageModel = model as SendMessageModel;
-        // _repository.Insert(new ChatMessage());
+
+        var channelEntity = _channelRepository.GetByName(sendMessageModel.ChannelName);
+        var channelId = channelEntity.Id;
+
+        var chatEntity = new ChatMessageEntity(
+            Guid.NewGuid(),
+            sendMessageModel.UserId,
+            channelId,
+            sendMessageModel.Content,
+            DateTime.UtcNow
+        );
+        _messageRepository.Insert(chatEntity);
     }
 }

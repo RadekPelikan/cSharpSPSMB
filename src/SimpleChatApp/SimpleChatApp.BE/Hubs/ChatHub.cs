@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using SimpleChatApp.Contracts;
+using SimpleChatApp.Contracts.Abstract;
+using SimpleChatApp.Domain.Models;
 
 namespace SimpleChatApp.BE.Hubs;
 

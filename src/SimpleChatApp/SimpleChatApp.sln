@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatApp.FE.React", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatApp.Contracts", "SimpleChatApp.Contracts\SimpleChatApp.Contracts.csproj", "{B6B688FE-8EF8-4307-9E24-CF4F12ABF537}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatApp.Data", "SimpleChatApp.Data\SimpleChatApp.Data.csproj", "{1A700970-66B6-4EFC-B2B5-6E153E6B0783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatApp.Domain", "SimpleChatApp.Domain\SimpleChatApp.Domain.csproj", "{EC3B3A79-588F-4081-A739-D26B4E293C03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{B6B688FE-8EF8-4307-9E24-CF4F12ABF537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B688FE-8EF8-4307-9E24-CF4F12ABF537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6B688FE-8EF8-4307-9E24-CF4F12ABF537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A700970-66B6-4EFC-B2B5-6E153E6B0783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A700970-66B6-4EFC-B2B5-6E153E6B0783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A700970-66B6-4EFC-B2B5-6E153E6B0783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A700970-66B6-4EFC-B2B5-6E153E6B0783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC3B3A79-588F-4081-A739-D26B4E293C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3B3A79-588F-4081-A739-D26B4E293C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3B3A79-588F-4081-A739-D26B4E293C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3B3A79-588F-4081-A739-D26B4E293C03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
