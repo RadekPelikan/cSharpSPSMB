@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "signalrExample", "signalrExample\signalrExample.csproj", "{757EB853-1646-4AC1-B99C-225CE44DCFF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "signlarExample.Client", "signlarExample.Client\signlarExample.Client.csproj", "{525EF68B-BA91-4D92-B5A6-EE42E85A25EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "signalrExample.Common", "signalrExample.Common\signalrExample.Common.csproj", "{87A93E84-7DA9-4F5C-BCDB-AFDF391088DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757EB853-1646-4AC1-B99C-225CE44DCFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757EB853-1646-4AC1-B99C-225CE44DCFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757EB853-1646-4AC1-B99C-225CE44DCFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757EB853-1646-4AC1-B99C-225CE44DCFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{525EF68B-BA91-4D92-B5A6-EE42E85A25EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{525EF68B-BA91-4D92-B5A6-EE42E85A25EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{525EF68B-BA91-4D92-B5A6-EE42E85A25EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{525EF68B-BA91-4D92-B5A6-EE42E85A25EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A93E84-7DA9-4F5C-BCDB-AFDF391088DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A93E84-7DA9-4F5C-BCDB-AFDF391088DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A93E84-7DA9-4F5C-BCDB-AFDF391088DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A93E84-7DA9-4F5C-BCDB-AFDF391088DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
