@@ -4,11 +4,9 @@ using EFCoreVirgin;
 using EFCoreVIrgin.Data.EF.Context;
 using Microsoft.EntityFrameworkCore;
 
-Console.WriteLine("Hello, World!");
+var dbContext = new AppDbContext();
 
-var password = Helpers.ReadSecret("Enter password: ");
-
-var dbContext = new AppDbContext() { Password = password};
+dbContext.Database.Migrate();
 
 var students = dbContext.Students.ToList();
 

@@ -8,15 +8,6 @@ public class AppDbContext : DbContext
     public DbSet<StudentEntity> Students { get; private set; }
     
     public DbSet<ProfileEntity> Profiles { get; private set; }
-    
-    
-    public string ServerDomain = "vydb1.spsmb.cz";
-    public string Username = "radek.pelikan";
-    public string Password = "";
-    public string Database => $"student_{Username}_RPGApp";
-
-    public string connectionString =>
-        $"Server={ServerDomain};Database={Database};User={Username};Password={Password};Port=3306;";
 
     public string FileName { get; init; } = "virgin.db";
     
