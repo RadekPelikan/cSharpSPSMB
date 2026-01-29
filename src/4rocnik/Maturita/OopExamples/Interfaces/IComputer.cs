@@ -21,4 +21,6 @@ public interface IComputer
     void Print(string text);
     float Compute(string equation);
     IComputer BuildNewComputer(IComputerConfiguration configuration);
+    void ChangeOwner(IEntity person);
+    void RemoveOwner();
 }

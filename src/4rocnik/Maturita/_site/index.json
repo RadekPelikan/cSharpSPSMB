@@ -1,0 +1,22 @@
+{
+  "Files/zadani.html": {
+    "href": "Files/zadani.html",
+    "title": "",
+    "summary": "movies.csv čtení Vytvořte třídu Moviekterá bude obsahovat veškeré vlastnosti z movies.csv (první řádek definuje strutkru - header) Po načtení všech filmů najděte pro každý rok následující: Nejhůř hodnocený film (Rotten Tomatoes %) Nejlépe hodnocený film (Rotten Tomatoes %) Nejvýdělečnější film (Profitability) Nejméně výdělečný film (Profitability) Zprůměrujte Worldwide Gross pro každý rok Vypiště také medián roků movies.csv zapisování Přidejte možnost do programu přidávat nové záznamy filmů. Program se dotáže na: Film Genre Lead Studio Audience score % Profitability Rotten Tomatoes % Worldwide Gross Year A přidá nový film do csv"
+  },
+  "docs/getting-started.html": {
+    "href": "docs/getting-started.html",
+    "title": "Getting Started",
+    "summary": "Getting Started"
+  },
+  "docs/introduction.html": {
+    "href": "docs/introduction.html",
+    "title": "Introduction",
+    "summary": "Introduction"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "This is the HOMEPAGE.",
+    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+  }
+}
