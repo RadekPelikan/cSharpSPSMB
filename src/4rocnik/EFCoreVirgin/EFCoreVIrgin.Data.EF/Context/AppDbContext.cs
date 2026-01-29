@@ -8,6 +8,8 @@ public class AppDbContext : DbContext
     public DbSet<StudentEntity> Students { get; private set; }
     
     public DbSet<ProfileEntity> Profiles { get; private set; }
+    
+    public DbSet<ClassEntity> Classes { get; private set; }
 
     public string FileName { get; init; } = "virgin.db";
     

@@ -9,20 +9,16 @@ var dbContext = new AppDbContext();
 
 dbContext.Database.Migrate();
 
-var student = new StudentEntity()
+
+var dbClasses = dbContext.Classes
+    .Include(e => e.Students)
+    .ToList();
+
+foreach (var classEntity in dbClasses)
 {
-    Name = "Pepa2"
-};
-
-dbContext.Students.Add(student);
-
-dbContext.SaveChanges();
-
-var students = dbContext.Students.ToList();
-
-
-foreach (var studentEntity in students)
-{
-    Console.WriteLine(studentEntity);
+    Console.WriteLine(classEntity);
+    foreach (var student in classEntity.Students)
+    {
+        Console.WriteLine($"\t{nameof(StudentEntity)}[{student.Id}]: {student.Name}");
+    }
 }
-
