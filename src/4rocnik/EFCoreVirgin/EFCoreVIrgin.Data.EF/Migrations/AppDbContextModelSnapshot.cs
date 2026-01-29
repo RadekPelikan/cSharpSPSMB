@@ -34,7 +34,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
                     b.HasIndex("StudentId")
                         .IsUnique();
 
-                    b.ToTable("Profile");
+                    b.ToTable("Profile", (string)null);
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.StudentEntity", b =>
@@ -49,7 +49,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Student");
+                    b.ToTable("Student", (string)null);
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.ProfileEntity", b =>
