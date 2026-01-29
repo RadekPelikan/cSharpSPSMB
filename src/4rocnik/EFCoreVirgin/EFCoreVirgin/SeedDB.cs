@@ -6,6 +6,30 @@ namespace EFCoreVirgin;
 
 public static class SeedDB
 {
+    public static SubjectEntity AddSubject(AppDbContext dbContext)
+    {
+        var myClass = new ClassEntity()
+        {
+            Name = "4.Ai"
+        };
+        var student = new StudentEntity()
+        {
+            Name = "Honza",
+            Class = myClass
+        };
+
+        var subject = new SubjectEntity()
+        {
+            Name = "Programko",
+            Students = new List<StudentEntity>() { {student}}
+        };
+
+        dbContext.Subjects.Add(subject);
+        dbContext.SaveChanges();
+
+        return subject;
+    }
+
     public static void AddClass(AppDbContext dbContext)
     {
         var myClass = new ClassEntity()

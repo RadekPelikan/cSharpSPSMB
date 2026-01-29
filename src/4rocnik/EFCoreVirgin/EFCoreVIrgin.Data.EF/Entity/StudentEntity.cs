@@ -15,4 +15,6 @@ public record StudentEntity
 
     public int ClassId { get; set; }
     public ClassEntity Class { get; set; }
+    
+    public ICollection<StudentEntity> Students { get; set; }
 }

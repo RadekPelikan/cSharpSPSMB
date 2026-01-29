@@ -10,16 +10,13 @@ public class AppDbContext : DbContext
     public DbSet<ProfileEntity> Profiles { get; private set; }
     
     public DbSet<ClassEntity> Classes { get; private set; }
+    public DbSet<SubjectEntity> Subjects { get; private set; }
 
     public string FileName { get; init; } = "virgin.db";
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        modelBuilder.Entity<StudentEntity>(entity => {
-            
-        });
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

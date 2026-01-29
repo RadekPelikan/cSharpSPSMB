@@ -5,20 +5,24 @@ using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
 using Microsoft.EntityFrameworkCore;
 
+
+Console.WriteLine("Running!....");
+
 var dbContext = new AppDbContext();
 
 dbContext.Database.Migrate();
 
 
-var dbClasses = dbContext.Classes
-    .Include(e => e.Students)
-    .ToList();
+var subjectId = SeedDB.AddSubject(dbContext).Id;
 
-foreach (var classEntity in dbClasses)
+var subject = dbContext.Subjects
+    .Include(e => e.Students)
+    .First(e => e.Id == subjectId);
+
+Console.WriteLine(subject);
+foreach (var student in subject.Students)
 {
-    Console.WriteLine(classEntity);
-    foreach (var student in classEntity.Students)
-    {
-        Console.WriteLine($"\t{nameof(StudentEntity)}[{student.Id}]: {student.Name}");
-    }
+    Console.WriteLine(student);
 }
+
+
