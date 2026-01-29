@@ -2,5 +2,5 @@
 
 public interface IMonitor : IComponent
 {
-    
+    GPUConnector Connector { get; }
 }
