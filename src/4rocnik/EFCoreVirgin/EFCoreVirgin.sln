@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreVirgin", "EFCoreVirgin\EFCoreVirgin.csproj", "{219BB1E2-240B-44C9-9E35-614ADBBB2370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreVIrgin.Data.EF", "EFCoreVIrgin.Data.EF\EFCoreVIrgin.Data.EF.csproj", "{485EA0D3-D7D4-4AF3-8AAC-4575D167E95D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{219BB1E2-240B-44C9-9E35-614ADBBB2370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{219BB1E2-240B-44C9-9E35-614ADBBB2370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{219BB1E2-240B-44C9-9E35-614ADBBB2370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{219BB1E2-240B-44C9-9E35-614ADBBB2370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485EA0D3-D7D4-4AF3-8AAC-4575D167E95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485EA0D3-D7D4-4AF3-8AAC-4575D167E95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485EA0D3-D7D4-4AF3-8AAC-4575D167E95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485EA0D3-D7D4-4AF3-8AAC-4575D167E95D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
