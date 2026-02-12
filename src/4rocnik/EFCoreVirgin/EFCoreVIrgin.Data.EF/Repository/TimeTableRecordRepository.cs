@@ -14,6 +14,7 @@ public class TimeTableRecordRepository : IBaseRepository<TimeTableRecordEntity>
         throw new NotImplementedException();
     }
 
+
     public TimeTableRecordEntity Add(TimeTableRecordEntity entity)
     {
         throw new NotImplementedException();

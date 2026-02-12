@@ -14,6 +14,7 @@ public class TeacherRepository : IBaseRepository<TeacherEntity>
         throw new NotImplementedException();
     }
 
+
     public TeacherEntity Add(TeacherEntity entity)
     {
         throw new NotImplementedException();
