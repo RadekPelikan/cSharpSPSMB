@@ -4,37 +4,64 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class TimeTableRecordRepository : IBaseRepository<TimeTableRecordEntity>
+public class TimeTableRecordRepository : ITimeTableRecordRepository
 {
     private readonly AppDbContext _dbContext;
+
     public TimeTableRecordRepository(AppDbContext dbContext)
     {
         _dbContext = dbContext;
     }
+
     public TimeTableRecordEntity GetById(int id)
     {
-        return _dbContext.TimeTableRecords.Include(t => t.Class)
-            .FirstOrDefault(x => x.Id == id);
-        
+        return _dbContext.TimeTableRecords
+            .Include(t => t.Teacher)
+            .Include(t => t.Class)
+            .Include(t => t.Subject)
+            .FirstOrDefault(t => t.Id == id);
     }
 
     public List<TimeTableRecordEntity> GetAll()
     {
-        throw new NotImplementedException();
+        return _dbContext.TimeTableRecords.ToList();
     }
 
     public TimeTableRecordEntity Add(TimeTableRecordEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext.TimeTableRecords.Add(entity);
+        _dbContext.SaveChanges();
+
+        return GetById(entity.Id);
     }
 
     public TimeTableRecordEntity Update(TimeTableRecordEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext.TimeTableRecords.Update(entity);
+        _dbContext.SaveChanges();
+
+        return GetById(entity.Id);
     }
 
     public TimeTableRecordEntity Remove(int id)
     {
-        throw new NotImplementedException();
+        var record = GetById(id);
+        if (record != null)
+        {
+            _dbContext.TimeTableRecords.Remove(record);
+            _dbContext.SaveChanges();
+        }
+
+        return record;
+    }
+
+    public List<TimeTableRecordEntity> GetByClassId(int id)
+    {
+        return _dbContext.TimeTableRecords
+            .Include(t => t.Teacher)
+            .Include(t => t.Class)
+            .Include(t => t.Subject)
+            .Where(t => t.ClassId == id)
+            .ToList();
     }
 }
