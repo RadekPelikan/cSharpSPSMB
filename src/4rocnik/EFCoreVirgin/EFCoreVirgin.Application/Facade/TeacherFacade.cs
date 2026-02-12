@@ -21,9 +21,17 @@ public class TeacherFacade : ITeacherFacade
 
     public ListModel<TeacherModel> GetAll()
     {
-        var teachers = c.GetAll();
-        ListModel
-        return teachers;
+        var teachers = _TeacherRepository.GetAll();
+        var result = new ListModel<TeacherModel>
+        { 
+            Items = teachers.Select(t => new TeacherModel
+            {
+                Id = t.Id,
+                Name = t.Name,
+            }).ToList()
+        };
+
+        return result;
     }
 
     public TeacherDetailModel Create(TeacherEditModel eitMdodel)
@@ -42,7 +50,16 @@ public class TeacherFacade : ITeacherFacade
 
     public TeacherDetailModel Update(int id, TeacherEditModel editModel)
     {
-        throw new NotImplementedException();
+        var teacher = _TeacherRepository.GetById(id);
+        
+        teacher.Name = editModel.Name;
+        
+        _TeacherRepository.Update(teacher);
+        return new TeacherDetailModel()
+        {
+            Id = teacher.Id,
+            Name = teacher.Name,
+        };
     }
 
     public TeacherDetailModel Delete(int id)
