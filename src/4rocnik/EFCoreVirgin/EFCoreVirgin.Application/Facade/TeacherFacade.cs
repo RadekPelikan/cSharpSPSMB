@@ -1,6 +1,7 @@
 ﻿using EFCoreVirgin.Common.Facade;
 using EFCoreVirgin.Common.Model;
 using EFCoreVirgin.Common.Repository;
+using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Application.Facade;
 

@@ -1,4 +1,5 @@
 ﻿using EFCoreVIrgin.Data.EF.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCOreVirgin.Data.EF.Tests;
 
@@ -8,6 +9,8 @@ public class BaseRepositoryTests
     
     public BaseRepositoryTests()
     {
-        var dbContext = new AppDbContext();
+        DbContext = new AppDbContext();
+
+        DbContext.Database.Migrate();
     }
 }
