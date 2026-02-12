@@ -16,9 +16,7 @@ public class TeacherRepository : IBaseRepository<TeacherEntity>
    
     public TeacherEntity GetById(int id)
     {
-        return _dbContetx.Teachers
-            .Include(t => t.TimeTableRecords)
-                                    .FirstOrDefault(t => t.Id == id);
+        return _dbContetx.Teachers.Include(t => t.TimeTableRecords).FirstOrDefault(t => t.Id == id);
     }
 
     public List<TeacherEntity> GetAll()
@@ -30,7 +28,7 @@ public class TeacherRepository : IBaseRepository<TeacherEntity>
     {
         _dbContetx.Teachers.Add(entity);
         _dbContetx.SaveChanges();
-        return entity;
+        return _dbContetx.Teachers.Include(t => t.TimeTableRecords).FirstOrDefault(t => t.Id == entity.Id);
     }
 
     public TeacherEntity Update(TeacherEntity entity)
@@ -38,7 +36,7 @@ public class TeacherRepository : IBaseRepository<TeacherEntity>
         _dbContetx.Teachers.Update(entity);
         _dbContetx.SaveChanges();
 
-        return entity;
+        return _dbContetx.Teachers.Include(t => t.TimeTableRecords).FirstOrDefault(t => t.Id == entity.Id);
     }
 
     public TeacherEntity Remove(int id)
