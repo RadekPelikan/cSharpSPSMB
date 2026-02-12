@@ -5,7 +5,6 @@ namespace EFCoreVirgin.Common.Model;
 public record TimeTableRecordEditModel : IBaseEditModel
 {
     
-    public string Name { get; set; }
-
-    public int ClassId { get; set; }
+    public DateTime StartTime { get; set; }
+    public int MinuteDuration { get; set; }
 }

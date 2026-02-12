@@ -8,6 +8,11 @@ public class StudentFacade : IStudentFacade
 {
     // Pouzij repozitare
     private IStudentRepository _StudentRepository { get; init; }
+
+    public StudentFacade(IStudentRepository studentRepository)
+    {
+        _StudentRepository = studentRepository;
+    }
     
     public StudentDetailModel GetById(int id)
     {
