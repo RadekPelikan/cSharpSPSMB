@@ -70,7 +70,7 @@ public class StudentRepositoryTests : BaseRepositoryTests
         Assert.NotNull(result.Class); // test Include(Class)
         Assert.Equal("Petr", result.Name);
         Assert.Equal(classEntity.Id, result.ClassId);
-    }
+    }//
 
     [Fact]
     public void GetAll_ShouldReturnAllStudents()
