@@ -1,5 +1,6 @@
 using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreVirgin.Common.Repository;
 
@@ -12,28 +13,51 @@ public class ClassRepository : IBaseRepository<ClassEntity>
         _dbContetx = dbContext;
     }
     
+    public List<ClassEntity> GetAll()
+    {
+        return _dbContetx.Classes
+            .Include(c => c.Students)
+            .Include(c => c.TimeTableRecords)
+            .ToList();
+    }
+    
     public ClassEntity GetById(int id)
     {
-        throw new NotImplementedException();
+        var entity = _dbContetx.Classes.Find(id);
+        if (entity == null)
+        {
+            return null;
+        }
+        var entityGet = _dbContetx.Classes
+            .Include(c => c.Students)
+            .Include(c => c.TimeTableRecords)
+            .FirstOrDefault(c => c.Id == id);
+        return entityGet;
     }
-
-    public ClassEntity GetAll()
-    {
-        throw new NotImplementedException();
-    }
-
+    
     public ClassEntity Add(ClassEntity entity)
     {
-        throw new NotImplementedException();
+        var addedEntity = _dbContetx.Classes.Add(entity).Entity;
+        _dbContetx.SaveChanges();
+        return addedEntity;
     }
 
     public ClassEntity Update(ClassEntity entity)
     {
-        throw new NotImplementedException();
+        var updatedEntity = _dbContetx.Classes.Update(entity).Entity;
+        _dbContetx.SaveChanges();
+        return updatedEntity;
     }
 
     public ClassEntity Remove(int id)
     {
-        throw new NotImplementedException();
+        var entity = _dbContetx.Classes.Find(id);
+        if (entity == null)
+        {
+            return null;
+        }
+        var removedEntity = _dbContetx.Classes.Remove(entity).Entity;
+        _dbContetx.SaveChanges();
+        return removedEntity;
     }
 }
