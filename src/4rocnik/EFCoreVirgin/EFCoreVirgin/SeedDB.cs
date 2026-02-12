@@ -6,12 +6,43 @@ namespace EFCoreVirgin;
 
 public static class SeedDB
 {
+    public static TimeTableRecordEntity TimeTableRecord(AppDbContext dbContext)
+    {
+        var subject = AddSubject(dbContext);
+        var teacher = AddTeacher(dbContext);
+        var _class = subject.Students.First().Class;
+
+        var now = DateTime.Now;
+        var startTime = new DateTime(now.Year, now.Month, now.Day, 7, 55, 0);
+        var timeTableRecord = new TimeTableRecordEntity()
+        {
+            Subject = subject,
+            Teacher = teacher,
+            Class = _class,
+            StartTime = startTime,
+            MinuteDuration = 90
+        };
+
+        dbContext.TimeTableRecords.Add(timeTableRecord);
+        dbContext.SaveChanges();
+        return timeTableRecord;
+    }
+
+    public static TeacherEntity AddTeacher(AppDbContext dbContext)
+    {
+        var teacher = new TeacherEntity()
+        {
+            Name = "Teacher entity",
+        };
+        dbContext.Teachers.Add(teacher);
+        dbContext.SaveChanges();
+
+        return teacher;
+    }
+    
     public static SubjectEntity AddSubject(AppDbContext dbContext)
     {
-        var myClass = new ClassEntity()
-        {
-            Name = "4.Ai"
-        };
+        var myClass = AddClass(dbContext);
         var student = new StudentEntity()
         {
             Name = "Honza",
@@ -30,7 +61,7 @@ public static class SeedDB
         return subject;
     }
 
-    public static void AddClass(AppDbContext dbContext)
+    public static ClassEntity AddClass(AppDbContext dbContext)
     {
         var myClass = new ClassEntity()
         {
@@ -54,5 +85,7 @@ public static class SeedDB
         dbContext.Students.AddRange(students);
 
         dbContext.SaveChanges();
+
+        return myClass;
     }
 }

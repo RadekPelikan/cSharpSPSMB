@@ -11,4 +11,5 @@ public record SubjectEntity
     public string Name { get; set; }
 
     public ICollection<StudentEntity> Students { get; set; }
+    public ICollection<TimeTableRecordEntity> TimeTableRecords { get; set; }
 }

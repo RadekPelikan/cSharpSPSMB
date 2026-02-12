@@ -13,14 +13,17 @@ var dbContext = new AppDbContext();
 dbContext.Database.Migrate();
 
 
-var subjectId = SeedDB.AddSubject(dbContext).Id;
+var timeTableRecordId = SeedDB.TimeTableRecord(dbContext).Id;
 
-var subject = dbContext.Subjects
-    .Include(e => e.Students)
-    .First(e => e.Id == subjectId);
+var timeTable = dbContext.TimeTableRecords
+    .Include(e => e.Subject)
+    .Include(e => e.Teacher)
+    .Include(e => e.Class)
+    .ThenInclude(e => e.Students)
+    .First(e => e.Id == timeTableRecordId);
 
-Console.WriteLine(subject);
-foreach (var student in subject.Students)
+Console.WriteLine(timeTable);
+foreach (var student in timeTable.Class.Students)
 {
     Console.WriteLine(student);
 }

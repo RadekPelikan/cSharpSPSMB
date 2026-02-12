@@ -3,6 +3,7 @@ using System;
 using EFCoreVIrgin.Data.EF.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreVIrgin.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260212075320_TimeTableRecordsMinuteDurationRename")]
+    partial class TimeTableRecordsMinuteDurationRename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -29,7 +32,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Class", (string)null);
+                    b.ToTable("Class");
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.ProfileEntity", b =>
@@ -50,7 +53,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
                     b.HasIndex("StudentId")
                         .IsUnique();
 
-                    b.ToTable("Profile", (string)null);
+                    b.ToTable("Profile");
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.StudentEntity", b =>
@@ -80,7 +83,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
 
                     b.HasIndex("SubjectEntityId");
 
-                    b.ToTable("Student", (string)null);
+                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.SubjectEntity", b =>
@@ -95,7 +98,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subject", (string)null);
+                    b.ToTable("Subject");
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.TeacherEntity", b =>
@@ -110,7 +113,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teacher", (string)null);
+                    b.ToTable("Teacher");
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.TimeTableRecordEntity", b =>
@@ -142,7 +145,7 @@ namespace EFCoreVIrgin.Data.EF.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("TimeTableRecord", (string)null);
+                    b.ToTable("TimeTableRecord");
                 });
 
             modelBuilder.Entity("EFCoreVIrgin.Data.EF.Entity.ProfileEntity", b =>
