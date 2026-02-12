@@ -1,5 +1,6 @@
 using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreVirgin.Common.Repository;
 
