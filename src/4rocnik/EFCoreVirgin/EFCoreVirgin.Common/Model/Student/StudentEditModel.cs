@@ -1,6 +1,8 @@
+using EFCoreVirgin.Common.Model.Base;
+
 namespace EFCoreVirgin.Common.Model;
 
-public record StudentEditModel
+public record StudentEditModel : IBaseEditModel
 {
     
     public string Name { get; set; }

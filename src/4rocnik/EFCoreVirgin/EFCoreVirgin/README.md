@@ -48,3 +48,9 @@ Podivejte se na ClassRepository pro udelani konstruktoru
 - SubjectRepository: Petr Kredba
 - TeacherRepository: Matej Silhan
 - TimeTableRecordRepository: Matej Kulisek
+
+### Facade
+
+- StudentFacade: Stepan Zdarsky
+- TeacherFacade: Michal Dvorak
+- TimeTableRecordFacade: Jan Urban

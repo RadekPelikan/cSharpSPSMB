@@ -3,7 +3,7 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class ClassRepository : BaseRepository<ClassEntity>
+public class ClassRepository : IBaseRepository<ClassEntity>
 {
     private readonly AppDbContext _dbContetx;
 

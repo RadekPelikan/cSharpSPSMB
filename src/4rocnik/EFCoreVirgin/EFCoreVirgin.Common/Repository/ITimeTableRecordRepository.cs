@@ -2,7 +2,7 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public interface TimeTableRecordRepository : BaseRepository<TimeTableRecordEntity>
+public interface ITimeTableRecordRepository : IBaseRepository<TimeTableRecordEntity>
 {
     
 }

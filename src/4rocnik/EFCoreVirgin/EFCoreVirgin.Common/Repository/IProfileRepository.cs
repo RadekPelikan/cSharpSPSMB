@@ -2,7 +2,7 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public interface StudentRepository : BaseRepository<StudentEntity>
+public interface IProfileRepository : IBaseRepository<ProfileEntity>
 {
     
 }

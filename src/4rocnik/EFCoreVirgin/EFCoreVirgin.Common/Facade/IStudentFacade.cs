@@ -1,6 +1,9 @@
+using EFCoreVirgin.Common.Facade.Base;
+using EFCoreVirgin.Common.Model;
+
 namespace EFCoreVirgin.Common.Facade;
 
-public class IStudentFacade
+public interface IStudentFacade: IBaseFacade<StudentModel, StudentDetailModel,StudentEditModel>
 {
     
 }

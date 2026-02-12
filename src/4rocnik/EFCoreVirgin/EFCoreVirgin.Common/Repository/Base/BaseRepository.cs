@@ -2,7 +2,7 @@ using EFCoreVIrgin.Data.EF.Entity.Base;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public interface BaseRepository<T> where T : BaseEntity
+public interface IBaseRepository<T> where T : BaseEntity
 {
     T GetById(int id);
     

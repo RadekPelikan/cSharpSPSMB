@@ -2,7 +2,7 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class SubjectRepository : BaseRepository<SubjectEntity>
+public class SubjectRepository : IBaseRepository<SubjectEntity>
 {
     public SubjectEntity GetById(int id)
     {

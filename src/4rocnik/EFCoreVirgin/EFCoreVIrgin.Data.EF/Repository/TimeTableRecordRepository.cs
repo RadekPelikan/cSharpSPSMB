@@ -2,7 +2,7 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class TimeTableRecordRepository : BaseRepository<TimeTableRecordEntity>
+public class TimeTableRecordRepository : IBaseRepository<TimeTableRecordEntity>
 {
     public TimeTableRecordEntity GetById(int id)
     {

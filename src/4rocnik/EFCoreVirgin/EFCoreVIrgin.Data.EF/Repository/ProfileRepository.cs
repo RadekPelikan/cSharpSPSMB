@@ -2,7 +2,7 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class ProfileRepository : BaseRepository<ProfileEntity>
+public class ProfileRepository : IBaseRepository<ProfileEntity>
 {
     public ProfileEntity GetById(int id)
     {
