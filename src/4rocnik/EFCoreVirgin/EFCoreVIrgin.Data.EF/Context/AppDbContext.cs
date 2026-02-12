@@ -15,6 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<TeacherEntity> Teachers { get; private set; }
     
     public DbSet<TimeTableRecordEntity> TimeTableRecords { get; private set; }
+    public DbSet<GradeEntity> Grades { get; private set; }
 
     public string FileName { get; init; } = "virgin.db";
 

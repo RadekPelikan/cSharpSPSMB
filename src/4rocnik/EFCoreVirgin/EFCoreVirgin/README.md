@@ -48,6 +48,7 @@ Podivejte se na ClassRepository pro udelani konstruktoru
 - SubjectRepository: Petr Kredba
 - TeacherRepository: Matej Silhan
 - TimeTableRecordRepository: Matej Kulisek
+- GradeRepository: Jak Fuka
 
 ### Facade
 
@@ -56,3 +57,4 @@ Podivejte se na ClassRepository pro udelani konstruktoru
 - TimeTableRecordFacade: Jan Urban
 - SubjectFacade: Stanislav Cinkl
 - TimeTableFacade: Lukas Pavlicek
+- ClassFacade: Tadeáš Keller 

@@ -4,5 +4,5 @@ namespace EFCoreVirgin.Common.Model;
 
 public record TimeTableRecordDetailModel : TimeTableRecordEditModel, IBaseDetailModel
 {
-    public int Id { get; set; }
+    public required int Id { get; set; }
 }
