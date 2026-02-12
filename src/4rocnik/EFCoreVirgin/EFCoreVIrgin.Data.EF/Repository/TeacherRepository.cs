@@ -9,7 +9,7 @@ public class TeacherRepository : IBaseRepository<TeacherEntity>
         throw new NotImplementedException();
     }
 
-    public TeacherEntity GetAll()
+    public List<TeacherEntity> GetAll()
     {
         throw new NotImplementedException();
     }

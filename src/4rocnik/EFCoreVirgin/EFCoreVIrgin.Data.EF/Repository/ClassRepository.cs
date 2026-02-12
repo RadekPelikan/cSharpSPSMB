@@ -17,7 +17,7 @@ public class ClassRepository : IBaseRepository<ClassEntity>
         throw new NotImplementedException();
     }
 
-    public ClassEntity GetAll()
+    public List<ClassEntity> GetAll()
     {
         throw new NotImplementedException();
     }
