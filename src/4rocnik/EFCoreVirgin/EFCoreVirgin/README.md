@@ -54,3 +54,5 @@ Podivejte se na ClassRepository pro udelani konstruktoru
 - StudentFacade: Stepan Zdarsky
 - TeacherFacade: Michal Dvorak
 - TimeTableRecordFacade: Jan Urban
+- SubjectFacade: Stanislav Cinkl
+- TimeTableFacade: Lukas Pavlicek

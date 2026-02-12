@@ -5,31 +5,31 @@ using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Application.Facade;
 
-public class TeacherFacade : ITeacherFacade
+public class SubjectFacade : ISubjectFacade
 {
     // Pouzij repozitare
-    private ITeacherRepository _TeacherRepository { get; init; }
-    public TeacherDetailModel GetById(int id)
+    private ISubjectRepository _SubjectRepository { get; init; }
+    public SubjectDetailModel GetById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public ListModel<TeacherModel> GetAll()
+    public ListModel<SubjectModel> GetAll()
     {
         throw new NotImplementedException();
     }
 
-    public TeacherDetailModel Create(TeacherEditModel editModel)
+    public SubjectDetailModel Create(SubjectEditModel editModel)
     {
         throw new NotImplementedException();
     }
 
-    public TeacherDetailModel Update(int id, TeacherEditModel editModel)
+    public SubjectDetailModel Update(int id, SubjectEditModel editModel)
     {
         throw new NotImplementedException();
     }
 
-    public TeacherDetailModel Delete(int id)
+    public SubjectDetailModel Delete(int id)
     {
         throw new NotImplementedException();
     }
