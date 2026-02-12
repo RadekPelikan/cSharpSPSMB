@@ -14,9 +14,8 @@ public class StudentFacade : IStudentFacade
     {
         var entity = _StudentRepository.GetById(id);
 
-        if (entity == null) return null; // Or throw exception
+        if (entity == null) return null; 
 
-        // Step 2: Map Entity -> DetailModel
         return new StudentDetailModel
         {
             Id = entity.Id,
@@ -29,7 +28,6 @@ public class StudentFacade : IStudentFacade
     {
         var entities = _StudentRepository.GetAll();
 
-        // Step 2: Map List<Entity> -> List<StudentModel>
         var studentModels = entities.Select(e => new StudentModel
         {
             Id = e.Id,
@@ -37,7 +35,6 @@ public class StudentFacade : IStudentFacade
             ClassId = e.ClassId
         }).ToList();
 
-        // Step 3: Wrap in your ListModel
         return new ListModel<StudentModel>
         {
             Items = studentModels
