@@ -4,5 +4,7 @@ namespace EFCoreVirgin.Common.Model;
 
 public record TeacherModel :TeacherEditModel, IBaseModel
 {
-    public int Id { get; set; }
+    public required int Id { get; set; }
+    
+    public required int ClassCount { get; set; }
 }
