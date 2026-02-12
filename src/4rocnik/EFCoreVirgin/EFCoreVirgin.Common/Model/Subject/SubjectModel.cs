@@ -4,5 +4,9 @@ namespace EFCoreVirgin.Common.Model;
 
 public record SubjectModel : SubjectEditModel, IBaseModel
 {
-    public int Id { get; set; }
+    public required int Id { get; set; }
+    
+    public required int StudentCount { get; set; }
+    
+    public required int TeacherCount { get; set; }
 }
