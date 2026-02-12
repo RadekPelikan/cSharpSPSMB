@@ -35,6 +35,8 @@ dotnet ef --startup-project ..\EFCoreVirgin\ migrations add <nazev>
 
 ### Repository
 
+Podivejte se na ClassRepository pro udelani konstruktoru
+
 - ClassRepository: Roman Brdlik
 - ProfileRepository: Ondrej Fila
 - StudentRepository: Ondrej Tomsicek

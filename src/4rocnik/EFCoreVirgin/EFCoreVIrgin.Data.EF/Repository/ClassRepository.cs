@@ -1,9 +1,17 @@
+using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Common.Repository;
 
 public class ClassRepository : BaseRepository<ClassEntity>
 {
+    private readonly AppDbContext _dbContetx;
+
+    public ClassRepository(AppDbContext dbContext)
+    {
+        _dbContetx = dbContext;
+    }
+    
     public ClassEntity GetById(int id)
     {
         throw new NotImplementedException();
