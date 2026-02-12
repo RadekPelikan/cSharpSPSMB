@@ -8,17 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MySqlConnector" Version="2.5.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="movies.csv">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <None Update="input.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RaylibImport\RaylibImport.csproj" />
+      <ProjectReference Include="..\Zkouseni\Zkouseni.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿var size = 1000;
+var size = 1000;
 
 List<int> list = new List<int>(size);
 for (int i = 0; i < size; i++)
