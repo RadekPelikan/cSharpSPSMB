@@ -6,7 +6,7 @@ public interface IBaseRepository<T> where T : BaseEntity
 {
     T GetById(int id);
     
-    T GetAll();
+    List<T> GetAll();
     
     T Add(T entity);
     
