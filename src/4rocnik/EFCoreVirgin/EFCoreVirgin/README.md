@@ -30,3 +30,14 @@ Přidat migraci pomocí:
 cd .\EFCoreVIrgin.Data.EF\
 dotnet ef --startup-project ..\EFCoreVirgin\ migrations add <nazev>
 ```
+
+## Implementace
+
+### Repository
+
+- ClassRepository: Roman Brdlik
+- ProfileRepository: Ondrej Fila
+- StudentRepository: Ondrej Tomsicek
+- SubjectRepository: Petr Kredba
+- TeacherRepository: Matej Silhan
+- TimeTableRecordRepository: Matej Kulisek

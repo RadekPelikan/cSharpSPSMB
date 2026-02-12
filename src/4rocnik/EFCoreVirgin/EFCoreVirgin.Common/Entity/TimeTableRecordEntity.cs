@@ -1,13 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using EFCoreVIrgin.Data.EF.Entity.Base;
 
 namespace EFCoreVIrgin.Data.EF.Entity;
 
 [Table("TimeTableRecord")]
-public record TimeTableRecordEntity
+public record TimeTableRecordEntity : BaseEntity
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
-
     public int SubjectId { get; set; }
     public SubjectEntity Subject { get; set; }
 

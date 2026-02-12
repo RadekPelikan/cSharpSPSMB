@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EFCoreVirgin.Common\EFCoreVirgin.Common.csproj" />
       <ProjectReference Include="..\EFCoreVIrgin.Data.EF\EFCoreVIrgin.Data.EF.csproj" />
     </ItemGroup>
 
