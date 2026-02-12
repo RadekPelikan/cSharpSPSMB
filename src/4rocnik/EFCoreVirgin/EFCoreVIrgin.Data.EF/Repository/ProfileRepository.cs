@@ -9,10 +9,11 @@ public class ProfileRepository : IBaseRepository<ProfileEntity>
         throw new NotImplementedException();
     }
 
-    public ProfileEntity GetAll()
+    public List<ProfileEntity> GetAll()
     {
         throw new NotImplementedException();
     }
+
 
     public ProfileEntity Add(ProfileEntity entity)
     {
