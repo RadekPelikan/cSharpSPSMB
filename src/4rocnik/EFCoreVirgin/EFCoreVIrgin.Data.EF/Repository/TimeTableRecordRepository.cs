@@ -9,7 +9,7 @@ public class TimeTableRecordRepository : IBaseRepository<TimeTableRecordEntity>
         throw new NotImplementedException();
     }
 
-    public TimeTableRecordEntity GetAll()
+    public List<TimeTableRecordEntity> GetAll()
     {
         throw new NotImplementedException();
     }

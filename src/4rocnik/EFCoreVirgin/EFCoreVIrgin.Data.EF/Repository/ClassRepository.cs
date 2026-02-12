@@ -5,11 +5,11 @@ namespace EFCoreVirgin.Common.Repository;
 
 public class ClassRepository : IBaseRepository<ClassEntity>
 {
-    private readonly AppDbContext _dbContetx;
+    private readonly AppDbContext _dbContext;
 
     public ClassRepository(AppDbContext dbContext)
     {
-        _dbContetx = dbContext;
+        _dbContext = dbContext;
     }
     
     public ClassEntity GetById(int id)
@@ -17,7 +17,7 @@ public class ClassRepository : IBaseRepository<ClassEntity>
         throw new NotImplementedException();
     }
 
-    public ClassEntity GetAll()
+    public List<ClassEntity> GetAll()
     {
         throw new NotImplementedException();
     }
