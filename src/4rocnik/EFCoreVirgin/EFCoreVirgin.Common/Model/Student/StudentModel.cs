@@ -4,5 +4,7 @@ namespace EFCoreVirgin.Common.Model;
 
 public record StudentModel : StudentEditModel, IBaseModel
 {
-    public int Id { get; set; }
+    public required int Id { get; set; }
+    
+    public required string ClassName { get; set; }
 }
