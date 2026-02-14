@@ -1,3 +1,4 @@
+using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,53 +6,59 @@ namespace EFCoreVirgin.Common.Repository;
 
 public class ProfileRepository : IBaseRepository<ProfileEntity>
 {
-    private readonly DbContext _context;
-    private readonly DbSet<ProfileEntity> _dbSet;
+    private readonly AppDbContext _dbContext;
 
-    public ProfileRepository(DbContext context)
+    public ProfileRepository(AppDbContext dbContext)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-        _dbSet = _context.Set<ProfileEntity>();
-    }
-    
-    public ProfileEntity GetById(int id)
-    {
-        return _dbSet
-                   .Include(p => p.Student)
-                   .FirstOrDefault(p => p.Id == id) 
-               ?? throw new InvalidOperationException($"Profile with Id {id} not found.");
+        _dbContext = dbContext;
     }
 
     public List<ProfileEntity> GetAll()
     {
-        return _dbSet
+        return _dbContext.Set<ProfileEntity>()
             .Include(p => p.Student)
             .ToList();
     }
 
+    public ProfileEntity GetById(int id)
+    {
+        var entity = _dbContext.Set<ProfileEntity>().Find(id);
+        if (entity == null)
+        {
+            return null;
+        }
+
+        var entityGet = _dbContext.Set<ProfileEntity>()
+            .Include(p => p.Student)
+            .FirstOrDefault(p => p.Id == id);
+
+        return entityGet;
+    }
+
     public ProfileEntity Add(ProfileEntity entity)
     {
-        if (entity == null) throw new ArgumentNullException(nameof(entity));
-
-        _dbSet.Add(entity);
-        _context.SaveChanges();
-        return entity;
+        var addedEntity = _dbContext.Set<ProfileEntity>().Add(entity).Entity;
+        _dbContext.SaveChanges();
+        return addedEntity;
     }
 
     public ProfileEntity Update(ProfileEntity entity)
     {
-        if (entity == null) throw new ArgumentNullException(nameof(entity));
-
-        _dbSet.Update(entity);
-        _context.SaveChanges();
-        return entity;
+        var updatedEntity = _dbContext.Set<ProfileEntity>().Update(entity).Entity;
+        _dbContext.SaveChanges();
+        return updatedEntity;
     }
 
     public ProfileEntity Remove(int id)
     {
-        var entity = GetById(id);
-        _dbSet.Remove(entity);
-        _context.SaveChanges();
-        return entity;
+        var entity = _dbContext.Set<ProfileEntity>().Find(id);
+        if (entity == null)
+        {
+            return null;
+        }
+
+        var removedEntity = _dbContext.Set<ProfileEntity>().Remove(entity).Entity;
+        _dbContext.SaveChanges();
+        return removedEntity;
     }
 }

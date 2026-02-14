@@ -1,121 +1,91 @@
 ﻿using EFCoreVirgin.Common.Repository;
-using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
-using Xunit;
+using EFCOreVirgin.Data.EF.Tests;
 
-namespace EFCoreVirgin.Data.EF.Tests;
-
-public class ProfileRepositoryTests
+public class ProfileRepositoryTests : BaseRepositoryTests
 {
-    private AppDbContext CreateInMemoryContext(out int studentId)
-    {
-        var connection = new SqliteConnection("DataSource=virgin.db");
-        connection.Open();
+    private readonly ProfileRepository _profileRepository;
 
-        var context = new AppDbContext();
-        context.Database.OpenConnection();
-        context.Database.EnsureCreated();
-        context.Database.ExecuteSqlRaw("PRAGMA foreign_keys = ON;");
-        
-        var classEntity = new ClassEntity { Name = "Test Class" };
-        context.Classes.Add(classEntity);
-        context.SaveChanges();
-        
-        var student = new StudentEntity
+    public ProfileRepositoryTests()
+    {
+        _profileRepository = new ProfileRepository(DbContext);
+    }
+
+    [Fact]
+    public void GetAll_ReturnsProfiles()
+    {
+        var result = _profileRepository.GetAll();
+        Assert.NotEmpty(result);
+    }
+
+    [Fact]
+    public void GetById_ReturnsProfile_WhenExists()
+    {
+        var existing = DbContext.Profiles.First();
+
+        var result = _profileRepository.GetById(existing.Id);
+
+        Assert.NotNull(result);
+        Assert.Equal(existing.Bio, result.Bio);
+    }
+
+    [Fact]
+    public void GetById_ReturnsNull_WhenNotExists()
+    {
+        var result = _profileRepository.GetById(-1);
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void Add_AddsProfile()
+    {
+        var newStudent = new StudentEntity
         {
-            Name = "Test Student",
-            ClassId = classEntity.Id,
-            Class = classEntity
+            Name = "Test Student " + Guid.NewGuid(),
+            ClassId = DbContext.Classes.First().Id
         };
-        context.Students.Add(student);
-        context.SaveChanges();
-
-        studentId = student.Id;
-        return context;
-    }
-
-    [Fact]
-    public void Add_Should_Add_Profile()
-    {
-        var context = CreateInMemoryContext(out var studentId);
-        var repo = new ProfileRepository(context);
-
-        var student = context.Students.First(s => s.Id == studentId);
-
-        var profile = new ProfileEntity { Bio = "Bio 1", StudentId = studentId, Student = student };
-        var added = repo.Add(profile);
-
-        Assert.NotNull(added);
-        Assert.Equal("Bio 1", added.Bio);
-        Assert.Equal(studentId, added.StudentId);
-        Assert.True(repo.GetAll().Any(p => p.Bio == "Bio 1"));
-    }
-
-    [Fact]
-    public void GetAll_Should_Return_All_Profiles()
-    {
-        var context = CreateInMemoryContext(out var studentId);
-        var repo = new ProfileRepository(context);
-
-        var student = context.Students.First(s => s.Id == studentId);
+        DbContext.Students.Add(newStudent);
+        DbContext.SaveChanges();
         
-        repo.Add(new ProfileEntity { Bio = "Bio B", StudentId = studentId, Student = student });
+        var newProfile = new ProfileEntity
+        {
+            Bio = "Test Bio",
+            StudentId = newStudent.Id
+        };
+        
+        var added = _profileRepository.Add(newProfile);
 
-        var all = repo.GetAll();
+        // 4️⃣ Ověříme, že profil byl přidán
+        Assert.NotNull(added);
+        Assert.Equal("Test Bio", added.Bio);
 
-        Assert.True(all.Count >= 2);
-        Assert.True(all.Any(p => p.Bio == "Bio B"), "Profile 'Bio B' not found");
+        var all = _profileRepository.GetAll();
+        Assert.Contains(all, p => p.Bio == "Test Bio" && p.StudentId == newStudent.Id);
     }
 
-    [Fact]
-    public void GetById_Should_Return_Correct_Profile()
-    {
-        var context = CreateInMemoryContext(out var studentId);
-        var repo = new ProfileRepository(context);
-
-        var student = context.Students.First(s => s.Id == studentId);
-
-        var profile = repo.Add(new ProfileEntity { Bio = "Bio X", StudentId = studentId, Student = student });
-        var fetched = repo.GetById(profile.Id);
-
-        Assert.NotNull(fetched);
-        Assert.Equal(profile.Id, fetched.Id);
-        Assert.Equal("Bio X", fetched.Bio);
-    }
 
     [Fact]
-    public void Update_Should_Modify_Profile()
+    public void Update_UpdatesProfile()
     {
-        var context = CreateInMemoryContext(out var studentId);
-        var repo = new ProfileRepository(context);
+        var existing = DbContext.Profiles.First();
+        existing.Bio = "Updated Bio";
 
-        var student = context.Students.First(s => s.Id == studentId);
-
-        var profile = repo.Add(new ProfileEntity { Bio = "Old Bio", StudentId = studentId, Student = student });
-        profile.Bio = "Updated Bio";
-
-        var updated = repo.Update(profile);
+        var updated = _profileRepository.Update(existing);
 
         Assert.Equal("Updated Bio", updated.Bio);
 
-        var dbProfile = repo.GetById(profile.Id);
-        Assert.Equal("Updated Bio", dbProfile.Bio);
+        var fromDb = _profileRepository.GetById(existing.Id);
+        Assert.Equal("Updated Bio", fromDb.Bio);
     }
 
     [Fact]
-    public void Remove_Should_Delete_Profile()
+    public void Remove_DeletesProfile()
     {
-        var context = CreateInMemoryContext(out var studentId);
-        var repo = new ProfileRepository(context);
+        var existing = DbContext.Profiles.First();
 
-        var student = context.Students.First(s => s.Id == studentId);
+        var removed = _profileRepository.Remove(existing.Id);
 
-        var profile = repo.Add(new ProfileEntity { Bio = "To Delete", StudentId = studentId, Student = student });
-        var removed = repo.Remove(profile.Id);
-
-        Assert.Equal(profile.Id, removed.Id);
-        Assert.False(repo.GetAll().Any(p => p.Id == profile.Id));
+        Assert.Equal(existing.Id, removed.Id);
+        Assert.Null(_profileRepository.GetById(existing.Id));
     }
 }
