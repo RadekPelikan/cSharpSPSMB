@@ -54,8 +54,7 @@ public class ProfileRepositoryTests : BaseRepositoryTests
         };
         
         var added = _profileRepository.Add(newProfile);
-
-        // 4️⃣ Ověříme, že profil byl přidán
+        
         Assert.NotNull(added);
         Assert.Equal("Test Bio", added.Bio);
 
