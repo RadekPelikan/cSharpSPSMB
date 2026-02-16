@@ -2,5 +2,8 @@
 
 public class ComponentAlreadyConnectedException : Exception
 {
-    
+    public ComponentAlreadyConnectedException(string? message) : base(message)
+    {
+        throw new NotImplementedException(message);
+    }
 }
