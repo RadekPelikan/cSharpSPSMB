@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class StudentRepository : IBaseRepository<StudentEntity>
+public class StudentRepository : IStudentRepository
 {
     private readonly AppDbContext _dbContext;
 
@@ -23,9 +23,10 @@ public class StudentRepository : IBaseRepository<StudentEntity>
 
     public List<StudentEntity> GetAll()
     {
-       return _dbContext.Students
-       .Include(s => s.Profile)
-       .Include(s => s.Class).ToList();
+        return _dbContext.Students
+            .Include(s => s.Profile)
+            .Include(s => s.Class)
+            .ToList();
     }
 
     public StudentEntity Add(StudentEntity entity)
@@ -38,23 +39,22 @@ public class StudentRepository : IBaseRepository<StudentEntity>
     public StudentEntity Update(StudentEntity entity)
     {
         var existingEntity = _dbContext.Students.Find(entity.Id);
-        if (existingEntity != null)
-        {
-            _dbContext.Entry(existingEntity).CurrentValues.SetValues(entity);
-            _dbContext.SaveChanges();
-            return existingEntity;
-        }
-        return null;
+        if (existingEntity == null)
+            return null;
+
+        _dbContext.Entry(existingEntity).CurrentValues.SetValues(entity);
+        _dbContext.SaveChanges();
+        return existingEntity;
     }
 
     public StudentEntity Remove(int id)
     {
         var entity = _dbContext.Students.Find(id);
-        if (entity != null)
-        {
-            _dbContext.Students.Remove(entity);
-            _dbContext.SaveChanges();
-        }
+        if (entity == null)
+            return null;
+
+        _dbContext.Students.Remove(entity);
+        _dbContext.SaveChanges();
         return entity;
     }
 }

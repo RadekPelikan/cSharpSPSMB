@@ -6,7 +6,7 @@ namespace EFCOreVirgin.Data.EF.Tests;
 
 public class StudentRepositoryTests : BaseRepositoryTests
 {
-    private readonly StudentRepository _studentRepository;
+    private readonly IStudentRepository _studentRepository;
 
     public StudentRepositoryTests()
     {
@@ -56,6 +56,7 @@ public class StudentRepositoryTests : BaseRepositoryTests
         Assert.NotNull(result);
         Assert.Equal(1, DbContext.Students.Count());
         Assert.Equal("Martin", result.Name);
+        Assert.Equal(classEntity.Id, result.ClassId);
     }
 
     [Fact]
@@ -67,10 +68,18 @@ public class StudentRepositoryTests : BaseRepositoryTests
         var result = _studentRepository.GetById(student.Id);
 
         Assert.NotNull(result);
-        Assert.NotNull(result.Class); // test Include(Class)
+        Assert.NotNull(result.Class);
         Assert.Equal("Petr", result.Name);
         Assert.Equal(classEntity.Id, result.ClassId);
-    }//
+    }
+
+    [Fact]
+    public void GetById_ShouldReturnNull_WhenStudentNotExists()
+    {
+        var result = _studentRepository.GetById(999);
+
+        Assert.Null(result);
+    }
 
     [Fact]
     public void GetAll_ShouldReturnAllStudents()
@@ -84,6 +93,14 @@ public class StudentRepositoryTests : BaseRepositoryTests
 
         Assert.Equal(2, result.Count);
         Assert.All(result, s => Assert.NotNull(s.Class));
+    }
+
+    [Fact]
+    public void GetAll_ShouldReturnEmptyList_WhenNoStudents()
+    {
+        var result = _studentRepository.GetAll();
+
+        Assert.Empty(result);
     }
 
     [Fact]
@@ -105,7 +122,32 @@ public class StudentRepositoryTests : BaseRepositoryTests
         Assert.Equal("NewName", result.Name);
 
         var fromDb = DbContext.Students.Find(student.Id);
+        Assert.NotNull(fromDb);
         Assert.Equal("NewName", fromDb.Name);
+    }
+
+    [Fact]
+    public void Update_ShouldChangeClass()
+    {
+        var class1 = CreateClass(1);
+        var class2 = CreateClass(2);
+        var student = CreateStudent(1, "Student", class1.Id);
+
+        var updated = new StudentEntity
+        {
+            Id = student.Id,
+            Name = "Student",
+            ClassId = class2.Id
+        };
+
+        var result = _studentRepository.Update(updated);
+
+        Assert.NotNull(result);
+        Assert.Equal(class2.Id, result.ClassId);
+
+        var fromDb = DbContext.Students.Find(student.Id);
+        Assert.NotNull(fromDb);
+        Assert.Equal(class2.Id, fromDb.ClassId);
     }
 
     [Fact]
@@ -134,6 +176,7 @@ public class StudentRepositoryTests : BaseRepositoryTests
         var result = _studentRepository.Remove(student.Id);
 
         Assert.NotNull(result);
+        Assert.Equal("ToDelete", result.Name);
         Assert.Empty(DbContext.Students);
     }
 
