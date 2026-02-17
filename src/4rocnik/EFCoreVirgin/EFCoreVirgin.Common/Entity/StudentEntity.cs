@@ -10,9 +10,8 @@ public record StudentEntity  : BaseEntity
 
     public ProfileEntity Profile { get; set; }
 
-
     public int ClassId { get; set; }
     public ClassEntity Class { get; set; }
     
-    public ICollection<StudentEntity> Students { get; set; }
+    public ICollection<GradeEntity> Grades { get; set; }
 }
