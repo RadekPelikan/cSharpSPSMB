@@ -17,8 +17,13 @@ public class TestAuthController : ControllerBase
 
     [HttpGet("me")]
     [Authorize]
-    public Dictionary<string, string> GetMe(ClaimsPrincipal claimsPrincipal)
+    public Dictionary<string, List<string>> GetMe()
     {
-        return claimsPrincipal.Claims.ToDictionary(c => c.Type, c => c.Value);
+        return User.Claims
+            .GroupBy(c => c.Type)
+            .ToDictionary(
+                g => g.Key,
+                g => g.Select(c => c.Value).ToList()
+            );
     }
 }
