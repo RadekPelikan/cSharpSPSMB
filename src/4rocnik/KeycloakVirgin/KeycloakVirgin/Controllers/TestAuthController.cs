@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Security.Principal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,5 +26,12 @@ public class TestAuthController : ControllerBase
                 g => g.Key,
                 g => g.Select(c => c.Value).ToList()
             );
+    }
+
+    [HttpGet("Identifiers")]
+    [Authorize]
+    public string? IDentifiers()
+    {
+        return User.FindFirst("nameidentifier")?.Value;
     }
 }
