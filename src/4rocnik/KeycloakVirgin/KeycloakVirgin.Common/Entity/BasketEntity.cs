@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreVIrgin.Data.EF.Entity;
 
-[Table("Basket")]
-[Index(nameof(UserId), IsUnique = true)]
-public record BasketEntity : BaseEntity
+public record BasketEntity : BaseOwnerAuditEntity
 {
     public Guid UserId { get; set; }
     

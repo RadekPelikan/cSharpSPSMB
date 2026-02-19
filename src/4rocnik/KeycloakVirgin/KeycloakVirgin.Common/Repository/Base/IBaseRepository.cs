@@ -13,4 +13,6 @@ public interface IBaseRepository<T> where T : BaseEntity
     T? Update(T entity);
     
     T? Remove(Guid id);
+    
+    void Commit();
 }

@@ -3,10 +3,13 @@ using EFCoreVIrgin.Data.EF.Entity.Base;
 
 namespace EFCoreVIrgin.Data.EF.Entity;
 
-[Table("Product")]
-public record ProductEntity : BaseEntity
+public record ProductEntity : BaseOwnerAuditEntity
 {
     public string Name { get; set; }
+    
+    public decimal Price { get; set; }
+    
+    public string Description { get; set; }
     
     public Guid BasketId { get; set; }
     public BasketEntity Basket { get; set; }

@@ -4,17 +4,25 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.13" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.13"/>
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.13">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.13"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\KeycloakVirgin.Common\KeycloakVirgin.Common.csproj" />
-      <ProjectReference Include="..\KeycloakVirgin.Data.EF\KeycloakVirgin.Data.EF.csproj" />
+        <ProjectReference Include="..\KeycloakVirgin.Data.EF.Sqlite\KeycloakVirgin.Data.EF.Sqlite.csproj" />
+        <ProjectReference Include="..\KeycloakVirgin.Data.EF.Pg\KeycloakVirgin.Data.EF.Pg.csproj" />
+        <ProjectReference Include="..\KeycloakVirgin.Common\KeycloakVirgin.Common.csproj"/>
+        <ProjectReference Include="..\KeycloakVirgin.Data.EF\KeycloakVirgin.Data.EF.csproj"/>
     </ItemGroup>
 
 </Project>

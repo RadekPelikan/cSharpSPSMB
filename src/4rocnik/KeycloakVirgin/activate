@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+
+# Only install dotnet-ef if not already installed
+if ! command -v dotnet-ef &> /dev/null; then
+    echo "Installing dotnet-ef tool..."
+    dotnet tool install --global dotnet-ef
+fi
+
+
+STARTUP="KeycloakVirgin"
+DATA="KeycloakVirgin.Data.EF"
+
+#alias ef-add="dotnet-ef --project $DATA --startup-project $STARTUP migrations add"
+#alias ef-remove="dotnet-ef --project $DATA --startup-project $STARTUP migrations remove"
+#alias ef-list="dotnet-ef --project $DATA --startup-project $STARTUP migrations list --json --no-connect"
+#alias ef-list-connect="dotnet-ef --project $DATA --startup-project $STARTUP migrations list --json"
+#alias ef-drop="yes | dotnet-ef --project $DATA --startup-project $STARTUP database drop"
+
+PG_DATA="KeycloakVirgin.Data.EF.Pg"
+alias ef-pg-add="dotnet-ef --project $PG_DATA --startup-project $STARTUP migrations add"
+alias ef-pg-remove="dotnet-ef --project $PG_DATA --startup-project $STARTUP migrations remove"
+alias ef-pg-list="dotnet-ef --project $PG_DATA --startup-project $STARTUP migrations list --json --no-connect"
+alias ef-pg-list-connect="dotnet-ef --project $PG_DATA --startup-project $STARTUP migrations list --json"
+alias ef-pg-drop="yes | dotnet-ef --project $PG_DATA --startup-project $STARTUP database drop"
+
+SQLITE_DATA="KeycloakVirgin.Data.EF.Sqlite"
+alias ef-sqlite-add="dotnet-ef --project $SQLITE_DATA --startup-project $STARTUP migrations add"
+alias ef-sqlite-remove="dotnet-ef --project $SQLITE_DATA --startup-project $STARTUP migrations remove"
+alias ef-sqlite-list="dotnet-ef --project $SQLITE_DATA --startup-project $STARTUP migrations list --json --no-connect"
+alias ef-sqlite-list-connect="dotnet-ef --project $SQLITE_DATA --startup-project $STARTUP migrations list --json"
+alias ef-sqlite-drop="yes | dotnet-ef --project $SQLITE_DATA --startup-project $STARTUP database drop"
+
+ef-restart() {
+  echo "[DROP]"
+  ef-pg-drop
+  echo "[REMOVE]"
+  rm -rf $PG_DATA/Migrations
+  rm -rf $SQLITE_DATA/Migrations
+  echo "[ADD]"
+  ef-pg-add Init
+}

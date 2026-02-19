@@ -3,6 +3,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using KeycloakVirgin.InstallExtensions;
+using KeycloakVirgin.Common.AppSettings;
+using EFCoreVIrgin.Data.EF.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,21 +13,50 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 builder.Services
+    .AddDatabase(builder.Configuration)
+    .AddRepositories()
     .AddVirginAuth(builder.Configuration)
     .AddVirginAuthSwagger(builder.Configuration);
 
 
 var app = builder.Build();
 
+// Apply database migrations
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<IAppDbContext>() as DbContext;
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+    
+    if (dbContext != null)
+    {
+        try
+        {
+            logger.LogInformation("Ensuring database exists and applying migrations...");
+            dbContext.Database.EnsureCreated();
+            // dbContext.Database.Migrate();
+            
+            logger.LogInformation("Database migrations applied successfully.");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "An error occurred while migrating the database. Make sure the database server is running.");
+            throw;
+        }
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    var keycloakConfig = app.Services.GetRequiredService<KeycloakConfig>();
+    
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.OAuthClientId(builder.Configuration["Keycloak:ClientId"]);
+        c.OAuthClientId(keycloakConfig.ClientId);
         c.OAuthUsePkce();
         c.OAuthScopes("openid", "profile");
     });
