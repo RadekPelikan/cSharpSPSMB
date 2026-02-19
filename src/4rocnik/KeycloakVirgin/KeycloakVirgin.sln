@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeycloakVirgin", "KeycloakV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeycloakVirgin.Data.EF", "KeycloakVirgin.Data.EF\KeycloakVirgin.Data.EF.csproj", "{94F3B642-BAD9-4DA0-A514-BD19E4C2D9AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeycloakVirgin.Common", "KeycloakVirgin.Common\KeycloakVirgin.Common.csproj", "{7C1DFA2C-6838-4117-80BF-21A1A5EA7358}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{94F3B642-BAD9-4DA0-A514-BD19E4C2D9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F3B642-BAD9-4DA0-A514-BD19E4C2D9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F3B642-BAD9-4DA0-A514-BD19E4C2D9AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1DFA2C-6838-4117-80BF-21A1A5EA7358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1DFA2C-6838-4117-80BF-21A1A5EA7358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1DFA2C-6838-4117-80BF-21A1A5EA7358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1DFA2C-6838-4117-80BF-21A1A5EA7358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
