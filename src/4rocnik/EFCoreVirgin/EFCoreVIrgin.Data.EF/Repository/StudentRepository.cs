@@ -1,31 +1,60 @@
+using EFCoreVIrgin.Data.EF.Context;
 using EFCoreVIrgin.Data.EF.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreVirgin.Common.Repository;
 
-public class StudentRepository : IBaseRepository<StudentEntity>
+public class StudentRepository : IStudentRepository
 {
+    private readonly AppDbContext _dbContext;
+
+    public StudentRepository(AppDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
+
     public StudentEntity GetById(int id)
     {
-        throw new NotImplementedException();
+        return _dbContext.Students
+            .Include(s => s.Profile)
+            .Include(s => s.Class)
+            .FirstOrDefault(s => s.Id == id);
     }
 
     public List<StudentEntity> GetAll()
     {
-        throw new NotImplementedException();
+        return _dbContext.Students
+            .Include(s => s.Profile)
+            .Include(s => s.Class)
+            .ToList();
     }
 
     public StudentEntity Add(StudentEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext.Students.Add(entity);
+        _dbContext.SaveChanges();
+        return entity;
     }
 
     public StudentEntity Update(StudentEntity entity)
     {
-        throw new NotImplementedException();
+        var existingEntity = _dbContext.Students.Find(entity.Id);
+        if (existingEntity == null)
+            return null;
+
+        _dbContext.Entry(existingEntity).CurrentValues.SetValues(entity);
+        _dbContext.SaveChanges();
+        return existingEntity;
     }
 
     public StudentEntity Remove(int id)
     {
-        throw new NotImplementedException();
+        var entity = _dbContext.Students.Find(id);
+        if (entity == null)
+            return null;
+
+        _dbContext.Students.Remove(entity);
+        _dbContext.SaveChanges();
+        return entity;
     }
 }
