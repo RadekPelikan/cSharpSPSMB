@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="MaturitaFree.App/MaturitaFree.App.csproj" />
+  <Project Path="MaturitaFree.Common/MaturitaFree.Common.csproj" />
+  <Project Path="MaturitaFree.Data.EF/MaturitaFree.Data.EF.csproj" />
+</Solution>
