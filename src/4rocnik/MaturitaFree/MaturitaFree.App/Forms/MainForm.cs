@@ -9,9 +9,14 @@ public partial class MainForm : Form
     {
         InitializeComponent();
 
-        // Resolve the book list control from DI so it gets its dependencies injected
-        var bookListControl = ServiceLocator.Instance.GetService<BookListControl>();
-        bookListControl.Dock = DockStyle.Fill;
-        pnlContent.Controls.Add(bookListControl);
+        // --- Books tab ---
+        var bookList = ServiceLocator.Instance.GetService<BookListControl>();
+        bookList.Dock = DockStyle.Fill;
+        tabBooks.Controls.Add(bookList);
+
+        // --- People tab ---
+        var personList = ServiceLocator.Instance.GetService<PersonListControl>();
+        personList.Dock = DockStyle.Fill;
+        tabPeople.Controls.Add(personList);
     }
 }

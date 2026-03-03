@@ -17,7 +17,7 @@ public sealed class BookParagraphRepository : Repository<BookParagraphEntity>, I
     public async Task<IReadOnlyList<BookParagraphEntity>> GetByChapterIdAsync(int chapterId, CancellationToken cancellationToken = default)
         => await _context.Set<BookParagraphEntity>()
             .AsNoTracking()
-            .Where(p => Microsoft.EntityFrameworkCore.EF.Property<int>(p, "ChapterId") == chapterId)
+            .Where(p => p.ChapterId == chapterId)
             .OrderBy(p => p.Order)
             .ToListAsync(cancellationToken);
 }

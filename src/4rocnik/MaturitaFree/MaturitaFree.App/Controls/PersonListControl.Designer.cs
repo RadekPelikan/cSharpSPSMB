@@ -1,6 +1,6 @@
-﻿namespace MaturitaFree.App.Controls;
+namespace MaturitaFree.App.Controls;
 
-partial class BookListControl
+partial class PersonListControl
 {
     private System.ComponentModel.IContainer components = null;
 
@@ -16,29 +16,27 @@ partial class BookListControl
         components = new System.ComponentModel.Container();
         tlpMain = new System.Windows.Forms.TableLayoutPanel();
         pnlToolbar = new System.Windows.Forms.Panel();
-        btnNew = new System.Windows.Forms.Button();
+        btnAdd = new System.Windows.Forms.Button();
         btnEdit = new System.Windows.Forms.Button();
         btnRefresh = new System.Windows.Forms.Button();
         chkAutoRefresh = new System.Windows.Forms.CheckBox();
         lblCountdown = new System.Windows.Forms.Label();
-        dgvBooks = new System.Windows.Forms.DataGridView();
+        dgvPeople = new System.Windows.Forms.DataGridView();
         lblStatus = new System.Windows.Forms.Label();
         timerAutoRefresh = new System.Windows.Forms.Timer(components);
 
         tlpMain.SuspendLayout();
         pnlToolbar.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
         SuspendLayout();
 
         // tlpMain
         tlpMain.ColumnCount = 1;
         tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
         tlpMain.Controls.Add(pnlToolbar, 0, 0);
-        tlpMain.Controls.Add(dgvBooks, 0, 1);
+        tlpMain.Controls.Add(dgvPeople, 0, 1);
         tlpMain.Controls.Add(lblStatus, 0, 2);
         tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
-        tlpMain.Location = new System.Drawing.Point(0, 0);
-        tlpMain.Name = "tlpMain";
         tlpMain.RowCount = 3;
         tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
         tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -47,7 +45,7 @@ partial class BookListControl
         tlpMain.TabIndex = 0;
 
         // pnlToolbar
-        pnlToolbar.Controls.Add(btnNew);
+        pnlToolbar.Controls.Add(btnAdd);
         pnlToolbar.Controls.Add(btnEdit);
         pnlToolbar.Controls.Add(btnRefresh);
         pnlToolbar.Controls.Add(chkAutoRefresh);
@@ -59,14 +57,14 @@ partial class BookListControl
         pnlToolbar.Size = new System.Drawing.Size(494, 38);
         pnlToolbar.TabIndex = 0;
 
-        // btnNew
-        btnNew.AutoSize = true;
-        btnNew.Location = new System.Drawing.Point(4, 6);
-        btnNew.Name = "btnNew";
-        btnNew.Size = new System.Drawing.Size(55, 25);
-        btnNew.TabIndex = 0;
-        btnNew.Text = "New";
-        btnNew.Click += btnNew_Click;
+        // btnAdd
+        btnAdd.AutoSize = true;
+        btnAdd.Location = new System.Drawing.Point(4, 6);
+        btnAdd.Name = "btnAdd";
+        btnAdd.Size = new System.Drawing.Size(55, 25);
+        btnAdd.TabIndex = 0;
+        btnAdd.Text = "Add";
+        btnAdd.Click += btnAdd_Click;
 
         // btnEdit
         btnEdit.AutoSize = true;
@@ -103,28 +101,24 @@ partial class BookListControl
         lblCountdown.TabIndex = 4;
         lblCountdown.Text = "";
 
-        // dgvBooks
-        dgvBooks.AllowUserToAddRows = false;
-        dgvBooks.AllowUserToDeleteRows = false;
-        dgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        dgvBooks.BackgroundColor = System.Drawing.SystemColors.Window;
-        dgvBooks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-        dgvBooks.Dock = System.Windows.Forms.DockStyle.Fill;
-        dgvBooks.Location = new System.Drawing.Point(3, 47);
-        dgvBooks.Name = "dgvBooks";
-        dgvBooks.ReadOnly = true;
-        dgvBooks.RowHeadersVisible = false;
-        dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        dgvBooks.Size = new System.Drawing.Size(494, 229);
-        dgvBooks.TabIndex = 1;
+        // dgvPeople
+        dgvPeople.AllowUserToAddRows = false;
+        dgvPeople.AllowUserToDeleteRows = false;
+        dgvPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+        dgvPeople.BackgroundColor = System.Drawing.SystemColors.Window;
+        dgvPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
+        dgvPeople.Dock = System.Windows.Forms.DockStyle.Fill;
+        dgvPeople.Name = "dgvPeople";
+        dgvPeople.ReadOnly = true;
+        dgvPeople.RowHeadersVisible = false;
+        dgvPeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+        dgvPeople.TabIndex = 1;
 
         // lblStatus
         lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
         lblStatus.ForeColor = System.Drawing.SystemColors.GrayText;
-        lblStatus.Location = new System.Drawing.Point(3, 279);
         lblStatus.Name = "lblStatus";
         lblStatus.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-        lblStatus.Size = new System.Drawing.Size(494, 26);
         lblStatus.TabIndex = 2;
         lblStatus.Text = "Ready";
         lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,28 +127,27 @@ partial class BookListControl
         timerAutoRefresh.Interval = 1000;
         timerAutoRefresh.Tick += timerAutoRefresh_Tick;
 
-        // BookListControl
+        // PersonListControl
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         Controls.Add(tlpMain);
-        Size = new System.Drawing.Size(500, 305);
-        Load += BookListControl_Load;
+        Load += PersonListControl_Load;
 
         tlpMain.ResumeLayout(false);
         pnlToolbar.ResumeLayout(false);
         pnlToolbar.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)dgvBooks).EndInit();
+        ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
         ResumeLayout(false);
     }
 
     private System.Windows.Forms.TableLayoutPanel tlpMain;
     private System.Windows.Forms.Panel pnlToolbar;
-    private System.Windows.Forms.Button btnNew;
+    private System.Windows.Forms.Button btnAdd;
     private System.Windows.Forms.Button btnEdit;
     private System.Windows.Forms.Button btnRefresh;
     private System.Windows.Forms.CheckBox chkAutoRefresh;
     private System.Windows.Forms.Label lblCountdown;
-    private System.Windows.Forms.DataGridView dgvBooks;
+    private System.Windows.Forms.DataGridView dgvPeople;
     private System.Windows.Forms.Label lblStatus;
     private System.Windows.Forms.Timer timerAutoRefresh;
 }

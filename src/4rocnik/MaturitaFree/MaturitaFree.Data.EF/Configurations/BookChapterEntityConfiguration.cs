@@ -19,18 +19,10 @@ public sealed class BookChapterEntityConfiguration : BaseEntityConfiguration<Boo
             .WithMany(b => b.Chapters)
             .HasForeignKey(e => e.BookId)
             .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasIndex(e => e.BookId)
-            .HasDatabaseName("IX_BookChapter_BookId");
-
-        // Unique order per book — no two chapters can share the same position
-        builder.HasIndex(e => new { e.BookId, e.Order })
-            .IsUnique()
-            .HasDatabaseName("UX_BookChapter_BookId_Order");
-
+        
         builder.HasMany(e => e.Paragraphs)
-            .WithOne()
-            .HasForeignKey("ChapterId")
+            .WithOne(c => c.Chapter)
+            .HasForeignKey(c => c.ChapterId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

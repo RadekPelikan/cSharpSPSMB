@@ -6,6 +6,6 @@ public record BookParagraphEntity : BaseEntity
 
     public int Order { get; set; }
 
-    public int ParagraphId { get; set; }
-    public BookParagraphEntity Paragraph { get; set; }
+    public int ChapterId { get; set; }
+    public BookChapterEntity Chapter { get; set; }
 }

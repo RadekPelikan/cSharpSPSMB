@@ -115,8 +115,7 @@ namespace MaturitaFree.Data.EF.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Content = table.Column<string>(type: "TEXT", nullable: false),
                     Order = table.Column<int>(type: "INTEGER", nullable: false),
-                    ParagraphId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ChapterId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ChapterId = table.Column<int>(type: "INTEGER", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DateModified = table.Column<DateTime>(type: "TEXT", nullable: true),
                     DateDeleted = table.Column<DateTime>(type: "TEXT", nullable: true),
@@ -131,12 +130,6 @@ namespace MaturitaFree.Data.EF.Migrations
                         principalTable: "BookChapter",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BookParagraph_BookParagraph_ParagraphId",
-                        column: x => x.ParagraphId,
-                        principalTable: "BookParagraph",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -145,30 +138,14 @@ namespace MaturitaFree.Data.EF.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "UX_BookChapter_BookId_Order",
-                table: "BookChapter",
-                columns: new[] { "BookId", "Order" },
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BookParagraph_ChapterId",
                 table: "BookParagraph",
                 column: "ChapterId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookParagraph_ParagraphId",
-                table: "BookParagraph",
-                column: "ParagraphId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PersonWorkingOnBook_BookId",
                 table: "PersonWorkingOnBook",
                 column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PersonWorkingOnBook_BookId_PersonId",
-                table: "PersonWorkingOnBook",
-                columns: new[] { "BookId", "PersonId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersonWorkingOnBook_PersonId",

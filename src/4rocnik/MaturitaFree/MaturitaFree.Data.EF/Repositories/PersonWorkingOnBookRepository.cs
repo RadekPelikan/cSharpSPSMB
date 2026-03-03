@@ -17,14 +17,14 @@ public sealed class PersonWorkingOnBookRepository : Repository<PersonWorkingOnBo
     public async Task<IReadOnlyList<PersonWorkingOnBook>> GetByBookIdAsync(int bookId, CancellationToken cancellationToken = default)
         => await _context.Set<PersonWorkingOnBook>()
             .AsNoTracking()
-            .Where(w => Microsoft.EntityFrameworkCore.EF.Property<int>(w, "BookId") == bookId)
+            .Where(w => w.BookId == bookId)
             .Include(w => w.Person)
             .ToListAsync(cancellationToken);
 
     public async Task<IReadOnlyList<PersonWorkingOnBook>> GetByPersonIdAsync(int personId, CancellationToken cancellationToken = default)
         => await _context.Set<PersonWorkingOnBook>()
             .AsNoTracking()
-            .Where(w => Microsoft.EntityFrameworkCore.EF.Property<int>(w, "PersonId") == personId)
+            .Where(w => w.PersonId == personId)
             .Include(w => w.Book)
             .ToListAsync(cancellationToken);
 }

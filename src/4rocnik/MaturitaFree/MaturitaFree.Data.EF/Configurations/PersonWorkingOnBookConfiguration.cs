@@ -12,15 +12,8 @@ public sealed class PersonWorkingOnBookConfiguration : BaseEntityConfiguration<P
         builder.Property<int>("BookId").IsRequired();
         builder.Property<int>("PersonId").IsRequired();
 
-        builder.HasOne(e => e.Book)
-            .WithMany(b => b.Contributers)
-            .HasForeignKey("BookId")
-            .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasOne(e => e.Person)
-            .WithMany(p => p.WorkedOnBooks)
-            .HasForeignKey("PersonId")
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.HasIndex(e => e.BookId);
+        builder.HasIndex(e => e.PersonId);
 
         builder.Property(e => e.Description)
             .IsRequired(false)
@@ -29,16 +22,15 @@ public sealed class PersonWorkingOnBookConfiguration : BaseEntityConfiguration<P
         builder.Property(e => e.Type)
             .IsRequired()
             .HasConversion<string>();
-
-        // Indexes on both FK columns for fast lookup in either direction
-        builder.HasIndex("BookId")
-            .HasDatabaseName("IX_PersonWorkingOnBook_BookId");
-
-        builder.HasIndex("PersonId")
-            .HasDatabaseName("IX_PersonWorkingOnBook_PersonId");
-
-        // Composite index — useful for "is this person already contributing to this book?" checks
-        builder.HasIndex("BookId", "PersonId")
-            .HasDatabaseName("IX_PersonWorkingOnBook_BookId_PersonId");
+        
+        builder.HasOne(e => e.Book)
+            .WithMany(c => c.Contributers)
+            .HasForeignKey(c => c.BookId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        builder.HasOne(e => e.Person)
+            .WithMany(c => c.WorkedOnBooks)
+            .HasForeignKey(c => c.PersonId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

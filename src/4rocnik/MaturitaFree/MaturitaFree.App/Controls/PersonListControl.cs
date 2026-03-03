@@ -1,83 +1,74 @@
-﻿using MaturitaFree.App.Forms;
+using MaturitaFree.App.Forms;
 using MaturitaFree.App.Infrastructure;
 using MaturitaFree.Common.AppSettings;
-using MaturitaFree.Common.Entities;
 using MaturitaFree.Common.Repositories;
 
 namespace MaturitaFree.App.Controls;
 
-public partial class BookListControl : UserControl
+public partial class PersonListControl : UserControl
 {
-    private readonly IBookRepository _bookRepository;
+    private readonly IPersonRepository _personRepository;
     private readonly ViewConfig _viewConfig;
 
     private int _countdownSeconds;
     private bool _suppressSelection;
 
-    public event EventHandler<int>? BookSelected;
+    public event EventHandler<int>? PersonSelected;
 
-    public BookListControl(IBookRepository bookRepository, ViewConfig viewConfig)
+    public PersonListControl(IPersonRepository personRepository, ViewConfig viewConfig)
     {
         InitializeComponent();
-        _bookRepository = bookRepository;
+        _personRepository = personRepository;
         _viewConfig = viewConfig;
-        dgvBooks.SelectionChanged += DgvBooks_SelectionChanged;
-        dgvBooks.DoubleClick += DgvBooks_DoubleClick;
+        dgvPeople.SelectionChanged += DgvPeople_SelectionChanged;
+        dgvPeople.DoubleClick += DgvPeople_DoubleClick;
     }
 
-    public void RequestRefresh() => _ = LoadBooksAsync();
+    public void RequestRefresh() => _ = LoadPeopleAsync();
 
     public void ClearSelection()
     {
         _suppressSelection = true;
-        try { dgvBooks.ClearSelection(); }
+        try { dgvPeople.ClearSelection(); }
         finally { _suppressSelection = false; }
     }
 
-    private void DgvBooks_SelectionChanged(object sender, EventArgs e)
-    {
-        if (_suppressSelection) return;
-        if (dgvBooks.SelectedRows.Count == 0) return;
-        if (dgvBooks.SelectedRows[0].Cells["Id"].Value is int id)
-            BookSelected?.Invoke(this, id);
-    }
-
-    private async void BookListControl_Load(object sender, EventArgs e)
+    private async void PersonListControl_Load(object sender, EventArgs e)
     {
         chkAutoRefresh.Checked = _viewConfig.AutoRefreshIntervalSeconds > 0;
         UpdateAutoRefresh();
-        await LoadBooksAsync();
+        await LoadPeopleAsync();
     }
 
     private async void btnRefresh_Click(object sender, EventArgs e)
-        => await LoadBooksAsync();
+        => await LoadPeopleAsync();
 
-    private void btnNew_Click(object sender, EventArgs e)
+    private void btnAdd_Click(object sender, EventArgs e)
         => OpenEditWindow(null);
 
     private void btnEdit_Click(object sender, EventArgs e)
     {
-        if (dgvBooks.SelectedRows.Count == 0) return;
-        if (dgvBooks.SelectedRows[0].Cells["Id"].Value is int id)
+        if (dgvPeople.SelectedRows.Count == 0) return;
+        if (dgvPeople.SelectedRows[0].Cells["Id"].Value is int id)
             OpenEditWindow(id);
     }
 
-    private void DgvBooks_DoubleClick(object sender, EventArgs e)
+    private void DgvPeople_DoubleClick(object sender, EventArgs e)
     {
-        if (dgvBooks.SelectedRows.Count == 0) return;
-        if (dgvBooks.SelectedRows[0].Cells["Id"].Value is int id)
+        if (dgvPeople.SelectedRows.Count == 0) return;
+        if (dgvPeople.SelectedRows[0].Cells["Id"].Value is int id)
             OpenEditWindow(id);
     }
 
-    private void OpenEditWindow(int? bookId)
+    private void OpenEditWindow(int? personId)
     {
-        var form = ServiceLocator.Instance.GetService<BookEditForm>();
-        if (bookId.HasValue)
-            form.EditBook(bookId.Value);
+        var form = ServiceLocator.Instance.GetService<PersonEditForm>();
+        if (personId.HasValue)
+            form.EditPerson(personId.Value);
         else
-            form.NewBook();
-        form.BookSaved   += (_, _) => RequestRefresh();
-        form.BookDeleted += (_, _) => RequestRefresh();
+            form.NewPerson();
+        form.PersonSaved   += (_, _) => RequestRefresh();
+        form.PersonDeleted += (_, _) => RequestRefresh();
         form.Show(ParentForm);
     }
 
@@ -106,34 +97,35 @@ public partial class BookListControl : UserControl
         if (_countdownSeconds <= 0)
         {
             _countdownSeconds = _viewConfig.AutoRefreshIntervalSeconds;
-            await LoadBooksAsync();
+            await LoadPeopleAsync();
         }
         lblCountdown.Text = chkAutoRefresh.Checked
             ? $"Next refresh in {_countdownSeconds}s"
             : string.Empty;
     }
 
-    private async Task LoadBooksAsync()
+    private async Task LoadPeopleAsync()
     {
         lblStatus.Text = "Loading...";
         btnRefresh.Enabled = false;
-
         _suppressSelection = true;
+
         try
         {
-            var books = await _bookRepository.GetAllAsync();
+            var people = await _personRepository.GetAllAsync();
 
-            dgvBooks.DataSource = books
-                .Select(b => new
+            dgvPeople.DataSource = people
+                .Select(p => new
                 {
-                    b.Id,
-                    b.Title,
-                    b.Description,
-                    Created = b.DateCreated.ToString("yyyy-MM-dd HH:mm"),
+                    p.Id,
+                    FullName = string.Join(" ", new[] { p.FirstName, p.MiddleName, p.LastName }
+                        .Where(s => !string.IsNullOrWhiteSpace(s))),
+                    p.Pseudonym,
+                    Created = p.DateCreated.ToString("yyyy-MM-dd HH:mm"),
                 })
                 .ToList();
 
-            lblStatus.Text = $"{books.Count} book(s) loaded.";
+            lblStatus.Text = $"{people.Count} person(s) loaded.";
         }
         catch (Exception ex)
         {
@@ -145,5 +137,13 @@ public partial class BookListControl : UserControl
             btnRefresh.Enabled = true;
             _suppressSelection = false;
         }
+    }
+
+    private void DgvPeople_SelectionChanged(object sender, EventArgs e)
+    {
+        if (_suppressSelection) return;
+        if (dgvPeople.SelectedRows.Count == 0) return;
+        if (dgvPeople.SelectedRows[0].Cells["Id"].Value is int id)
+            PersonSelected?.Invoke(this, id);
     }
 }

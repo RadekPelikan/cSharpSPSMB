@@ -50,12 +50,7 @@ namespace MaturitaFree.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookId")
-                        .HasDatabaseName("IX_BookChapter_BookId");
-
-                    b.HasIndex("BookId", "Order")
-                        .IsUnique()
-                        .HasDatabaseName("UX_BookChapter_BookId_Order");
+                    b.HasIndex("BookId");
 
                     b.ToTable("BookChapter", (string)null);
                 });
@@ -100,7 +95,7 @@ namespace MaturitaFree.Data.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ChapterId")
+                    b.Property<int>("ChapterId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Content")
@@ -124,16 +119,9 @@ namespace MaturitaFree.Data.EF.Migrations
                     b.Property<int>("Order")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ParagraphId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ChapterId")
-                        .HasDatabaseName("IX_BookParagraph_ChapterId");
-
-                    b.HasIndex("ParagraphId")
-                        .HasDatabaseName("IX_BookParagraph_ParagraphId");
+                    b.HasIndex("ChapterId");
 
                     b.ToTable("BookParagraph", (string)null);
                 });
@@ -219,14 +207,9 @@ namespace MaturitaFree.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookId")
-                        .HasDatabaseName("IX_PersonWorkingOnBook_BookId");
+                    b.HasIndex("BookId");
 
-                    b.HasIndex("PersonId")
-                        .HasDatabaseName("IX_PersonWorkingOnBook_PersonId");
-
-                    b.HasIndex("BookId", "PersonId")
-                        .HasDatabaseName("IX_PersonWorkingOnBook_BookId_PersonId");
+                    b.HasIndex("PersonId");
 
                     b.ToTable("PersonWorkingOnBook", (string)null);
                 });
@@ -244,17 +227,13 @@ namespace MaturitaFree.Data.EF.Migrations
 
             modelBuilder.Entity("MaturitaFree.Common.Entities.BookParagraphEntity", b =>
                 {
-                    b.HasOne("MaturitaFree.Common.Entities.BookChapterEntity", null)
+                    b.HasOne("MaturitaFree.Common.Entities.BookChapterEntity", "Chapter")
                         .WithMany("Paragraphs")
                         .HasForeignKey("ChapterId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("MaturitaFree.Common.Entities.BookParagraphEntity", "Paragraph")
-                        .WithMany()
-                        .HasForeignKey("ParagraphId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Paragraph");
+                    b.Navigation("Chapter");
                 });
 
             modelBuilder.Entity("MaturitaFree.Common.Entities.PersonWorkingOnBook", b =>

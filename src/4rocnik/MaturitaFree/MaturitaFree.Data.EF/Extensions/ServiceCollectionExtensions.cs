@@ -1,3 +1,4 @@
+using MaturitaFree.Common.AppSettings;
 using MaturitaFree.Common.Repositories;
 using MaturitaFree.Data.EF.Context;
 using MaturitaFree.Data.EF.Repositories;
@@ -9,23 +10,23 @@ namespace MaturitaFree.Data.EF.Extensions;
 public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Registers the EF Core AppDbContext with SQLite and the generic repository.
+    /// Registers the EF Core AppDbContext with SQLite and all repositories.
     /// </summary>
     /// <param name="services">The service collection.</param>
-    /// <param name="databasePath">
-    /// Full path to the SQLite database file, e.g. <c>AppData\maturita.db</c>.
-    /// Defaults to <c>maturita.db</c> next to the executable.
+    /// <param name="config">
+    /// Optional <see cref="DatabaseConfig"/>. When <c>null</c>, defaults are used.
     /// </param>
     public static IServiceCollection AddDataLayer(
         this IServiceCollection services,
-        string? databasePath = null)
+        DatabaseConfig? config = null)
     {
-        databasePath ??= Path.Combine(
-            AppContext.BaseDirectory,
-            "maturita.db");
+        config ??= new DatabaseConfig();
+
+        // Register config as singleton so any service can inject it
+        services.AddSingleton(config);
 
         services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlite($"Data Source={databasePath}"));
+            options.UseSqlite(config.GetConnectionString()));
 
         // Expose AppDbContext through IAppDbContext so consumers depend on the abstraction
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());

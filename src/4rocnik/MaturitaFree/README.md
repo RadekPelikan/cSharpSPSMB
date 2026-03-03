@@ -90,7 +90,7 @@ Example:
 ```bash
 dotnet ef migrations \
   --project MaturitaFree.Data.EF \
-  --startup-project MaturitaFree.App
+  --startup-project MaturitaFree.App \
   add Init
 ```
 
@@ -106,7 +106,7 @@ dotnet ef database
 ```bash
 dotnet ef migrations \
   --project MaturitaFree.Data.EF \
-  --startup-project MaturitaFree.App
+  --startup-project MaturitaFree.App \
   remove
 ```
 
@@ -114,7 +114,7 @@ dotnet ef migrations \
 ```bash
 dotnet ef migrations \
   --project MaturitaFree.Data.EF \
-  --startup-project MaturitaFree.App
+  --startup-project MaturitaFree.App \
   list
 ```
 
