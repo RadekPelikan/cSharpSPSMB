@@ -2,10 +2,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
+<<<<<<< Updated upstream
 using KeycloakVirgin.InstallExtensions;
 using KeycloakVirgin.Common.AppSettings;
 using EFCoreVIrgin.Data.EF.Context;
 using Microsoft.EntityFrameworkCore;
+=======
+using KeycloakVirgin;
+>>>>>>> Stashed changes
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,7 +72,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseAuthorization();
-app.UseAuthorization();
-
 app.Run();
+
+
+var test = new KeycloakVirgin.Controllers.Test();
