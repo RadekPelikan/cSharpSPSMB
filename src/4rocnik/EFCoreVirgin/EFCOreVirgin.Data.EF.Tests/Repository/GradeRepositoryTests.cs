@@ -1,4 +1,4 @@
-﻿using EFCoreVirgin.Common.Repository;
+using EFCoreVirgin.Common.Repository;
 
 namespace EFCOreVirgin.Data.EF.Tests;
 

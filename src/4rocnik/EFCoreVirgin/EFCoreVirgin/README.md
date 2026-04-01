@@ -28,7 +28,7 @@ git remote add base https://github.com/RadekPelikan/cSharpSPSMB.git
 
 ```bash
 dotnet tool install --global dotnet-ef
-```
+
 
 Přidat migraci pomocí:
 ```bash
