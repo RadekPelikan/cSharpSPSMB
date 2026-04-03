@@ -10,5 +10,6 @@ public record SubjectEntity  : BaseEntity
     public string Name { get; set; }
 
     public ICollection<StudentEntity> Students { get; set; }
+    public ICollection<TeacherEntity> Teachers { get; set; }
     public ICollection<TimeTableRecordEntity> TimeTableRecords { get; set; }
 }
