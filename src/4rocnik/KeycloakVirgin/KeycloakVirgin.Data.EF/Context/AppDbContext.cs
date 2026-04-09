@@ -11,7 +11,11 @@ public class AppDbContext : DbContext
     
     public string FileName { get; init; } = "virgin.db";
 
-    protected AppDbContext(string fileName)
+    public AppDbContext()
+    {
+    }
+    
+    public AppDbContext(string fileName)
     {
         FileName = fileName;
     }

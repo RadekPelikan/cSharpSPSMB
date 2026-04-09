@@ -13,7 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services
     .AddVirginAuth(builder.Configuration)
-    .AddVirginAuthSwagger(builder.Configuration);
+    .AddVirginAuthSwagger(builder.Configuration)
+    .AddSqlLite(builder.Configuration)
+    .AddRepositories()
+    ;
 
 
 var app = builder.Build();

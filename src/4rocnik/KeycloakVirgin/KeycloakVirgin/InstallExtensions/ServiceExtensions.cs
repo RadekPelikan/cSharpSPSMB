@@ -1,4 +1,6 @@
 using EFCoreVIrgin.Data.EF.Context;
+using KeycloakVirgin.Common.Repository;
+using KeycloakVirgin.Data.EF.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -10,11 +12,16 @@ public static class ServiceExtensions
     public static IServiceCollection AddSqlLite(this IServiceCollection services,
         ConfigurationManager configuration)
     {
-        services.AddTransient<AppDbContext>();
+        services.AddDbContext<AppDbContext>();
+
+        return services;
     }
+    
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        
+        services.AddScoped<IBasketRepository, BasketRepository>();
+
+        return services;
     }
     public static IServiceCollection AddVirginAuth(this IServiceCollection services, ConfigurationManager configuration)
     {

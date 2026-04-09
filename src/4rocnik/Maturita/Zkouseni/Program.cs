@@ -1,22 +1,28 @@
-var size = 1000;
+using System.Text.Json;
 
-List<int> list = new List<int>(size);
-for (int i = 0; i < size; i++)
+Console.WriteLine("Ahoj");
+
+/**
+ * Naprogramuj čtení movies.json souboru
+ * Přečti fimly do recordu Movie
+ * Ulož je do List<Movie>
+ * Uložený list vyprintuj
+ * Uložený list ulož do movies2.json
+ *
+ * Přečti mi 6., 7. řádek z movies.csv
+ */
+
+
+using StreamReader ahoj = new StreamReader("movies.csv");
+string houba;
+while ((houba = ahoj.ReadLine()) != null)
 {
-    list.Add(i + 1);
+    Console.WriteLine(houba.Split(",")[0]);
 }
 
+using StreamWriter jo = new StreamWriter("text.txt");
+jo.WriteLine("prvni radek");
 
-var fizzbuzz = list
-    .Select(c => (name: string.Empty, value: c))
-    .Select(c => c.value % 3 == 0 ? c with { name = c.name + "fizz" } : c)
-    .Select(c => c.value % 5 == 0 ? c with { name = c.name + "buzz" } : c)
-    .Select(c => c.value % 7 == 0 ? c with { name = c.name + "kezz" } : c)
-    .Select(c => c.value % 9 == 0 ? c with { name = c.name + "bum" } : c)
-    .Select(c => c.value % 11 == 0 ? c with { name = c.name + "bac" } : c)
-    .Select(c => c.name == string.Empty ? c.value.ToString() : c.name);
+// string json = File.ReadAllLines("movies.json");
 
-foreach (var i in fizzbuzz)
-{
-    Console.WriteLine(i);
-}
+JsonSerializer.Serialize()
