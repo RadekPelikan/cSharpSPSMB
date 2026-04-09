@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MaturitaFree.App": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}
