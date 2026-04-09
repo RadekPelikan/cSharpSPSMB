@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaturitaSturukturovani", "MaturitaSturukturovani\MaturitaSturukturovani.csproj", "{3DE4ADEF-63EB-44F9-ADA8-41E31C9FFE91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaturitaStukturovani.Api", "MaturitaStukturovani.Api\MaturitaStukturovani.Api.csproj", "{ACDA551E-277D-4B95-8E0D-ED4DF2DDD18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaturitaStrukturovani.Entities", "MaturitaStrukturovani.Entities\MaturitaStrukturovani.Entities.csproj", "{D76603B7-24DA-40DA-8943-5DD5FE449C39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DE4ADEF-63EB-44F9-ADA8-41E31C9FFE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE4ADEF-63EB-44F9-ADA8-41E31C9FFE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE4ADEF-63EB-44F9-ADA8-41E31C9FFE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE4ADEF-63EB-44F9-ADA8-41E31C9FFE91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDA551E-277D-4B95-8E0D-ED4DF2DDD18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDA551E-277D-4B95-8E0D-ED4DF2DDD18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDA551E-277D-4B95-8E0D-ED4DF2DDD18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDA551E-277D-4B95-8E0D-ED4DF2DDD18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76603B7-24DA-40DA-8943-5DD5FE449C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76603B7-24DA-40DA-8943-5DD5FE449C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76603B7-24DA-40DA-8943-5DD5FE449C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76603B7-24DA-40DA-8943-5DD5FE449C39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
