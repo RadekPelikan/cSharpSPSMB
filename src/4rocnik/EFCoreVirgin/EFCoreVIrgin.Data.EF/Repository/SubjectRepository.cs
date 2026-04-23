@@ -14,6 +14,7 @@ public class SubjectRepository : IBaseRepository<SubjectEntity>
         throw new NotImplementedException();
     }
 
+
     public SubjectEntity Add(SubjectEntity entity)
     {
         throw new NotImplementedException();
