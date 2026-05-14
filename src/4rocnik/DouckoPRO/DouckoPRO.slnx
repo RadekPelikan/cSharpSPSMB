@@ -11,4 +11,13 @@
   <Folder Name="/otazka06/">
     <Project Path="otazka06/otazka06.csproj" />
   </Folder>
+  <Folder Name="/otazka07/">
+    <Project Path="otazka07/otazka07.csproj" />
+  </Folder>
+  <Folder Name="/otazka08/">
+    <Project Path="otazka08/otazka08.csproj" />
+  </Folder>
+  <Folder Name="/otazka09/">
+    <Project Path="otazka09/otazka09.csproj" />
+  </Folder>
 </Solution>
