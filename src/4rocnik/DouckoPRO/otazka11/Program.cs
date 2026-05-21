@@ -28,6 +28,7 @@ string Database = "otazka11.rp";
 
 string connectionString = $"Server={ServerDomain};Database={Database};User={Username};Password={Password};SslMode=None;";
 
+AddToCart(1, new Item("mouka", 1));
 PrintUsers();
 
 void PrintUsers()
@@ -79,7 +80,19 @@ ON i.UserId = u.Id;
 
 void AddToCart(int userId, Item item)
 {
+    using var connection = new MySqlConnection(connectionString);
+    connection.Open();
+
+    var command = new MySqlCommand(@"
+INSERT INTO `Item` (`Name`, `Count`, `UserId`) VALUES (@Name, @Count, @UserId);
+", connection);
+
+    command.Parameters.AddWithValue("@Name", item.Name);
+    command.Parameters.AddWithValue("@Count", item.Count);
+    command.Parameters.AddWithValue("@UserId", userId);
     
+    var updatedRows = command.ExecuteNonQuery();
+    Console.WriteLine($"Updated rows: {updatedRows}");
 }
 
 
