@@ -20,4 +20,8 @@
   <Folder Name="/otazka09/">
     <Project Path="otazka09/otazka09.csproj" />
   </Folder>
+  <Folder Name="/otazka10/">
+    <Project Path="otazka10.Tests/otazka10.Tests.csproj" />
+    <Project Path="otazka10/otazka10.csproj" />
+  </Folder>
 </Solution>
