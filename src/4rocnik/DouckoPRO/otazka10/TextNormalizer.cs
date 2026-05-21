@@ -9,6 +9,9 @@ public class TextNormalizer
             text = text.Replace(invalidValue, "");
         }
 
+        if (string.IsNullOrEmpty(text))
+            throw new TextNormalizationException();
+
         return text;
     }
 }
