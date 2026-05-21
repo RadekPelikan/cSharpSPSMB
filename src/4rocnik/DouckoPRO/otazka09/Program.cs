@@ -2,6 +2,7 @@
 
 
 /**
+ * Zadání 1.
  * Vytvořte record Movie, který obsahuje property pro každou hodnotu v hlavičce movies.csv
  * Načtěte veškeré filmy do kolekce List<Movie>
  * Z tohoto listu serializujte hodnoty do jsonu a ulože jej do souboru movies.json
@@ -12,45 +13,56 @@
  * - Vypište nejčastější žánr
 */
 
-var movies = new List<Movie>();
-using (var reader = new StreamReader("movies.csv"))
+/**
+ * Zadání 2.
+ * Nadefinujte si record Movie dle struktury json objektu
+ * Načtěte movies.json do Listu record Movie
+ * Vypište průměrný Profitability
+ *
+ * Udělejte funkci na vracení n-tého řádku z movies.csv
+ */
+
+using System.Text.Json;
+
+string ReadCsvLine(int n)
 {
-    var head = reader.ReadLine();
-    var line = "";
-    while ((line = reader.ReadLine()) != null)
+    var useReader = true;
+    if (!useReader)
     {
-        var parts = line.Split(",");
-
-        var movie = new Movie()
-        {
-            Film = parts[0],
-            Genre = parts[1],
-            LeadStudio = parts[2],
-            AudienceScore = double.Parse(parts[3]),
-            Profitability = double.Parse(parts[4]),
-            RottenTomatoes = double.Parse(parts[5]),
-            WorldWideGross = double.Parse(parts[6].Replace("$", "")),
-            Year = int.Parse(parts[7])
-        };
-        movies.Add(movie);
+        var lines = File.ReadAllLines("movies.csv");
+        return lines[n];
     }
+
+    using var reader = new StreamReader("movies.csv");
+    int current = 0;
+    string line = "";
+    while (reader.EndOfStream is false)
+    {
+        line = reader.ReadLine();
+        if (current == n)
+        {
+            break;
+        }
+        else
+        {
+            current++;
+        }
+    }
+
+    return line;
 }
 
-Console.WriteLine($"Počet: {movies.Count}");
-var max = movies.MaxBy(e => e.Profitability);
-Console.WriteLine($"Nejvyšší Porfitability: {max.Profitability} movie: {max.Film}");
-var genre = movies.CountBy(m => m.Genre).MaxBy(e => e.Value);
-Console.WriteLine($"Vypište nejčastější žánr: {genre.Key}, počet {genre.Value}");
+var jsonText = File.ReadAllText("movies.json");
+
+var movies = JsonSerializer.Deserialize<List<Movie>>(jsonText);
 
 
-public record Movie
+var profitability = movies.Average(e => e.Profitability);
+
+foreach (var movie in movies)
 {
-    public string Film;
-    public string Genre;
-    public string LeadStudio;
-    public double AudienceScore;
-    public double Profitability;
-    public double RottenTomatoes;
-    public double WorldWideGross;
-    public int Year;
+    Console.WriteLine(movie);
 }
+
+Console.WriteLine($"Průměrné profitability: {profitability}");
+Console.WriteLine($"5. řádek: {ReadCsvLine(1)}");
