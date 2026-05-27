@@ -1,0 +1,1 @@
+record User(int Id, string Name, List<Item> items);
