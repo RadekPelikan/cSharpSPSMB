@@ -33,4 +33,7 @@
   <Folder Name="/otazka13/">
     <Project Path="otazka13/otazka13.csproj" />
   </Folder>
+  <Folder Name="/otazka14/">
+    <Project Path="otazka14/otazka14.csproj" />
+  </Folder>
 </Solution>
