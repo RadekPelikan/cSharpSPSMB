@@ -72,8 +72,11 @@ public class Game1 : Game
         Color color = Color.White;
         
         //Draw(Texture2D, Vector2, Rectangle?, Color, float, Vector2, float, SpriteEffects, float)
-        _spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, _texture.Width, _texture.Height), color, 0,
-            Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+        _spriteBatch.Draw(
+            _texture, 
+            _position, 
+            new Rectangle(0, 0, _texture.Width, _texture.Height), 
+            color, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
         _spriteBatch.DrawString(_spriteFont, $"X: {_position.X} | Y: {_position.Y}", Vector2.Zero, Color.White);
         
 
