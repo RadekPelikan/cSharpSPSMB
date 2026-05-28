@@ -45,4 +45,8 @@
   <Folder Name="/otazka17/">
     <Project Path="otazka17/otazka17.csproj" />
   </Folder>
+  <Folder Name="/otazka18/">
+    <Project Path="otazka18.Client/otazka18.Client.csproj" />
+    <Project Path="otazka18.Server/otazka18.Server.csproj" />
+  </Folder>
 </Solution>

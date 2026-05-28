@@ -1,0 +1,6 @@
+@otazka18.Server_HostAddress = http://localhost:5210
+
+GET {{otazka18.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
