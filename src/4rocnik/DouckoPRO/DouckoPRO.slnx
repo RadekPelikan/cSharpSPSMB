@@ -49,4 +49,7 @@
     <Project Path="otazka18.Client/otazka18.Client.csproj" />
     <Project Path="otazka18.Server/otazka18.Server.csproj" />
   </Folder>
+  <Folder Name="/otazka19/">
+    <Project Path="otazka19/otazka19.csproj" />
+  </Folder>
 </Solution>

@@ -4,3 +4,6 @@ obj/
 .vs/
 out/
 node_modules/
+
+*.db
+*.db-*
