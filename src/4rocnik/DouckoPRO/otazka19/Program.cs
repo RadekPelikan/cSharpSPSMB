@@ -42,7 +42,7 @@ var seeder = new DBSeeder(context);
 seeder.SeedRandomCharacters();
 context.SaveChanges();
 
-const int PageSize = 20;
+const int PageSize = 5;
 
 void PrintPage(int page)
 {

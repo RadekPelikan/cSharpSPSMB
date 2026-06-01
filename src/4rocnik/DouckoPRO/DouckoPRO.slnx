@@ -50,6 +50,14 @@
     <Project Path="otazka18.Server/otazka18.Server.csproj" />
   </Folder>
   <Folder Name="/otazka19/">
+    <Project Path="otazka19.pokus2/otazka19.pokus2.csproj" />
     <Project Path="otazka19/otazka19.csproj" />
+  </Folder>
+  <Folder Name="/otazka20/">
+    <Project Path="../KeycloakVirgin/KeycloakVirgin.Common/KeycloakVirgin.Common.csproj" />
+    <Project Path="../KeycloakVirgin/KeycloakVirgin.Data.EF.Pg/KeycloakVirgin.Data.EF.Pg.csproj" />
+    <Project Path="../KeycloakVirgin/KeycloakVirgin.Data.EF.Sqlite/KeycloakVirgin.Data.EF.Sqlite.csproj" />
+    <Project Path="../KeycloakVirgin/KeycloakVirgin.Data.EF/KeycloakVirgin.Data.EF.csproj" />
+    <Project Path="../KeycloakVirgin/KeycloakVirgin/KeycloakVirgin.csproj" />
   </Folder>
 </Solution>

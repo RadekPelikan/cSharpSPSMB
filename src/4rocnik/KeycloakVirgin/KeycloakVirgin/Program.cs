@@ -21,7 +21,7 @@ builder.Services
     .AddRepositories()
     .AddVirginAuth(builder.Configuration)
     .AddVirginAuthSwagger(builder.Configuration)
-    .AddSqlLite(builder.Configuration)
+    .AddEntityFrameworkSqlite()
     .AddRepositories()
     ;
 

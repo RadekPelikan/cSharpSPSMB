@@ -26,7 +26,32 @@ public static class Run
     }
 }
 
-public record Person(string Name, int Age);
+public record Person
+{
+    public string Name { get; set; }
+
+    private int _age;
+    public int Age
+    {
+        get => _age;
+        set
+        {
+            if (value < 0)
+            {
+                _age = 0;
+                return;
+            }
+
+            _age = value;
+        }
+    }
+
+    public Person(string Name, int Age)
+    {
+        this.Name = Name;
+        this.Age = Age;
+    }
+}
 
 public enum OntogeneticPhase
 {

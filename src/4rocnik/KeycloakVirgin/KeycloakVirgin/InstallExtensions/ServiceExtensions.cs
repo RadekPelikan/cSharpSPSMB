@@ -100,7 +100,8 @@ public static class ServiceExtensions
                 o.MetadataAddress = authConfig.GetMetadataAddress();
                 o.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    ValidIssuer = authConfig.GetValidIssuer()
+                    ValidIssuer = authConfig.GetValidIssuer(),
+                    ValidateIssuer = true,
                 };
             });
 
