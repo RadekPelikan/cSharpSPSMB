@@ -1,41 +1,114 @@
-﻿using EFCoreVirgin.Common.Facade;
+﻿using System.Linq;
+using EFCoreVirgin.Common.Facade;
 using EFCoreVirgin.Common.Model;
 using EFCoreVirgin.Common.Repository;
+using EFCoreVIrgin.Data.EF.Entity;
 
 namespace EFCoreVirgin.Application.Facade;
 
 public class StudentFacade : IStudentFacade
 {
-    // Pouzij repozitare
+    
     private IStudentRepository _StudentRepository { get; init; }
-
-    public StudentFacade(IStudentRepository studentRepository)
-    {
-        _StudentRepository = studentRepository;
-    }
+    private ISubjectRepository _SubjectRepository { get; init; }
+    private IClassRepository _ClassRepository { get; init; }
     
     public StudentDetailModel GetById(int id)
     {
-        throw new NotImplementedException();
+        var studentEntity = _StudentRepository.GetById(id);
+
+        var classEntity = _ClassRepository.GetById(studentEntity.ClassId);
+
+        var subjectEntity = _SubjectRepository.GetById(classEntity.TimeTableRecords.FirstOrDefault().SubjectId);
+        
+        return new StudentDetailModel
+        {
+            Id = studentEntity.Id,
+            Name = studentEntity.Name,
+            ClassId = studentEntity.ClassId,
+            ClassName = classEntity.Name,
+            Subject = new SubjectModel
+            {
+                Id = subjectEntity.Id,
+                StudentCount = subjectEntity.Students.Count,
+                TeacherCount = subjectEntity.Teachers.Count
+            }
+        };
     }
 
     public ListModel<StudentModel> GetAll()
     {
-        throw new NotImplementedException();
+        var entities = _StudentRepository.GetAll();
+        var classes = _ClassRepository.GetAll();
+
+        var result = new ListModel<StudentModel>
+        { 
+            Items = entities.Select(t => new StudentModel
+            {
+                Id = t.Id,
+                Name = t.Name,
+                ClassId = t.ClassId,
+                // Finds the matching class from your 'classes' list and grabs the name
+                ClassName = classes.FirstOrDefault(c => c.Id == t.ClassId)?.Name 
+            }).ToList()
+        };
+
+        return result;
     }
 
     public StudentDetailModel Create(StudentEditModel editModel)
     {
-        throw new NotImplementedException();
+        
+        var student = _StudentRepository.Add(new StudentEntity()
+        {
+            Name = editModel.Name,
+            ClassId = editModel.ClassId
+        });
+        
+        var className = _ClassRepository.GetById(student.ClassId).Name;
+      
+
+        return new StudentDetailModel
+        {
+            Id = student.Id,
+            Name = student.Name,
+            ClassId = student.ClassId,
+            ClassName = className,
+            Subject = null
+        };
     }
 
     public StudentDetailModel Update(int id, StudentEditModel editModel)
     {
-        throw new NotImplementedException();
+        var student = _StudentRepository.GetById(id);
+        var classes = _ClassRepository.GetById(student.ClassId);
+        
+        student.Name = editModel.Name;
+        student.ClassId = editModel.ClassId;
+        
+        _StudentRepository.Update(student);
+        return new StudentDetailModel
+        {
+            Id = student.Id,
+            ClassId = student.ClassId,
+            Name = student.Name,
+            ClassName = classes.Name,
+            Subject = null,
+        };
     }
 
     public StudentDetailModel Delete(int id)
     {
-        throw new NotImplementedException();
+        var student = _StudentRepository.Remove(id);
+        var classes = _ClassRepository.Remove(student.ClassId);
+
+        return new StudentDetailModel
+        {
+            Id = student.Id,
+            Name = student.Name,
+            ClassId = student.ClassId,
+            ClassName = classes.Name,
+            Subject = null
+        };
     }
 }
