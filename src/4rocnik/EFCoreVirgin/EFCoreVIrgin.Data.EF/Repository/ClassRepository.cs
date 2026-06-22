@@ -22,6 +22,7 @@ public class ClassRepository : IBaseRepository<ClassEntity>
         throw new NotImplementedException();
     }
 
+
     public ClassEntity Add(ClassEntity entity)
     {
         throw new NotImplementedException();

@@ -14,6 +14,7 @@ public class ProfileRepository : IBaseRepository<ProfileEntity>
         throw new NotImplementedException();
     }
 
+
     public ProfileEntity Add(ProfileEntity entity)
     {
         throw new NotImplementedException();
